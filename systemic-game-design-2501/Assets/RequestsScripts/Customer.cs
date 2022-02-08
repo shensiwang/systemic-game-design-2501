@@ -25,6 +25,8 @@ public class Customer : MonoBehaviour
    
     public float PatienceTimer;
     private float CurrentTimer = 0;
+    private float repPatienceTimerIncrement = 0;
+    public int repReducePerCustomer = 4;
 
     private void Start()
     {
@@ -34,7 +36,10 @@ public class Customer : MonoBehaviour
         int BaseRandomizer = Random.Range(0, 5);
         int ElementRandomizer1 = Random.Range(0, 3);
         int ElementRandomizer2 = Random.Range(0, 3);
-       
+
+        // update customer patient timer according to current reputation
+        repPatienceTimerIncrement = RepManager.repMaster.CustomerRepTimeIncreasement();
+
         if (ageRandomizer == 0)
         {
             Age = new Old();
@@ -43,7 +48,7 @@ public class Customer : MonoBehaviour
         {
             Age = new Young();
         }
-        PatienceTimer = Age.getTimeLimit();
+        PatienceTimer = Age.getTimeLimit() + repPatienceTimerIncrement;
 
         if (fickleRandomizer == 0)
         {
@@ -158,12 +163,15 @@ public class Customer : MonoBehaviour
 
     private void Update()
     {
-        CurrentTimer += Time.deltaTime; 
+        CurrentTimer += Time.deltaTime;
         if(CurrentTimer>=PatienceTimer)//Once the patience runs out
         {
             CurrentTimer = 0;
             this.gameObject.SetActive(false);
-            //TODO: update rep & currency heres (NEGATIVE)
+
+            //TODO: update rep heres (NEGATIVE)
+            RepManager.repMaster.DecreaseRep(repReducePerCustomer);
+
         }
     }
 
