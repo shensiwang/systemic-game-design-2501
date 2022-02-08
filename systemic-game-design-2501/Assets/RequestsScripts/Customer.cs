@@ -22,6 +22,10 @@ public class Customer : MonoBehaviour
     [TextArea(5, 5)]
     public string[] AnyBaseEvocationDialogue;
 
+   
+    public float PatienceTimer;
+    private float CurrentTimer = 0;
+
     private void Start()
     {
 
@@ -30,7 +34,7 @@ public class Customer : MonoBehaviour
         int BaseRandomizer = Random.Range(0, 5);
         int ElementRandomizer1 = Random.Range(0, 3);
         int ElementRandomizer2 = Random.Range(0, 3);
-
+       
         if (ageRandomizer == 0)
         {
             Age = new Old();
@@ -39,6 +43,7 @@ public class Customer : MonoBehaviour
         {
             Age = new Young();
         }
+        PatienceTimer = Age.getTimeLimit();
 
         if (fickleRandomizer == 0)
         {
@@ -144,9 +149,19 @@ public class Customer : MonoBehaviour
         //{
         //    Debug.Log("Added Element: " + SecondElement.getName());
         //}
-
+     
 
     }
-    
+
+    private void Update()
+    {
+        CurrentTimer += Time.deltaTime; 
+        if(CurrentTimer>=PatienceTimer)//Once the patience runs out
+        {
+            CurrentTimer = 0;
+            this.gameObject.SetActive(false);
+        }
+    }
+
 
 }

@@ -20,23 +20,23 @@ public class Orange : ElementInterface
     {
         if (potionBase.getType() == "Amelioration")
         {
-            return "Potion of Mechanical Restoration";
+            return "Auto-Repair";
         }
         else if (potionBase.getType() == "Mutation")
         {
-            return "Potion of Short Alteration ";
+            return "Forme of the Marionette ";
         }
         else if (potionBase.getType() == "Haruspical")
         {
-            return "Thousand Miles";
+            return "Farsight";
         }
         else if (potionBase.getType() == "Emanation")
         {
-            return "Lightfoot Potion";
+            return "Feathered Steps";
         }
         else if (potionBase.getType() == "Evocation")
         {
-            return "Viral of Golem Essence";
+            return "Soul Install";
         }
         else
         {

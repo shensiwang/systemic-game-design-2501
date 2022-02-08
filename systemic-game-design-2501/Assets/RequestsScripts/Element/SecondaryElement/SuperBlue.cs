@@ -20,11 +20,11 @@ public class SuperBlue : ElementInterface
     {
         if (potionBase.getType() == "Amelioration")
         {
-            return "Mana Potion";
+            return "Wizard's Brew";
         }
         else if (potionBase.getType() == "Mutation")
         {
-            return "Glamour Viral";
+            return "Aqeous Forme";
         }
         else if (potionBase.getType() == "Haruspical")
         {
@@ -36,7 +36,7 @@ public class SuperBlue : ElementInterface
         }
         else if (potionBase.getType() == "Evocation")
         {
-            return "Flask of Calling: Domovoi";
+            return "Rusalka's Call";
         }
         else
         {

@@ -20,23 +20,23 @@ public class SuperRed : ElementInterface
     {
         if (potionBase.getType() == "Amelioration")
         {
-            return "Viral of Regeneration";
+            return "War Surge";
         }
         else if (potionBase.getType() == "Mutation")
         {
-            return "Frogification";
+            return "Dragonic Shell";
         }
         else if (potionBase.getType() == "Haruspical")
         {
-            return "Draught of Reflections";
+            return "Divine Scryer";
         }
         else if (potionBase.getType() == "Emanation")
         {
-            return "Atlas Potion";
+            return "Herculean Serum";
         }
         else if (potionBase.getType() == "Evocation")
         {
-            return "Flask of Calling: Redcap";
+            return "Salamander's Bait";
         }
         else
         {

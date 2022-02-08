@@ -20,23 +20,23 @@ public class SuperYellow : ElementInterface
     {
         if (potionBase.getType() == "Amelioration")
         {
-            return "Anti-Allergies Potion";
+            return "Touch of Wonderment";
         }
         else if (potionBase.getType() == "Mutation")
         {
-            return "Flask of Beautification";
+            return "Narcissus Blend";
         }
         else if (potionBase.getType() == "Haruspical")
         {
-            return "Glimpse into The Far";
+            return "Fortuitous Visions";
         }
         else if (potionBase.getType() == "Emanation")
         {
-            return "Dementia Potion";
+            return "Pinch of Eros";
         }
         else if (potionBase.getType() == "Evocation")
         {
-            return "Flask of Calling: Elemental";
+            return "Toadstool Essence";
         }
         else
         {

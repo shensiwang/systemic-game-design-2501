@@ -20,11 +20,11 @@ public class Purple : ElementInterface
     {
         if (potionBase.getType() == "Amelioration")
         {
-            return "Reconsitution Potion";
+            return "Calm of the Dead";
         }
         else if (potionBase.getType() == "Mutation")
         {
-            return "Eternal Change";
+            return "Perceptual Array";
         }
         else if (potionBase.getType() == "Haruspical")
         {
@@ -32,11 +32,11 @@ public class Purple : ElementInterface
         }
         else if (potionBase.getType() == "Emanation")
         {
-            return "Pinch of Eros";
+            return "Gaze of the Outerside";
         }
         else if (potionBase.getType() == "Evocation")
         {
-            return "Possession Liquid";
+            return "Solomon's Blood";
         }
         else
         {

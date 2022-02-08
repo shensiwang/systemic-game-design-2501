@@ -20,11 +20,11 @@ public class Green : ElementInterface
     {
         if (potionBase.getType() == "Amelioration")
         {
-            return "Envigorate";
+            return "Verdant Rejuvenation";
         }
         else if (potionBase.getType() == "Mutation")
         {
-            return "Fishhead Potion";
+            return "Frogification";
         }
         else if (potionBase.getType() == "Haruspical")
         {
@@ -32,11 +32,11 @@ public class Green : ElementInterface
         }
         else if (potionBase.getType() == "Emanation")
         {
-            return "Viral of Thoughtspeak";
+            return "Vial of Thoughtspeak";
         }
         else if (potionBase.getType() == "Evocation")
         {
-            return "Familiar Potion";
+            return "Dyrad's Offering";
         }
         else
         {
