@@ -143,12 +143,15 @@ public class Customer : MonoBehaviour
             Debug.Log("This customer wants a " + MainElement.PotionName(BaseNeeded));
 
         }
-        Debug.Log("Base Ingredient: " + BaseNeeded.getType() + ", Element: " + MainElement.getName() + ", Randomized 1: " + ElementRandomizer1 + ", Randomized 2: " + ElementRandomizer2);
+        if (Fickleness.IsFickle() == true)
+        {
+            Debug.Log("Base Ingredient: " + BaseNeeded.getType() + ", Element: " + MainElement.getName() + ", Randomized 1: " + ElementRandomizer1 + ", Randomized 2: " + ElementRandomizer2);
+        }
+        else
+        {
+            Debug.Log("Base Ingredient: " + BaseNeeded.getType());
+        }
 
-        //if(SecondElement!=null)
-        //{
-        //    Debug.Log("Added Element: " + SecondElement.getName());
-        //}
      
 
     }
@@ -160,6 +163,7 @@ public class Customer : MonoBehaviour
         {
             CurrentTimer = 0;
             this.gameObject.SetActive(false);
+            //TODO: update rep & currency heres (NEGATIVE)
         }
     }
 
