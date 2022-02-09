@@ -11,6 +11,7 @@ public class Customer : MonoBehaviour
     public ElementInterface MainElement;
     public ElementInterface SecondElement;
 
+    [Header("-----------Easygoing Dialogue--------------")]
     [TextArea(5,5)]
     public string[] AnyBaseAmeliorationDialogue;
     [TextArea(5, 5)]
@@ -22,7 +23,84 @@ public class Customer : MonoBehaviour
     [TextArea(5, 5)]
     public string[] AnyBaseEvocationDialogue;
 
-   
+    [Header("-----------Super Red Dialogue--------------")]
+    [TextArea(5, 5)]
+    public string[] WarSurgeDialogue;
+    [TextArea(5, 5)]
+    public string[] DragonicShellDialogue;
+    [TextArea(5, 5)]
+    public string[] DivineScryerDialogue;
+    [TextArea(5, 5)]
+    public string[] HerculeanSerumDialogue;
+    [TextArea(5, 5)]
+    public string[] SalamandersBaitDialogue;
+
+
+    [Header("-----------Super Blue Dialogue--------------")]
+    [TextArea(5, 5)]
+    public string[] WizardsBrewDialogue;
+    [TextArea(5, 5)]
+    public string[] AqeuousFromeDialogue;
+    [TextArea(5, 5)]
+    public string[] PotionOfPremonitionDialogue;
+    [TextArea(5, 5)]
+    public string[] KnowledgeMeadDialogue;
+    [TextArea(5, 5)]
+    public string[] RusalkasCallDialogue;
+
+
+    [Header("-----------Super Yellow Dialogue--------------")]
+    [TextArea(5, 5)]
+    public string[] TouchOfWondermentDialogue;
+    [TextArea(5, 5)]
+    public string[] NarcissusBlendDialogue;
+    [TextArea(5, 5)]
+    public string[] FortuitousVisionsDialogue;
+    [TextArea(5, 5)]
+    public string[] PinchOfErosDialogue;
+    [TextArea(5, 5)]
+    public string[] ToadstoolEssenceDialogue;
+
+
+    [Header("-----------Green Dialogue--------------")]
+    [TextArea(5, 5)]
+    public string[] VerdantRejuvenationDialogue;
+    [TextArea(5, 5)]
+    public string[] FrogificationDialogue;
+    [TextArea(5, 5)]
+    public string[] WoodlandWhispersDialogue;
+    [TextArea(5, 5)]
+    public string[] VialOfThoughtspeakDialogue;
+    [TextArea(5, 5)]
+    public string[] DryadsOfferingDialogue;
+
+
+    [Header("-----------Orange Dialogue--------------")]
+    [TextArea(5, 5)]
+    public string[] AutoRepairDialogue;
+    [TextArea(5, 5)]
+    public string[] FormeOfTheMarionetteDialogue;
+    [TextArea(5, 5)]
+    public string[] FarsightDialogue;
+    [TextArea(5, 5)]
+    public string[] FeatheredStepsDialogue;
+    [TextArea(5, 5)]
+    public string[] SoulInstallDialogue;
+
+
+    [Header("-----------Purple Dialogue--------------")]
+    [TextArea(5, 5)]
+    public string[] CalmOfTheDeadDialogue;
+    [TextArea(5, 5)]
+    public string[] PerceptualArrayDialogue;
+    [TextArea(5, 5)]
+    public string[] DeadmansTongueDialogue;
+    [TextArea(5, 5)]
+    public string[] GazeOfTheOutersideDialogue;
+    [TextArea(5, 5)]
+    public string[] SolomonsBloodDialogue;
+
+    [Header("-----------Misc--------------")]
     public float PatienceTimer;
     private float CurrentTimer = 0;
     private float repPatienceTimerIncrement = 0;
@@ -146,7 +224,177 @@ public class Customer : MonoBehaviour
                     break;
             }
             Debug.Log("This customer wants a " + MainElement.PotionName(BaseNeeded));
-
+            switch (BaseNeeded.getType())
+            {
+                case "Amelioration":
+                    if(MainElement.getName() == "Super Red")
+                    {
+                        int randomizedLine = Random.Range(0, WarSurgeDialogue.Length);
+                        Debug.Log(WarSurgeDialogue[randomizedLine]);
+                    }
+                    if (MainElement.getName() == "Super Blue")
+                    {
+                        int randomizedLine = Random.Range(0, WizardsBrewDialogue.Length);
+                        Debug.Log(WizardsBrewDialogue[randomizedLine]);
+                    }
+                    if (MainElement.getName() == "Super Yellow")
+                    {
+                        int randomizedLine = Random.Range(0, TouchOfWondermentDialogue.Length);
+                        Debug.Log(TouchOfWondermentDialogue[randomizedLine]);
+                    }
+                    if (MainElement.getName() == "Green")
+                    {
+                        int randomizedLine = Random.Range(0, VerdantRejuvenationDialogue.Length);
+                        Debug.Log(VerdantRejuvenationDialogue[randomizedLine]);
+                    }
+                    if (MainElement.getName() == "Orange")
+                    {
+                        int randomizedLine = Random.Range(0, AutoRepairDialogue.Length);
+                        Debug.Log(AutoRepairDialogue[randomizedLine]);
+                    }
+                    if (MainElement.getName() == "Purple")
+                    {
+                        int randomizedLine = Random.Range(0, CalmOfTheDeadDialogue.Length);
+                        Debug.Log(CalmOfTheDeadDialogue[randomizedLine]);
+                    }
+                    break;
+                case "Mutation":
+                    {
+                        if (MainElement.getName() == "Super Red")
+                        {
+                            int randomizedLine = Random.Range(0, DragonicShellDialogue.Length);
+                            Debug.Log(DragonicShellDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Super Blue")
+                        {
+                            int randomizedLine = Random.Range(0, AqeuousFromeDialogue.Length);
+                            Debug.Log(AqeuousFromeDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Super Yellow")
+                        {
+                            int randomizedLine = Random.Range(0, NarcissusBlendDialogue.Length);
+                            Debug.Log(NarcissusBlendDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Green")
+                        {
+                            int randomizedLine = Random.Range(0, FrogificationDialogue.Length);
+                            Debug.Log(FrogificationDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Orange")
+                        {
+                            int randomizedLine = Random.Range(0, FormeOfTheMarionetteDialogue.Length);
+                            Debug.Log(FormeOfTheMarionetteDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Purple")
+                        {
+                            int randomizedLine = Random.Range(0, PerceptualArrayDialogue.Length);
+                            Debug.Log(PerceptualArrayDialogue[randomizedLine]);
+                        }
+                    }
+                    break;
+                case "Haruspical":
+                    {
+                        if (MainElement.getName() == "Super Red")
+                        {
+                            int randomizedLine = Random.Range(0, DivineScryerDialogue.Length);
+                            Debug.Log(DivineScryerDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Super Blue")
+                        {
+                            int randomizedLine = Random.Range(0, PotionOfPremonitionDialogue.Length);
+                            Debug.Log(PotionOfPremonitionDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Super Yellow")
+                        {
+                            int randomizedLine = Random.Range(0, FortuitousVisionsDialogue.Length);
+                            Debug.Log(FortuitousVisionsDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Green")
+                        {
+                            int randomizedLine = Random.Range(0, WoodlandWhispersDialogue.Length);
+                            Debug.Log(WoodlandWhispersDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Orange")
+                        {
+                            int randomizedLine = Random.Range(0, FarsightDialogue.Length);
+                            Debug.Log(FarsightDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Purple")
+                        {
+                            int randomizedLine = Random.Range(0, DeadmansTongueDialogue.Length);
+                            Debug.Log(DeadmansTongueDialogue[randomizedLine]);
+                        }
+                    }
+                    break;
+                case "Emanation":
+                    {
+                        if (MainElement.getName() == "Super Red")
+                        {
+                            int randomizedLine = Random.Range(0, HerculeanSerumDialogue.Length);
+                            Debug.Log(HerculeanSerumDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Super Blue")
+                        {
+                            int randomizedLine = Random.Range(0, KnowledgeMeadDialogue.Length);
+                            Debug.Log(KnowledgeMeadDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Super Yellow")
+                        {
+                            int randomizedLine = Random.Range(0, PinchOfErosDialogue.Length);
+                            Debug.Log(PinchOfErosDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Green")
+                        {
+                            int randomizedLine = Random.Range(0, VialOfThoughtspeakDialogue.Length);
+                            Debug.Log(VialOfThoughtspeakDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Orange")
+                        {
+                            int randomizedLine = Random.Range(0, FeatheredStepsDialogue.Length);
+                            Debug.Log(FeatheredStepsDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Purple")
+                        {
+                            int randomizedLine = Random.Range(0, GazeOfTheOutersideDialogue.Length);
+                            Debug.Log(GazeOfTheOutersideDialogue[randomizedLine]);
+                        }
+                    }
+                    break;
+                case "Evocation":
+                    {
+                        if (MainElement.getName() == "Super Red")
+                        {
+                            int randomizedLine = Random.Range(0, SalamandersBaitDialogue.Length);
+                            Debug.Log(SalamandersBaitDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Super Blue")
+                        {
+                            int randomizedLine = Random.Range(0, RusalkasCallDialogue.Length);
+                            Debug.Log(RusalkasCallDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Super Yellow")
+                        {
+                            int randomizedLine = Random.Range(0,ToadstoolEssenceDialogue.Length);
+                            Debug.Log(ToadstoolEssenceDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Green")
+                        {
+                            int randomizedLine = Random.Range(0, DryadsOfferingDialogue.Length);
+                            Debug.Log(DryadsOfferingDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Orange")
+                        {
+                            int randomizedLine = Random.Range(0, SoulInstallDialogue.Length);
+                            Debug.Log(SoulInstallDialogue[randomizedLine]);
+                        }
+                        if (MainElement.getName() == "Purple")
+                        {
+                            int randomizedLine = Random.Range(0, SolomonsBloodDialogue.Length);
+                            Debug.Log(SolomonsBloodDialogue[randomizedLine]);
+                        }
+                    }
+                    break;
+            }
         }
         if (Fickleness.IsFickle() == true)
         {
