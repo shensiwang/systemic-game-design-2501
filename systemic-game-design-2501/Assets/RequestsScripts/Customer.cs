@@ -396,14 +396,14 @@ public class Customer : MonoBehaviour
                     break;
             }
         }
-        if (Fickleness.IsFickle() == true)
-        {
-            Debug.Log("Base Ingredient: " + BaseNeeded.getType() + ", Element: " + MainElement.getName() + ", Randomized 1: " + ElementRandomizer1 + ", Randomized 2: " + ElementRandomizer2);
-        }
-        else
-        {
-            Debug.Log("Base Ingredient: " + BaseNeeded.getType());
-        }
+        //if (Fickleness.IsFickle() == true)
+        //{
+        //    Debug.Log("Base Ingredient: " + BaseNeeded.getType() + ", Element: " + MainElement.getName() + ", Randomized 1: " + ElementRandomizer1 + ", Randomized 2: " + ElementRandomizer2);
+        //}
+        //else
+        //{
+        //    Debug.Log("Base Ingredient: " + BaseNeeded.getType());
+        //}
 
      
 
