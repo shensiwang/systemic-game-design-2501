@@ -265,176 +265,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &784461161
-GameObject:
+--- !u!1001 &1405509141580314560
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 784461163}
-  - component: {fileID: 784461162}
-  m_Layer: 0
-  m_Name: Customer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &784461162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784461161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af70d7de789a13c44960968c12baaa40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AnyBaseAmeliorationDialogue:
-  - '"Give me an amelioration potion. Suprise me."'
-  - '"Do you have something of the... resotration variety?"'
-  AnyBaseMutationDialogue:
-  - '"Give me a mutating potion. Suprise me."'
-  - '"Do you have something of the... transformative variety?"'
-  AnyBaseHaruspicalDialogue:
-  - '"Give me a haruspical potion. Suprise me."'
-  - '"Do you have something of the... divination variety?"'
-  AnyBaseEmantionDialogue:
-  - '"Give me an emantion potion. Suprise me."'
-  - '"Do you have something of the... physical or mental variety?"'
-  AnyBaseEvocationDialogue:
-  - '"Give me an evocation potion. Suprise me."'
-  - '"Do you have something of the... summoning variety?"'
-  WarSurgeDialogue:
-  - '"I need a rush of power. I''m feeling way too sluggish and tired... Some energy
-    replenishment would be nice."'
-  - '"I need a surge of adrenaline to give me energy! Hit me with some of that good
-    red stuff!"'
-  DragonicShellDialogue:
-  - '"Give me something that gives me the form of a powerful, red dragon! With it,
-    world domination will be mine! Hahaha!" '
-  - '"I want something transformative. Something that gives me a powerful form."'
-  DivineScryerDialogue:
-  - '"I need something that can help me commune with almighty and powerful gods!"'
-  - '"I need a potion that can help with divinations. I want to speak to something
-    powerful!'
-  HerculeanSerumDialogue:
-  - '"What I need is more power and strength! A potion that can build muscles will
-    do..."'
-  - '"Give something that can satiate my passion for power! Something that can improve
-    my physical prowess!"'
-  SalamandersBaitDialogue:
-  - '"I need a summoning potion one that will allow me to call forth a being of great
-    power!"'
-  - '"Give me that one red potion! You know, the one that can conjure up that fire-breathing
-    familar!"'
-  WizardsBrewDialogue:
-  - '"I''m low on mana. Please... give me something that can calm my nerves and soul."'
-  - '"I need a restorative potion. Something of the pure blue variety will suffice"'
-  AqeuousFromeDialogue:
-  - '"I would like a transformative potion. One that will allow me to swim deep into
-    the oceans..."'
-  - '"I always want to be a fish in the great blue horizons.... MAKE ME A FISH!"'
-  PotionOfPremonitionDialogue:
-  - '"I need the powers of divinination. Why? So that I can see into the futureee~!"'
-  - '"Give me the a potion that gives me the knoweldge of the future.I need to what
-    will happens if I... well... just get on it."'
-  KnowledgeMeadDialogue:
-  - '"I need a brain booster to help me think straight. Hand me some of that good
-    blue stuff!"'
-  - '"Give me a mental potion that improves my thinking. Gonna need one for a research."'
-  RusalkasCallDialogue:
-  - '"I need something that can call forth of a being with the power of water itself!
-    I''m gonna make a killing in the summer!"'
-  - '"My farm is suffering a drought! I need a potion that can help summon a water
-    spirit to fix it!"'
-  TouchOfWondermentDialogue:
-  - '"I need something that can heal my soul. Perhap something that can give me a
-    little joy?"'
-  - '"I''ve been pretty down in the dumps lately. I''m gonna need something that
-    can restore my enthusiam."'
-  NarcissusBlendDialogue:
-  - '"The ball is about to start and I look hideous! Quick, I need something that
-    can transform me into a thing of beauty!"'
-  - '"I look pretty good, but I can look soooo much better! Give me that yellow stuff
-    to make me fabu... no. Fantabulous~!"'
-  FortuitousVisionsDialogue:
-  - '"Joy and fortune is on the way, I just know it! I need a divination potion that
-    would let me know when it comes!"'
-  - '"I need some luck. And I need it fast. Do you have a potion that can help tell
-    my fortune?'
-  PinchOfErosDialogue:
-  - '"I need something to get people in that... you know... ''happy mood''? ... Look,
-    get me a mental potion that can do that..."'
-  - '"Hey Baby~! I''m gonna need something that can emnate some lovely motivation,
-    if you know what I mean...Hmhmhm."'
-  ToadstoolEssenceDialogue:
-  - '"I want a jolly and happy fairy for my kid to play with. A potion that can summon
-    one would be swell!"'
-  - '"I''m going travelling soon. A  joyful companion would be nice. Hand me an evocation
-    potion that can conjure one!"'
-  VerdantRejuvenationDialogue:
-  - QW
-  - ER
-  FrogificationDialogue:
-  - TY
-  - UI
-  WoodlandWhispersDialogue:
-  - OP
-  - AS
-  VialOfThoughtspeakDialogue:
-  - DF
-  - GH
-  DryadsOfferingDialogue:
-  - JK
-  - LZ
-  AutoRepairDialogue:
-  - ZX
-  - CV
-  FormeOfTheMarionetteDialogue:
-  - BN
-  - NM
-  FarsightDialogue:
-  - QWE
-  - RTY
-  FeatheredStepsDialogue:
-  - UIO
-  - POI
-  SoulInstallDialogue:
-  - ASD
-  - FGH
-  CalmOfTheDeadDialogue:
-  - 123
-  - 321
-  PerceptualArrayDialogue:
-  - 423
-  - 324
-  DeadmansTongueDialogue:
-  - 561
-  - 165
-  GazeOfTheOutersideDialogue:
-  - 980
-  - 089
-  SolomonsBloodDialogue:
-  - 720
-  - 027
-  PatienceTimer: 0
-  repReducePerCustomer: 0
---- !u!4 &784461163
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784461161}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1405509142087768745, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_Name
+      value: Customer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
