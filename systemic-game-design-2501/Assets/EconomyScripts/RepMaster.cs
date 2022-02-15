@@ -8,10 +8,21 @@ public class RepMaster : MonoBehaviour
     public Text repTxt;
 
     int id;
-    int reputation;
+    public int reputationAmount;
+    int reputationRating; //rating in int. 0 being the lowest
+
+
+    [Header("-----------Rating Amounts--------------")]
+    public int ARatingAmount;
+    public int BRatingAmount;
+    public int CRatingAmount;
+    public int DRatingAmount;
+
+    [Header("-----------Patience change per reputation--------------")]
+    public int patienceChange; //how much patience changes per each reputation
 
     [SerializeField]
-    int customerRepTimeIncreasementUnit = 5;
+    int customerPatienceChange = 0; //amount to be added to customer patience
 
     private void Awake()
     {
@@ -22,25 +33,56 @@ public class RepMaster : MonoBehaviour
     private void Start()
     {
         id = 2;
-        reputation = 0;
+        reputationAmount = 0;
     }
 
     public void IncreaseRep(int amount)
     {
-        reputation += amount;
+        reputationAmount += amount;
     }
 
     public void DecreaseRep(int amount)
     {
-        reputation -= amount;
+        reputationAmount -= amount;
+    }
+
+    private void CheckReputation()
+    {
+        if (reputationAmount >= DRatingAmount && reputationAmount < CRatingAmount) reputationRating = 0;
+
+        else if (reputationAmount >= CRatingAmount && reputationAmount < BRatingAmount) reputationRating = 1;
+
+        else if (reputationAmount >= BRatingAmount && reputationAmount < ARatingAmount) reputationRating = 2;
+
+        else if (reputationAmount >= ARatingAmount) reputationRating = 3;
     }
 
     public int CustomerRepTimeIncreasement()
     {
-        if (reputation >= 10 && reputation < 20) return customerRepTimeIncreasementUnit * 1;
-        else if (reputation >= 20 && reputation < 30) return customerRepTimeIncreasementUnit * 2;
-        else if (reputation >= 30 && reputation < 40) return customerRepTimeIncreasementUnit * 3;
-        else if (reputation > 40) return customerRepTimeIncreasementUnit * 4;
-        else return 0;
+
+        switch (reputationRating)
+        {
+            case 0:
+                customerPatienceChange += patienceChange;
+                break;
+
+            case 1:
+                customerPatienceChange += patienceChange;
+                break;
+
+            case 2:
+                customerPatienceChange += patienceChange;
+                break;
+
+            case 3:
+                customerPatienceChange += patienceChange;
+                break;
+
+
+            //change custoer patiece by __ amount, based off reputatation;
+        }
+
+        return customerPatienceChange;
+
     }
 }
