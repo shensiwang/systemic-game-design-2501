@@ -11,11 +11,13 @@ public class ReceipeManager : MonoBehaviour
 
     public Slots baseCraftingSlots;
     public Slots[] subCraftingSlots;
+    public Slots completePotionSlot;
 
     public List<Ingredients> ingredientList;
     public string[] receipes;
-    public Ingredients[] brewingResults;
+    public string[] brewingResults;
     public string receipeResults;
+    public string currentReceipeString;
 
     public void OnMouseDownIngredient(Ingredients ingredients)
     {
@@ -31,7 +33,7 @@ public class ReceipeManager : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            if(currentIngredient != null)
+            if (currentIngredient != null)
             {
                 customCursor.gameObject.SetActive(false);
                 Slots nearestSlot = null;
@@ -65,18 +67,20 @@ public class ReceipeManager : MonoBehaviour
                 nearestSlot.ingredients = currentIngredient;
                 ingredientList[nearestSlot.index] = currentIngredient;
 
-                currentIngredient = null;
-                Debug.Log(ingredientList[nearestSlot.index]);
                 CheckForCreatedReceipes();
+                currentIngredient = null;
+                Debug.Log(currentReceipeString);
             }
         }
+        Debug.Log(ingredientList[0].ingredientName);
     }
 
     public void CheckForCreatedReceipes()
     {
-        string currentReceipeString = "";
+        currentReceipeString = "";
         foreach(Ingredients ingredients in ingredientList)
         {
+            Debug.Log(ingredients);
             if(ingredients != null)
             {
                 currentReceipeString += ingredients.ingredientName;
@@ -91,18 +95,33 @@ public class ReceipeManager : MonoBehaviour
         {
             if(receipes[i] == currentReceipeString)
             {
-                Debug.Log(currentReceipeString);
+                Debug.Log(brewingResults[i]);
             }
         }
     }
 
     public void ResetPot(Slots slot )
     {
-        baseCraftingSlots.ingredients = null;
-        ingredientList[slot.index] = null;
+        for(int i = 0; i < ingredientList.Count; i++)
+        {
+            ingredientList[i] = null;
+        }
+
+        baseCraftingSlots.gameObject.SetActive(false);
+        for (int i = 0; i < subCraftingSlots.Length; i++)
+        {
+            subCraftingSlots[i].gameObject.SetActive(false);
+        }
         CheckForCreatedReceipes();
         ingredientBlocker.gameObject.SetActive(false);
         Debug.Log("Gone");
+    }
+
+    public void BrewPotion()
+    {
+        completePotionSlot.gameObject.SetActive(true);
+        //Change Sprite
+        //completePotionSlot.GetComponent<Image>().sprite = receipeResults.getCompotent<Image>().sprite;
     }
 
     public void OnMouseDown(Ingredients ingredients)

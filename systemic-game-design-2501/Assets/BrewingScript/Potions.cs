@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ingredients : MonoBehaviour
+public class Potions : MonoBehaviour
 {
-    public string ingredientName;
+    public string potionName;
     private void Awake()
     {
-        ingredientName = gameObject.name;
+        potionName = gameObject.name;
     }
 }
