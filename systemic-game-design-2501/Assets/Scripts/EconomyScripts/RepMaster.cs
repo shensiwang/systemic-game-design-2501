@@ -33,7 +33,14 @@ public class RepMaster : MonoBehaviour
     private void Start()
     {
         id = 2;
-        reputationAmount = 0;
+        CheckReputation();
+    }
+
+    private void Update()
+    {
+        CheckReputation();
+
+        //Debug.Log(reputationRating);
     }
 
     public void IncreaseRep(int amount)
@@ -46,7 +53,7 @@ public class RepMaster : MonoBehaviour
         reputationAmount -= amount;
     }
 
-    private void CheckReputation()
+    private void CheckReputation() //need some way to check reputation
     {
         if (reputationAmount >= DRatingAmount && reputationAmount < CRatingAmount) reputationRating = 0;
 
@@ -63,19 +70,19 @@ public class RepMaster : MonoBehaviour
         switch (reputationRating)
         {
             case 0:
-                customerPatienceChange += patienceChange;
+                customerPatienceChange = patienceChange;
                 break;
 
             case 1:
-                customerPatienceChange += patienceChange;
+                customerPatienceChange = patienceChange * 2;
                 break;
 
             case 2:
-                customerPatienceChange += patienceChange;
+                customerPatienceChange = patienceChange * 3;
                 break;
 
             case 3:
-                customerPatienceChange += patienceChange;
+                customerPatienceChange = patienceChange * 4;
                 break;
 
 
@@ -86,10 +93,6 @@ public class RepMaster : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        CheckReputation();
 
-        //Debug.Log(reputationRating);
-    }
+
 }

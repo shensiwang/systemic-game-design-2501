@@ -103,7 +103,7 @@ public class Customer : MonoBehaviour
     [Header("-----------Misc--------------")]
     public float PatienceTimer;
     private float CurrentTimer = 0;
-    private float repPatienceTimerIncrement = 0;
+    public float repPatienceTimerIncrement = 0;
     public int repReducePerCustomer = 4;
 
     private void Start()
