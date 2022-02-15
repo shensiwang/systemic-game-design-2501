@@ -215,6 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 859468212}
+  - component: {fileID: 859468216}
   - component: {fileID: 859468213}
   - component: {fileID: 859468215}
   - component: {fileID: 859468214}
@@ -278,10 +279,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repTxt: {fileID: 0}
-  reputationAmount: 4
-  ARatingAmount: 0
-  BRatingAmount: 0
-  CRatingAmount: 0
+  reputationAmount: 0
+  ARatingAmount: 40
+  BRatingAmount: 20
+  CRatingAmount: 10
   DRatingAmount: 0
-  patienceChange: 0
+  patienceChange: 5
   customerPatienceChange: 0
+--- !u!114 &859468216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859468211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7011694cf269a3458f39abac5547852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customerPrefab: {fileID: 1405509142087768745, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}

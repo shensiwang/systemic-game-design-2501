@@ -12,13 +12,13 @@ public class RepMaster : MonoBehaviour
     int reputationRating; //rating in int. 0 being the lowest
 
 
-    [Header("-----------Rating Amounts--------------")]
+    [Header("Rating Amounts")]
     public int ARatingAmount;
     public int BRatingAmount;
     public int CRatingAmount;
     public int DRatingAmount;
 
-    [Header("-----------Patience change per reputation--------------")]
+    [Header("Patience change per reputation")]
     public int patienceChange; //how much patience changes per each reputation
 
     [SerializeField]
@@ -84,5 +84,12 @@ public class RepMaster : MonoBehaviour
 
         return customerPatienceChange;
 
+    }
+
+    private void Update()
+    {
+        CheckReputation();
+
+        //Debug.Log(reputationRating);
     }
 }
