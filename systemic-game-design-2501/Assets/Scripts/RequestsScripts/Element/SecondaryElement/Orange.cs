@@ -28,7 +28,7 @@ public class Orange : ElementInterface
         }
         else if (potionBase.getType() == "Haruspical")
         {
-            return "Farsight";
+            return "Retrace Machination";
         }
         else if (potionBase.getType() == "Emanation")
         {

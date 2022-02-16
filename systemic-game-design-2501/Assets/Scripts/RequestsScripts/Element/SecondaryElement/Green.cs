@@ -32,7 +32,7 @@ public class Green : ElementInterface
         }
         else if (potionBase.getType() == "Emanation")
         {
-            return "Vial of Thoughtspeak";
+            return "Domain of Seclusion";
         }
         else if (potionBase.getType() == "Evocation")
         {

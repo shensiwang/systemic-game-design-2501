@@ -128,50 +128,80 @@ MonoBehaviour:
   - '"I''m going travelling soon. A  joyful companion would be nice. Hand me an evocation
     potion that can conjure one!"'
   VerdantRejuvenationDialogue:
-  - QW
-  - ER
+  - '"I''m injured! I need something to heal my wounds! You know... that green...
+    whatchumacallit!"'
+  - '"Hail! I am a believer in nature! I wish for a natural restorative concoction
+    please!"'
   FrogificationDialogue:
-  - TY
-  - UI
+  - '"If I was a green tree frog, I could jump like crazy Do you have something that
+    can transform me into one?"'
+  - '"Give me a potion that mutates one with the power of nature. Don''t ask. The
+    less you know the better..."'
   WoodlandWhispersDialogue:
-  - OP
-  - AS
-  VialOfThoughtspeakDialogue:
-  - DF
-  - GH
+  - '"I speak for the trees!... At least I want to. I''m gonna need something that
+    can divinate the will of nature!"'
+  - '"The trees mock me... I KNOW IT! I need something to hear nature''s voices,
+    and I need it NOW!'
+  DomainOfSeclusionDialogue:
+  - '"My spouse keeps complaining. And I need some me time. I need something that
+    gives my mind solitude."'
+  - '"I think better when my mind is closed from the world. Give me some of that
+    green stuff to do that!"'
   DryadsOfferingDialogue:
-  - JK
-  - LZ
+  - '"Reforestation efforts are not easy, we could use someting to evoke a nature
+    spirit to help out."'
+  - '"As a believer of nature! We must summon our king! Please, make a potion that
+    does so..."'
   AutoRepairDialogue:
-  - ZX
-  - CV
+  - '"HELLO FELLOW HUMAN. THIS <loading response> FLESH UNIT. REQUIRE A SUBSTANCE
+    THAT CAN RESTORE NON-ORGANIC MATERIALS. NO REASON, REALLY..."'
+  - '"My cart is broken! I need a potion that can heal my baby! I think it was...
+    orange or something? Look just get it, quick!"'
   FormeOfTheMarionetteDialogue:
-  - BN
-  - NM
-  FarsightDialogue:
-  - QWE
-  - RTY
+  - '"When I was a young lad. I always wanted to... be a puppet! ... Don''t judge.
+    Just get me that mutation potion already..."'
+  - '"THE MACHINE REVOLUTION IS UPON US! WE REQUIRE A TRANSFORMATIVE POTION TO BOOST
+    OUR RANKS!"'
+  RetraceMachinationDialogue:
+  - '"There''s been a murder! We need something haruspical to trace back this object''s
+    steps!"'
+  - '"Somedbody threw this toilet paper at my house! I MUST DESTROY THEM! Quick,
+    hand me a potion to divinate this object''s master!"'
   FeatheredStepsDialogue:
-  - UIO
-  - POI
+  - '"I need to be as quick as a fox! I need something that can boost my physical
+    dexterity!"'
+  - '"The sports event is coming up! I need an enmation potion that makes me faster!
+    It''s not cheating if I don''t get caught!"'
   SoulInstallDialogue:
-  - ASD
-  - FGH
+  - '"Imagine, a catapault that catapaults itself! I know, pure genuis. Just need
+    a potion to summon a spirit to possess this machine. What could go wrong?"'
+  - '"They say I can''t rule the world with an army of inanimate cutlery! I''ll show
+    them when I use that summoning potion! I''M NOT CRAZY! HAHAHAHA!"'
   CalmOfTheDeadDialogue:
-  - 123
-  - 321
+  - '"I hail from the city''s crypt. I request a potion to restore the tortured souls
+    of the dead, so they may find peace."'
+  - '"My house is haunted with the wails of pained souls. No reason really... I just
+    need something purple to heal their souls and appease them."'
   PerceptualArrayDialogue:
-  - 423
-  - 324
+  - '"I need something that can transform me to have an air of mystery to avoid my
+    captors... I mean... what?"'
+  - '"I need that purple potion that mutates the perception of those around me! That
+    way, I can crime all day everyday!"'
   DeadmansTongueDialogue:
-  - 561
-  - 165
+  - '"To uncover this murder case, I must speak with the victim himself! Hand me
+    something that allows me to hear the dead."'
+  - '"My father died without telling me where the money is! Quick. I need that purple
+    potion that allows to talk to the dead!"'
   GazeOfTheOutersideDialogue:
-  - 980
-  - 089
+  - '"I need to see! OH! HIS CORRUPTIVE GAZE! Quick, give me that mental potion to
+    fufill my desires! YES! OH GREAT ONE! WILL SEE YOU SOON!"'
+  - '"Some say to never venture to the deepest parts of the unknown mind. Some people
+    are stupid. Hand me a corruptive emnation potion, please."'
   SolomonsBloodDialogue:
-  - 720
-  - 027
+  - '"I need to summon a demon of great corruptioon if I want to overthrow the kingdom.
+    I need a potion to summon one, if you will"'
+  - '"Demon summoning, is like, the totally in thing right now, just give me that
+    purple one, kay? Totes! Thanks!"'
   PatienceTimer: 0
   repPatienceTimerIncrement: 0
   repReducePerCustomer: 0
