@@ -29,15 +29,15 @@ public class LevelScript : MonoBehaviour
 
     private bool customerIsPresent = false; //check whether there is currently a customer
 
-
-
     // Start is called before the first frame update
     void Start()
     {
 
+        CalculateTotalCustomersPerDay();
+
        SpawnCustomer();
 
-
+        
     }
 
     // Update is called once per frame
@@ -89,6 +89,15 @@ public class LevelScript : MonoBehaviour
 
             reviewSheet.SetActive(true);
         }
+    }
+
+    private void CalculateTotalCustomersPerDay()
+    {
+        int random = Random.Range(2, 6);
+        int amountChange = RepManager.repMaster.CustomerAmountChangedFromRep();
+
+        //Debug.Log(amountChange);
+        totalCustomersPerDay = random + amountChange;
     }
 
 

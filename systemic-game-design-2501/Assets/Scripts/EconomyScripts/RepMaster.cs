@@ -24,16 +24,20 @@ public class RepMaster : MonoBehaviour
     [SerializeField]
     int customerPatienceChange = 0; //amount to be added to customer patience
 
+    public int customerAmountChangePerRep;
+
     private void Awake()
     {
         RepManager.SetRepMaster(this);
         DontDestroyOnLoad(this);
+
+        CheckReputation();
     }
 
     private void Start()
     {
         id = 2;
-        CheckReputation();
+        
     }
 
     private void Update()
@@ -53,7 +57,7 @@ public class RepMaster : MonoBehaviour
         reputationAmount -= amount;
     }
 
-    private void CheckReputation() //need some way to check reputation
+    public void CheckReputation() //need some way to check reputation
     {
         if (reputationAmount >= DRatingAmount && reputationAmount < CRatingAmount) reputationRating = 0;
 
@@ -64,9 +68,37 @@ public class RepMaster : MonoBehaviour
         else if (reputationAmount >= ARatingAmount) reputationRating = 3;
     }
 
-    public int CustomerRepTimeIncreasement()
+    public int CustomerAmountChangedFromRep()
     {
 
+        switch (reputationRating)
+        {
+            case 0:
+                customerAmountChangePerRep = 1;
+                break;
+
+            case 1:
+                customerAmountChangePerRep = 2;
+                break;
+
+            case 2:
+                customerAmountChangePerRep = 3;
+                break;
+
+            case 3:
+                customerAmountChangePerRep = 4;
+                break;
+
+
+            //change customer amount by __ amount, based off reputatation;
+        }
+
+        return customerAmountChangePerRep;
+
+    }
+
+    public int CustomerRepTimeIncreasement()
+    {
         switch (reputationRating)
         {
             case 0:
@@ -86,11 +118,10 @@ public class RepMaster : MonoBehaviour
                 break;
 
 
-            //change custoer patiece by __ amount, based off reputatation;
+                //change custoer patiece by __ amount, based off reputatation;
         }
 
         return customerPatienceChange;
-
     }
 
 }

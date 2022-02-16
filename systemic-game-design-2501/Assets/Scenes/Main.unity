@@ -485,13 +485,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repTxt: {fileID: 0}
-  reputationAmount: 20
+  reputationAmount: 10
   ARatingAmount: 40
   BRatingAmount: 20
   CRatingAmount: 10
   DRatingAmount: 0
   patienceChange: 10
   customerPatienceChange: 0
+  customerAmountChangePerRep: 0
 --- !u!114 &859468216
 MonoBehaviour:
   m_ObjectHideFlags: 0
