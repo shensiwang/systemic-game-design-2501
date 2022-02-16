@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PriceMaster : MonoBehaviour
 {
-    [SerializeField]
-    int priceFluctuation;
+    public int priceFluctuation;
+
+
+    private int RanNum, RanNum2, RanNum3;
+    private int ingredient1TEST, ingredient2TEST, ingredient3TEST;
 
     List<int> FiveBaseIngredients = new List<int>();
 
-    int RanNum, RanNum2, RanNum3;
-    int ingredient1TEST, ingredient2TEST, ingredient3TEST;
-
-    bool hadLooped = true;
 
     private void Awake()
     {
@@ -20,14 +19,8 @@ public class PriceMaster : MonoBehaviour
     }
     private void Start()
     {
-        Get3RandomeIngredients(ingredient1TEST, ingredient2TEST, ingredient3TEST);
-    }
-    private void Update()
-    {
-        //if (hadLooped)
-        //{
-        //    Get3RandomeIngredients(ingredient1TEST, ingredient2TEST, ingredient3TEST);
-        //}
+        Get3RandomeIngredients(out ingredient1TEST, out ingredient2TEST, out ingredient3TEST);
+        Debug.Log("3 random number generated: " + ingredient1TEST + "," + ingredient2TEST + ", " + ingredient3TEST);
     }
 
     public void InitiateFiveIngredients()
@@ -38,7 +31,7 @@ public class PriceMaster : MonoBehaviour
         FiveBaseIngredients.Add(4);
         FiveBaseIngredients.Add(5);
     }
-    public void Get3RandomeIngredients(int ingredient01, int ingredient02, int ingredient03)
+    public void Get3RandomeIngredients(out int ingredient01, out int ingredient02, out int ingredient03)
     {
 
         ingredient01 = 0;
@@ -65,8 +58,6 @@ public class PriceMaster : MonoBehaviour
             {
                 ingredient03 = FiveBaseIngredients[RanNum];
                 FiveBaseIngredients.RemoveAt(RanNum);
-                hadLooped = false;
-                Debug.Log("3 random number generated: " + ingredient01 + "," + ingredient02 + ", " + ingredient03);
             }
         }
     }
