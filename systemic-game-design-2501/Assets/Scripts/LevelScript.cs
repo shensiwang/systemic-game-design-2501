@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class LevelScript : MonoBehaviour
 {
 
     public GameObject customerPrefab;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void SpawnCustomer()
+    private void SpawnCustomer() //spawn customer 
     {
         if(customerIsPresent == false)
         {
