@@ -70,7 +70,7 @@ public class Customer : MonoBehaviour
     [TextArea(5, 5)]
     public string[] WoodlandWhispersDialogue;
     [TextArea(5, 5)]
-    public string[] VialOfThoughtspeakDialogue;
+    public string[] DomainOfSeclusionDialogue;
     [TextArea(5, 5)]
     public string[] DryadsOfferingDialogue;
 
@@ -81,7 +81,7 @@ public class Customer : MonoBehaviour
     [TextArea(5, 5)]
     public string[] FormeOfTheMarionetteDialogue;
     [TextArea(5, 5)]
-    public string[] FarsightDialogue;
+    public string[] RetraceMachinationDialogue;
     [TextArea(5, 5)]
     public string[] FeatheredStepsDialogue;
     [TextArea(5, 5)]
@@ -316,8 +316,8 @@ public class Customer : MonoBehaviour
                         }
                         if (MainElement.getName() == "Orange")
                         {
-                            int randomizedLine = Random.Range(0, FarsightDialogue.Length);
-                            Debug.Log(FarsightDialogue[randomizedLine]);
+                            int randomizedLine = Random.Range(0, RetraceMachinationDialogue.Length);
+                            Debug.Log(RetraceMachinationDialogue[randomizedLine]);
                         }
                         if (MainElement.getName() == "Purple")
                         {
@@ -345,8 +345,8 @@ public class Customer : MonoBehaviour
                         }
                         if (MainElement.getName() == "Green")
                         {
-                            int randomizedLine = Random.Range(0, VialOfThoughtspeakDialogue.Length);
-                            Debug.Log(VialOfThoughtspeakDialogue[randomizedLine]);
+                            int randomizedLine = Random.Range(0, DomainOfSeclusionDialogue.Length);
+                            Debug.Log(DomainOfSeclusionDialogue[randomizedLine]);
                         }
                         if (MainElement.getName() == "Orange")
                         {
