@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
 {
@@ -102,12 +103,16 @@ public class Customer : MonoBehaviour
 
     [Header("-----------Misc--------------")]
     public float PatienceTimer;
-    private float CurrentTimer = 0;
+    public float CurrentTimer;
     public float repPatienceTimerIncrement = 0;
     public int repReducePerCustomer = 4;
 
+    [Header("-----------UI--------------")]
+    public Image patienceUI;
+
     private void Start()
     {
+        
 
         int ageRandomizer = Random.Range(0, 2);
         int fickleRandomizer = Random.Range(0, 2);
@@ -127,6 +132,7 @@ public class Customer : MonoBehaviour
             Age = new Young();
         }
         PatienceTimer = Age.getTimeLimit() + repPatienceTimerIncrement;
+        CurrentTimer = PatienceTimer;
 
         if (fickleRandomizer == 0)
         {
@@ -405,22 +411,22 @@ public class Customer : MonoBehaviour
         //    Debug.Log("Base Ingredient: " + BaseNeeded.getType());
         //}
 
-     
-
     }
 
     private void Update()
     {
-        CurrentTimer += Time.deltaTime;
-        if(CurrentTimer>=PatienceTimer)//Once the patience runs out
+        CurrentTimer -= Time.deltaTime;
+        if(CurrentTimer <= 0)//Once the patience runs out
         {
-            CurrentTimer = 0;
+            
             this.gameObject.SetActive(false);
 
             //TODO: update rep heres (NEGATIVE)
             RepManager.repMaster.DecreaseRep(repReducePerCustomer);
 
         }
+
+        patienceUI.fillAmount = (CurrentTimer / PatienceTimer); //cicle UI for patience.
     }
 
 

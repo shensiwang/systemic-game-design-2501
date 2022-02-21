@@ -33,7 +33,7 @@ public class LevelScript : MonoBehaviour
     void Start()
     {
 
-        CalculateTotalCustomersPerDay();
+       CalculateTotalCustomersPerDay();
 
        SpawnCustomer();
 
