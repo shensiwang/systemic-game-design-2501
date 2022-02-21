@@ -415,18 +415,20 @@ public class Customer : MonoBehaviour
 
     private void Update()
     {
-        CurrentTimer -= Time.deltaTime;
-        if(CurrentTimer <= 0)//Once the patience runs out
-        {
-            
-            this.gameObject.SetActive(false);
+        CurrentTimer -= Time.deltaTime; //currenttimer (patience) ticks down the moment it spawns
+        patienceUI.fillAmount = (CurrentTimer / PatienceTimer); //circle UI for patience.
 
-            //TODO: update rep heres (NEGATIVE)
+        /*
+        if (CurrentTimer <= 0)//Once the patience runs out
+        {
+            Despawn();
             RepManager.repMaster.DecreaseRep(repReducePerCustomer);
 
+            //update
         }
-
-        patienceUI.fillAmount = (CurrentTimer / PatienceTimer); //cicle UI for patience.
+        */
+        //^^^above code is shifted to LevelScript. which handles spawning and despawning of customers - applying changes to rep (or others) when appropriate
+        
     }
 
 

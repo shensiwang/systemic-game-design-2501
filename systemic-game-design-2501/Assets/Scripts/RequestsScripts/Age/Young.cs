@@ -6,7 +6,7 @@ public class Young : AgeInterface
 {
     public float getTimeLimit()
     {
-        return 5f;
+        return 10f;
     }
 
     public string getAge()

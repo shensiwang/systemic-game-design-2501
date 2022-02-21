@@ -19,7 +19,12 @@ public class RepMaster : MonoBehaviour
     public int DRatingAmount;
 
     [Header("Patience change per reputation")]
-    public int patienceChange; //how much patience changes per each reputation
+    //public int patienceChange; 
+    //how much patience changes per each reputation
+    public int patienceReducedOnARating;
+    public int patienceReducedOnBRating;
+    public int patienceReducedOnCRating;
+    public int patienceReducedOnDRating;
 
     [SerializeField]
     int customerPatienceChange = 0; //amount to be added to customer patience
@@ -102,23 +107,23 @@ public class RepMaster : MonoBehaviour
         switch (reputationRating)
         {
             case 0:
-                customerPatienceChange = patienceChange;
+                customerPatienceChange -= patienceReducedOnDRating;
                 break;
 
             case 1:
-                customerPatienceChange = patienceChange * 2;
+                customerPatienceChange -= patienceReducedOnCRating;
                 break;
 
             case 2:
-                customerPatienceChange = patienceChange * 3;
+                customerPatienceChange -= patienceReducedOnBRating;
                 break;
 
             case 3:
-                customerPatienceChange = patienceChange * 4;
+                customerPatienceChange -= patienceReducedOnARating;
                 break;
 
 
-                //change custoer patiece by __ amount, based off reputatation;
+                //change custoer patiece by __ amount, based off reputatation. patience is reduced the higher the rep.
         }
 
         return customerPatienceChange;

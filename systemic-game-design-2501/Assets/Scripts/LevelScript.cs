@@ -48,9 +48,12 @@ public class LevelScript : MonoBehaviour
 
         ReviewSheet();
 
-        //if(currentCustomerScript.cu)
+        if (currentCustomerScript.CurrentTimer <= 0)//Once the patience runs out
+        {
+            DespawnCustomer();
+            RepManager.repMaster.DecreaseRep(currentCustomerScript.repReducePerCustomer); //decrease rep when customer runs out of patience
 
-        //patienceUI.fillAmount = (currentCustomerScript.CurrentTimer / currentCustomerScript.PatienceTimer); need to make customer current timer public
+        }
 
     }
 
@@ -70,8 +73,7 @@ public class LevelScript : MonoBehaviour
         if(customerIsPresent == true)
         {
             Destroy(currentCustomer); //or whatever code to remove the customer
-
-            
+            customerIsPresent = false;
         }
     }
 
