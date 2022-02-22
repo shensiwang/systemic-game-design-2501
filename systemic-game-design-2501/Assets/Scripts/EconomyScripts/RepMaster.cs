@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class RepMaster : MonoBehaviour
 {
-    public Text repTxt;
+    public string reputationInGrade;
 
     int id;
     public int reputationAmount;
     int reputationRating; //rating in int. 0 being the lowest
+
+    public int repReducedPercustomer;
 
 
     [Header("Rating Amounts")]
@@ -33,11 +35,15 @@ public class RepMaster : MonoBehaviour
 
     private void Awake()
     {
+
+
         RepManager.SetRepMaster(this);
         DontDestroyOnLoad(this);
 
         CheckReputation();
-    }
+
+        //repReducedPercustomer = 4;
+}
 
     private void Start()
     {
@@ -64,13 +70,29 @@ public class RepMaster : MonoBehaviour
 
     public void CheckReputation() //need some way to check reputation
     {
-        if (reputationAmount >= DRatingAmount && reputationAmount < CRatingAmount) reputationRating = 0;
+        if (reputationAmount >= DRatingAmount && reputationAmount < CRatingAmount)
+        {
+            reputationRating = 0;
+            reputationInGrade = "D";
+        }
 
-        else if (reputationAmount >= CRatingAmount && reputationAmount < BRatingAmount) reputationRating = 1;
+        else if (reputationAmount >= CRatingAmount && reputationAmount < BRatingAmount)
+        {
+            reputationRating = 1;
+            reputationInGrade = "C";
+        }
 
-        else if (reputationAmount >= BRatingAmount && reputationAmount < ARatingAmount) reputationRating = 2;
+        else if (reputationAmount >= BRatingAmount && reputationAmount < ARatingAmount)
+        {
+            reputationRating = 2;
+            reputationInGrade = "B";
+        }
 
-        else if (reputationAmount >= ARatingAmount) reputationRating = 3;
+        else if (reputationAmount >= ARatingAmount)
+        {
+            reputationRating = 3;
+            reputationInGrade = "A";
+        }
     }
 
     public int CustomerAmountChangedFromRep()
@@ -107,19 +129,19 @@ public class RepMaster : MonoBehaviour
         switch (reputationRating)
         {
             case 0:
-                customerPatienceChange -= patienceReducedOnDRating;
+                customerPatienceChange = -patienceReducedOnDRating;
                 break;
 
             case 1:
-                customerPatienceChange -= patienceReducedOnCRating;
+                customerPatienceChange = -patienceReducedOnCRating;
                 break;
 
             case 2:
-                customerPatienceChange -= patienceReducedOnBRating;
+                customerPatienceChange = -patienceReducedOnBRating;
                 break;
 
             case 3:
-                customerPatienceChange -= patienceReducedOnARating;
+                customerPatienceChange = -patienceReducedOnARating;
                 break;
 
 
