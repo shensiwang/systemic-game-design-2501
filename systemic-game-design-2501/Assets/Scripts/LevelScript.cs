@@ -27,6 +27,8 @@ public class LevelScript : MonoBehaviour
     public TextMeshProUGUI numberOfCustomersLeftUI;
     public TextMeshProUGUI reputationUI;
 
+    public TextMeshProUGUI reviewSheetRequestSuccess;
+
     
 
     private bool customerIsPresent = false; //check whether there is currently a customer
@@ -105,6 +107,8 @@ public class LevelScript : MonoBehaviour
         {
             //display reviewsheet
 
+            reviewSheetRequestSuccess.text = "Requests fulfilled: " + customersSucceeded + "/" + totalCustomersPerDay;
+
             reviewSheet.SetActive(true);
         }
     }
@@ -118,5 +122,8 @@ public class LevelScript : MonoBehaviour
         totalCustomersPerDay = random + amountChange;
     }
 
-
+    private void ReviewSheetPerformance()
+    {
+        
+    }
 }

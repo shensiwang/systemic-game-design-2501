@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class RepMaster : MonoBehaviour
 {
-    public string reputationInGrade;
 
     int id;
+
+    [Header("Reputation")]
+    public string reputationInGrade;
+    public int maxReputationAmount;
     public int reputationAmount;
+
     int reputationRating; //rating in int. 0 being the lowest
 
     public int repReducedPercustomer;
@@ -30,7 +34,7 @@ public class RepMaster : MonoBehaviour
 
     [SerializeField]
     int customerPatienceChange = 0; //amount to be added to customer patience
-
+    [Header("Customer amount changed per rep")]
     public int customerAmountChangePerRep;
 
     private void Awake()
@@ -55,17 +59,35 @@ public class RepMaster : MonoBehaviour
     {
         CheckReputation();
 
+        if(reputationAmount > maxReputationAmount) //make sure rep doesnt go over max
+        {
+            reputationAmount = maxReputationAmount;
+        }
+
+        if(reputationAmount < 0) //make sure rep doesnt go below 0
+        {
+            reputationAmount = 0; 
+        }
+
         //Debug.Log(reputationRating);
     }
 
     public void IncreaseRep(int amount)
     {
-        reputationAmount += amount;
+        if(reputationAmount < maxReputationAmount) //only add if not already at max.
+        {
+            reputationAmount += amount;
+        }
+        
     }
 
     public void DecreaseRep(int amount)
     {
-        reputationAmount -= amount;
+        if(reputationAmount > 0) //only decrease if not already at 0.
+        {
+            reputationAmount -= amount;
+        }
+        
     }
 
     public void CheckReputation() //need some way to check reputation
