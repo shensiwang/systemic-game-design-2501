@@ -6,7 +6,7 @@ using TMPro;
 
 public class LevelScript : MonoBehaviour
 {
-    //public int DaysPassed;
+    public int dayCount = 1;
 
     public int customersSucceeded;
     public int customersFailed;
@@ -26,6 +26,9 @@ public class LevelScript : MonoBehaviour
     [Header("UI Elements")]
     public TextMeshProUGUI numberOfCustomersLeftUI;
     public TextMeshProUGUI reputationUI;
+    public TextMeshProUGUI dayCountUI;
+
+    public TextMeshProUGUI dialogueUIText;
 
     public TextMeshProUGUI reviewSheetRequestSuccess;
 
@@ -38,24 +41,28 @@ public class LevelScript : MonoBehaviour
     {
         CalculateTotalCustomersPerDay();
         numberOfCustomersLeft = totalCustomersPerDay;
-        SpawnCustomer();
 
+        SpawnCustomer();
         
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Debug.Log(customerIsPresent);
+        //Debug.Log(currentCustomerScript.finalDialogueString);
 
         numberOfCustomersLeft = totalCustomersPerDay - customersSucceeded - customersFailed;
         numberOfCustomersLeftUI.text = "Customers left: " + numberOfCustomersLeft;
 
         ReviewSheet();
-        
+
+        DisplayDialogue();
 
         reputationUI.text = "Reputation: " + RepManager.repMaster.reputationInGrade;
-
+        dayCountUI.text = "Day: " + dayCount;
 
 
         ///---check for different scenarios like request succeed/fail or patience run out.---///
@@ -78,9 +85,9 @@ public class LevelScript : MonoBehaviour
             Debug.Log("spawn");
 
             currentCustomer = Instantiate(customerPrefab, customerSpawnPoint);
-            customerIsPresent = true;
-
             currentCustomerScript = currentCustomer.gameObject.GetComponent<Customer>();
+
+            customerIsPresent = true;
         }
     }
 
@@ -125,5 +132,10 @@ public class LevelScript : MonoBehaviour
     private void ReviewSheetPerformance()
     {
         
+    }
+
+    private void DisplayDialogue()
+    {
+        dialogueUIText.text = currentCustomerScript.finalDialogueString;
     }
 }

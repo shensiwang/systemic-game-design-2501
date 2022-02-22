@@ -12,6 +12,8 @@ public class Customer : MonoBehaviour
     public ElementInterface MainElement;
     public ElementInterface SecondElement;
 
+    public string finalDialogueString; //added to access this variable and display it
+
     [Header("-----------Easygoing Dialogue--------------")]
     [TextArea(5,5)]
     public string[] AnyBaseAmeliorationDialogue;
@@ -170,26 +172,31 @@ public class Customer : MonoBehaviour
             {
                 int randomizedLine = Random.Range(0, AnyBaseAmeliorationDialogue.Length);
                 Debug.Log(AnyBaseAmeliorationDialogue[randomizedLine]);
+                finalDialogueString = AnyBaseAmeliorationDialogue[randomizedLine];
             }
             else if (BaseNeeded.getType() == "Mutation")
             {
                 int randomizedLine = Random.Range(0, AnyBaseMutationDialogue.Length);
                 Debug.Log(AnyBaseMutationDialogue[randomizedLine]);
+                finalDialogueString = AnyBaseMutationDialogue[randomizedLine];
             }
             else if (BaseNeeded.getType() == "Haruspical")
             {
                 int randomizedLine = Random.Range(0, AnyBaseHaruspicalDialogue.Length);
                 Debug.Log(AnyBaseHaruspicalDialogue[randomizedLine]);
+                finalDialogueString = AnyBaseHaruspicalDialogue[randomizedLine];
             }
             else if (BaseNeeded.getType() == "Emanation")
             {
                 int randomizedLine = Random.Range(0, AnyBaseEmantionDialogue.Length);
                 Debug.Log(AnyBaseEmantionDialogue[randomizedLine]);
+                finalDialogueString = AnyBaseEmantionDialogue[randomizedLine];
             }
             else if (BaseNeeded.getType() == "Evocation")
             {
                 int randomizedLine = Random.Range(0, AnyBaseEvocationDialogue.Length);
                 Debug.Log(AnyBaseEvocationDialogue[randomizedLine]);
+                finalDialogueString = AnyBaseEvocationDialogue[randomizedLine];
             }
             else
             {
@@ -237,31 +244,37 @@ public class Customer : MonoBehaviour
                     {
                         int randomizedLine = Random.Range(0, WarSurgeDialogue.Length);
                         Debug.Log(WarSurgeDialogue[randomizedLine]);
+                        finalDialogueString = WarSurgeDialogue[randomizedLine];
                     }
                     if (MainElement.getName() == "Super Blue")
                     {
                         int randomizedLine = Random.Range(0, WizardsBrewDialogue.Length);
                         Debug.Log(WizardsBrewDialogue[randomizedLine]);
+                        finalDialogueString = WizardsBrewDialogue[randomizedLine];
                     }
                     if (MainElement.getName() == "Super Yellow")
                     {
                         int randomizedLine = Random.Range(0, TouchOfWondermentDialogue.Length);
                         Debug.Log(TouchOfWondermentDialogue[randomizedLine]);
+                        finalDialogueString = TouchOfWondermentDialogue[randomizedLine];
                     }
                     if (MainElement.getName() == "Green")
                     {
                         int randomizedLine = Random.Range(0, VerdantRejuvenationDialogue.Length);
                         Debug.Log(VerdantRejuvenationDialogue[randomizedLine]);
+                        finalDialogueString = VerdantRejuvenationDialogue[randomizedLine];
                     }
                     if (MainElement.getName() == "Orange")
                     {
                         int randomizedLine = Random.Range(0, AutoRepairDialogue.Length);
                         Debug.Log(AutoRepairDialogue[randomizedLine]);
+                        finalDialogueString = VerdantRejuvenationDialogue[randomizedLine];
                     }
                     if (MainElement.getName() == "Purple")
                     {
                         int randomizedLine = Random.Range(0, CalmOfTheDeadDialogue.Length);
                         Debug.Log(CalmOfTheDeadDialogue[randomizedLine]);
+                        finalDialogueString = VerdantRejuvenationDialogue[randomizedLine];
                     }
                     break;
                 case "Mutation":
@@ -270,31 +283,37 @@ public class Customer : MonoBehaviour
                         {
                             int randomizedLine = Random.Range(0, DragonicShellDialogue.Length);
                             Debug.Log(DragonicShellDialogue[randomizedLine]);
+                            finalDialogueString = DragonicShellDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Super Blue")
                         {
                             int randomizedLine = Random.Range(0, AqeuousFromeDialogue.Length);
                             Debug.Log(AqeuousFromeDialogue[randomizedLine]);
+                            finalDialogueString = AqeuousFromeDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Super Yellow")
                         {
                             int randomizedLine = Random.Range(0, NarcissusBlendDialogue.Length);
                             Debug.Log(NarcissusBlendDialogue[randomizedLine]);
+                            finalDialogueString = NarcissusBlendDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Green")
                         {
                             int randomizedLine = Random.Range(0, FrogificationDialogue.Length);
                             Debug.Log(FrogificationDialogue[randomizedLine]);
+                            finalDialogueString = FrogificationDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Orange")
                         {
                             int randomizedLine = Random.Range(0, FormeOfTheMarionetteDialogue.Length);
                             Debug.Log(FormeOfTheMarionetteDialogue[randomizedLine]);
+                            finalDialogueString = FormeOfTheMarionetteDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Purple")
                         {
                             int randomizedLine = Random.Range(0, PerceptualArrayDialogue.Length);
                             Debug.Log(PerceptualArrayDialogue[randomizedLine]);
+                            finalDialogueString = PerceptualArrayDialogue[randomizedLine];
                         }
                     }
                     break;
@@ -304,31 +323,37 @@ public class Customer : MonoBehaviour
                         {
                             int randomizedLine = Random.Range(0, DivineScryerDialogue.Length);
                             Debug.Log(DivineScryerDialogue[randomizedLine]);
+                            finalDialogueString = DivineScryerDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Super Blue")
                         {
                             int randomizedLine = Random.Range(0, PotionOfPremonitionDialogue.Length);
                             Debug.Log(PotionOfPremonitionDialogue[randomizedLine]);
+                            finalDialogueString = PotionOfPremonitionDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Super Yellow")
                         {
                             int randomizedLine = Random.Range(0, FortuitousVisionsDialogue.Length);
                             Debug.Log(FortuitousVisionsDialogue[randomizedLine]);
+                            finalDialogueString = FortuitousVisionsDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Green")
                         {
                             int randomizedLine = Random.Range(0, WoodlandWhispersDialogue.Length);
                             Debug.Log(WoodlandWhispersDialogue[randomizedLine]);
+                            finalDialogueString = WoodlandWhispersDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Orange")
                         {
                             int randomizedLine = Random.Range(0, RetraceMachinationDialogue.Length);
                             Debug.Log(RetraceMachinationDialogue[randomizedLine]);
+                            finalDialogueString = RetraceMachinationDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Purple")
                         {
                             int randomizedLine = Random.Range(0, DeadmansTongueDialogue.Length);
                             Debug.Log(DeadmansTongueDialogue[randomizedLine]);
+                            finalDialogueString = DeadmansTongueDialogue[randomizedLine];
                         }
                     }
                     break;
@@ -338,31 +363,37 @@ public class Customer : MonoBehaviour
                         {
                             int randomizedLine = Random.Range(0, HerculeanSerumDialogue.Length);
                             Debug.Log(HerculeanSerumDialogue[randomizedLine]);
+                            finalDialogueString = HerculeanSerumDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Super Blue")
                         {
                             int randomizedLine = Random.Range(0, KnowledgeMeadDialogue.Length);
                             Debug.Log(KnowledgeMeadDialogue[randomizedLine]);
+                            finalDialogueString = KnowledgeMeadDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Super Yellow")
                         {
                             int randomizedLine = Random.Range(0, PinchOfErosDialogue.Length);
                             Debug.Log(PinchOfErosDialogue[randomizedLine]);
+                            finalDialogueString = PinchOfErosDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Green")
                         {
                             int randomizedLine = Random.Range(0, DomainOfSeclusionDialogue.Length);
                             Debug.Log(DomainOfSeclusionDialogue[randomizedLine]);
+                            finalDialogueString = DomainOfSeclusionDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Orange")
                         {
                             int randomizedLine = Random.Range(0, FeatheredStepsDialogue.Length);
                             Debug.Log(FeatheredStepsDialogue[randomizedLine]);
+                            finalDialogueString = FeatheredStepsDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Purple")
                         {
                             int randomizedLine = Random.Range(0, GazeOfTheOutersideDialogue.Length);
                             Debug.Log(GazeOfTheOutersideDialogue[randomizedLine]);
+                            finalDialogueString = GazeOfTheOutersideDialogue[randomizedLine];
                         }
                     }
                     break;
@@ -372,31 +403,37 @@ public class Customer : MonoBehaviour
                         {
                             int randomizedLine = Random.Range(0, SalamandersBaitDialogue.Length);
                             Debug.Log(SalamandersBaitDialogue[randomizedLine]);
+                            finalDialogueString = SalamandersBaitDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Super Blue")
                         {
                             int randomizedLine = Random.Range(0, RusalkasCallDialogue.Length);
                             Debug.Log(RusalkasCallDialogue[randomizedLine]);
+                            finalDialogueString = RusalkasCallDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Super Yellow")
                         {
                             int randomizedLine = Random.Range(0,ToadstoolEssenceDialogue.Length);
                             Debug.Log(ToadstoolEssenceDialogue[randomizedLine]);
+                            finalDialogueString = ToadstoolEssenceDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Green")
                         {
                             int randomizedLine = Random.Range(0, DryadsOfferingDialogue.Length);
                             Debug.Log(DryadsOfferingDialogue[randomizedLine]);
+                            finalDialogueString = DryadsOfferingDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Orange")
                         {
                             int randomizedLine = Random.Range(0, SoulInstallDialogue.Length);
                             Debug.Log(SoulInstallDialogue[randomizedLine]);
+                            finalDialogueString = SoulInstallDialogue[randomizedLine];
                         }
                         if (MainElement.getName() == "Purple")
                         {
                             int randomizedLine = Random.Range(0, SolomonsBloodDialogue.Length);
                             Debug.Log(SolomonsBloodDialogue[randomizedLine]);
+                            finalDialogueString = SolomonsBloodDialogue[randomizedLine];
                         }
                     }
                     break;
