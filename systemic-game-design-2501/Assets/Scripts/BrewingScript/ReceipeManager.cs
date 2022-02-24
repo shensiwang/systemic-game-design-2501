@@ -12,6 +12,9 @@ public class ReceipeManager : MonoBehaviour
     public Slots baseCraftingSlots;
     public Slots[] subCraftingSlots;
     public Slots completePotionSlot;
+    public Potions[] potionList;
+    public bool[] partMatch;
+    public bool[] partUsed;
 
     public List<Ingredients> ingredientList;
     public string[] receipes;
@@ -19,9 +22,15 @@ public class ReceipeManager : MonoBehaviour
     public string receipeResults;
     public string currentReceipeString;
 
+    private void Start()
+    {
+        partMatch = new bool[3];
+        partUsed = new bool[3];
+    }
+
     public void OnMouseDownIngredient(Ingredients ingredients)
     {
-        if(currentIngredient == null)
+        if (currentIngredient == null)
         {
             currentIngredient = ingredients;
             customCursor.gameObject.SetActive(true);
@@ -67,12 +76,14 @@ public class ReceipeManager : MonoBehaviour
                 nearestSlot.ingredients = currentIngredient;
                 ingredientList[nearestSlot.index] = currentIngredient;
 
-                CheckForCreatedReceipes();
+                if (ingredientList[0] != null && ingredientList[1] != null && ingredientList[2] != null)
+                {
+                    CheckForCreatedReceipes();
+                }
                 currentIngredient = null;
                 Debug.Log(currentReceipeString);
             }
         }
-        Debug.Log(ingredientList[0].ingredientName);
     }
 
     public void CheckForCreatedReceipes()
@@ -83,7 +94,7 @@ public class ReceipeManager : MonoBehaviour
             Debug.Log(ingredients);
             if(ingredients != null)
             {
-                currentReceipeString += ingredients.ingredientName;
+                currentReceipeString += ingredients.ingredientName + " ";
             }
             else
             {
@@ -91,16 +102,51 @@ public class ReceipeManager : MonoBehaviour
             }
         }
 
+        string[] inputParts = currentReceipeString.Split(' ');
         for(int i = 0; i < receipes.Length; i++)
         {
-            if(receipes[i] == currentReceipeString)
+            string[] receipeParts = receipes[i].Split(' ');
+            ResetPartMatch();
+            for (int j = 0; j < receipeParts.Length; j++)
             {
-                Debug.Log(brewingResults[i]);
+                for (int k = 0; k < receipeParts.Length; k++)
+                {
+                    if (receipeParts[j] == inputParts[k] && partUsed[k] == false)
+                    {
+                        Debug.Log(receipeParts[j] + " " + j + "=" + "input part" + k);
+                        partMatch[j] = true;
+                        partUsed[k] = true;
+                        break;
+                    }
+                }
+
+                if(partMatch[j] == false)
+                {
+                    Debug.Log("No matching part for" + receipeResults[i]);
+                    break;
+                }
+            }
+
+            if(partMatch[0] == true && partMatch[1] == true && partMatch[2] == true)
+            {
+                receipeResults = brewingResults[i];
+                Debug.Log(receipeResults);
+                return;
             }
         }
+        Debug.Log( "No brewable potions");
+        return;
     }
 
-    public void ResetPot(Slots slot )
+    public void ResetPartMatch()
+    {
+        for (int i = 0; i < partMatch.Length; i++)
+        {
+            partMatch[i] = false;
+            partUsed[i] = false;
+        }
+    }
+    public void ResetPot()
     {
         for(int i = 0; i < ingredientList.Count; i++)
         {
@@ -112,16 +158,33 @@ public class ReceipeManager : MonoBehaviour
         {
             subCraftingSlots[i].gameObject.SetActive(false);
         }
-        CheckForCreatedReceipes();
+        ResetPartMatch();
+        currentReceipeString = null;
+        //CheckForCreatedReceipes();
         ingredientBlocker.gameObject.SetActive(false);
         Debug.Log("Gone");
     }
 
     public void BrewPotion()
     {
-        completePotionSlot.gameObject.SetActive(true);
-        //Change Sprite
-        //completePotionSlot.GetComponent<Image>().sprite = receipeResults.getCompotent<Image>().sprite;
+        foreach (Potions potion in potionList)
+        {
+            if(potion.name == receipeResults)
+            {
+                Debug.Log("Brew");
+                completePotionSlot.gameObject.SetActive(true);
+                completePotionSlot.GetComponent<Image>().sprite = potion.GetComponent<Image>().sprite;
+                receipeResults = null;
+                ResetPot();
+            }
+            else { Debug.Log("Cannot be brewed!");}
+        }
+    }
+
+    public void SellPotion()
+    {
+        //What happens after the potion is sold
+        completePotionSlot.gameObject.SetActive(false);
     }
 
     public void OnMouseDown(Ingredients ingredients)
