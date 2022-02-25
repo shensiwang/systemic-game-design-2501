@@ -221,8 +221,11 @@ public class LevelScript : MonoBehaviour
                 {
                     StartCoroutine(DelayedDespawn());
                     customersSucceeded += 1;
-                    RepManager.repMaster.IncreaseRep(5); //
-                    
+
+
+                    //add changes to rep or money here//
+                    RepManager.repMaster.IncreaseRep(5); 
+                    //
 
                     completedPotion.potionType = null;
                     completedPotion.potionElement = null;
@@ -237,7 +240,10 @@ public class LevelScript : MonoBehaviour
                 {
                     StartCoroutine(DelayedDespawn());
                     customersFailed += 1;
+
+                    //add changes to rep or money here//
                     RepManager.repMaster.DecreaseRep(RepManager.repMaster.repReducedPercustomer);
+                    //
                     
                     Debug.Log("Wrong Potion");
 
@@ -254,7 +260,10 @@ public class LevelScript : MonoBehaviour
                 {
                     StartCoroutine(DelayedDespawn());
                     customersSucceeded += 1;
-                    RepManager.repMaster.IncreaseRep(5); //
+
+                    //add changes to rep or money here//
+                    RepManager.repMaster.IncreaseRep(5); 
+                    //
                     
 
                     completedPotion.potionType = null;
@@ -270,7 +279,10 @@ public class LevelScript : MonoBehaviour
                 {
                     StartCoroutine(DelayedDespawn());
                     customersFailed += 1;
+
+                    //add changes to rep or money here//
                     RepManager.repMaster.DecreaseRep(RepManager.repMaster.repReducedPercustomer);
+                    //
                     
                     Debug.Log("Wrong Potion");
 
