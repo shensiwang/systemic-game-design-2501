@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8202484375034533643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8202484375034533646}
+  - component: {fileID: 8202484375034533647}
+  - component: {fileID: 8202484375034533640}
+  - component: {fileID: 8202484375034533641}
+  - component: {fileID: 8202484375034533642}
+  m_Layer: 0
+  m_Name: LevelInformation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8202484375034533646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202484375034533643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8202484375034533647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202484375034533643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7011694cf269a3458f39abac5547852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayCount: 1
+  customersSucceeded: 0
+  customersFailed: 0
+  reviewSheet: {fileID: 0}
+  customerPrefab: {fileID: 1405509142087768745, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+  currentCustomer: {fileID: 0}
+  customerSpawnPoint: {fileID: 0}
+  totalCustomersPerDay: 1
+  numberOfCustomersLeftUI: {fileID: 0}
+  reputationUI: {fileID: 0}
+  dayCountUI: {fileID: 0}
+  dialogueUIText: {fileID: 0}
+  reviewSheetRequestSuccess: {fileID: 0}
+--- !u!114 &8202484375034533640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202484375034533643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d98a23889f616447b2abf957c7b2959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyTxt: {fileID: 0}
+--- !u!114 &8202484375034533641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202484375034533643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21aaf531f40f82438ea8591436e6188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reputationInGrade: 
+  maxReputationAmount: 50
+  reputationAmount: 50
+  repReducedPercustomer: 4
+  ARatingAmount: 40
+  BRatingAmount: 20
+  CRatingAmount: 10
+  DRatingAmount: 0
+  patienceReducedOnARating: 6
+  patienceReducedOnBRating: 4
+  patienceReducedOnCRating: 2
+  patienceReducedOnDRating: 0
+  customerPatienceChange: 0
+  customerAmountChangePerRep: 0
+--- !u!114 &8202484375034533642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202484375034533643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b63143eca3a2e95448b742adf6461e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceFluctuation: 0

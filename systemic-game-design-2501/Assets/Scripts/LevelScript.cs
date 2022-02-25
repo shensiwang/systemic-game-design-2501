@@ -6,6 +6,8 @@ using TMPro;
 
 public class LevelScript : MonoBehaviour
 {
+    public Slots completedPotion; //use to check for potion brewed.
+
     public int dayCount = 1;
 
     public int customersSucceeded;
@@ -35,6 +37,7 @@ public class LevelScript : MonoBehaviour
     
 
     private bool customerIsPresent = false; //check whether there is currently a customer
+    private bool currentCustomerServed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +54,7 @@ public class LevelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(customerIsPresent);
+       
         //Debug.Log(currentCustomerScript.finalDialogueString);
 
         numberOfCustomersLeft = totalCustomersPerDay - customersSucceeded - customersFailed;
@@ -67,16 +70,20 @@ public class LevelScript : MonoBehaviour
 
         ///---check for different scenarios like request succeed/fail or patience run out.---///
 
-        if (customerIsPresent == true && currentCustomerScript.CurrentTimer <= 0)//Once the patience runs out
+        if (customerIsPresent == true && currentCustomerServed == false && currentCustomerScript.CurrentTimer <= 0)//Once the patience runs out
         {
             DespawnCustomer();
             customersFailed += 1;
             RepManager.repMaster.DecreaseRep(RepManager.repMaster.repReducedPercustomer); //decrease rep
-            SpawnCustomer(); //only spawns when there is currently no customer & there are still remaining customers
+            StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
+
+            Debug.Log("customer failed due to time");
 
         }
 
     }
+
+    //CUSTOMER SPAWNING AND DESPAWNING//
 
     private void SpawnCustomer() //spawn customer 
     {
@@ -88,6 +95,7 @@ public class LevelScript : MonoBehaviour
             currentCustomerScript = currentCustomer.gameObject.GetComponent<Customer>();
 
             customerIsPresent = true;
+            currentCustomerServed = false;
         }
     }
 
@@ -98,15 +106,46 @@ public class LevelScript : MonoBehaviour
             Destroy(currentCustomer); //or whatever code to remove the customer
             customerIsPresent = false;
         }
-
-        
     }
 
-    //when failed/passed, customers -1
+    IEnumerator DelayedDespawn() //delay added to check for patience first, before despawning it.
+    {
+        if (customerIsPresent == true)
+        {
+            yield return new WaitForSeconds(.1f);
+            Destroy(currentCustomer); //or whatever code to remove the customer
+            customerIsPresent = false;
+        }
+    }
 
+    IEnumerator DelayedSpawn() //delay added to allow for despawning first (since that was delayed, this needs to be delayed too)
+    {
+        yield return new WaitForSeconds(.1f);
 
-    //when succeed RepManager.repMaster.IncreaseRep(10)
-    //when fail RepManager.repMaster.DecreaseRep(10)
+        if (customerIsPresent == false && numberOfCustomersLeft != 0) //make sure there is not currently a customer. make sure no more customers left.
+        {
+            Debug.Log("delyaedspawn");
+
+            currentCustomer = Instantiate(customerPrefab, customerSpawnPoint);
+            currentCustomerScript = currentCustomer.gameObject.GetComponent<Customer>();
+
+            customerIsPresent = true;
+            currentCustomerServed = false;
+        }
+    }
+
+    //CUSTOMER SPAWN AMOUNT//
+
+    private void CalculateTotalCustomersPerDay()
+    {
+        int random = Random.Range(2, 6);
+        int amountChange = RepManager.repMaster.CustomerAmountChangedFromRep();
+
+        //Debug.Log(amountChange);
+        totalCustomersPerDay = random + amountChange;
+    }
+
+    //REVIEW SHEET//
 
     private void ReviewSheet()
     {
@@ -120,22 +159,130 @@ public class LevelScript : MonoBehaviour
         }
     }
 
-    private void CalculateTotalCustomersPerDay()
-    {
-        int random = Random.Range(2, 6);
-        int amountChange = RepManager.repMaster.CustomerAmountChangedFromRep();
-
-        //Debug.Log(amountChange);
-        totalCustomersPerDay = random + amountChange;
-    }
-
     private void ReviewSheetPerformance()
     {
-        
+
     }
+
+    
+
+    
+
+    //DISPLAYING DIALOGUE//
 
     private void DisplayDialogue()
     {
         dialogueUIText.text = currentCustomerScript.finalDialogueString;
+    }
+
+
+
+    //SELLING AND CHECKING FOR CORRECT POTION//
+    /// <summary>
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    
+    public bool CheckPotionType() //if same request base type is same as completedpotion base type, return true.
+    {
+        if(currentCustomerScript.BaseNeeded.getType() == completedPotion.potionType)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CheckPotionElement() //if same request element is same as completedpotion element, return true.
+    {
+        if (currentCustomerScript.MainElement.getName() == completedPotion.potionElement)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void SellPotion()
+    {
+        currentCustomerServed = true;
+
+        if (customerIsPresent == true)
+        {
+            if (currentCustomerScript.Fickleness.IsFickle())
+            {
+                if (CheckPotionElement() == true && CheckPotionType() == true)  //correct potion
+                {
+                    StartCoroutine(DelayedDespawn());
+                    customersSucceeded += 1;
+                    RepManager.repMaster.IncreaseRep(5); //
+                    
+
+                    completedPotion.potionType = null;
+                    completedPotion.potionElement = null;
+                    completedPotion.gameObject.SetActive(false);
+
+                    Debug.Log("Correct Potion");
+
+                     StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
+
+                }
+                else
+                {
+                    StartCoroutine(DelayedDespawn());
+                    customersFailed += 1;
+                    RepManager.repMaster.DecreaseRep(RepManager.repMaster.repReducedPercustomer);
+                    
+                    Debug.Log("Wrong Potion");
+
+                    completedPotion.potionType = null;
+                    completedPotion.potionElement = null;
+                    completedPotion.gameObject.SetActive(false);
+
+                    StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
+                }
+            }
+            else
+            {
+                if (CheckPotionType() == true)  //correct potion
+                {
+                    StartCoroutine(DelayedDespawn());
+                    customersSucceeded += 1;
+                    RepManager.repMaster.IncreaseRep(5); //
+                    
+
+                    completedPotion.potionType = null;
+                    completedPotion.potionElement = null;
+                    completedPotion.gameObject.SetActive(false);
+
+                    Debug.Log("Correct Potion");
+
+                    StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
+
+                }
+                else
+                {
+                    StartCoroutine(DelayedDespawn());
+                    customersFailed += 1;
+                    RepManager.repMaster.DecreaseRep(RepManager.repMaster.repReducedPercustomer);
+                    
+                    Debug.Log("Wrong Potion");
+
+                    completedPotion.potionType = null;
+                    completedPotion.potionElement = null;
+                    completedPotion.gameObject.SetActive(false);
+
+                    StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
+                }
+            }
+            
+            
+        }
     }
 }

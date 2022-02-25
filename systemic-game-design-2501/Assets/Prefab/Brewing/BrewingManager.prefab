@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4192911993530328647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4192911993530328640}
+  - component: {fileID: 4192911993530328641}
+  m_Layer: 0
+  m_Name: BrewingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4192911993530328640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4192911993530328647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1113.4507, y: 651.73627, z: -145.83047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4192911993530328641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4192911993530328647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e86836b812250f48907c00e3e23ed70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 0}
+  ingredientBlocker: {fileID: 0}
+  baseCraftingSlots: {fileID: 0}
+  subCraftingSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  completePotionSlot: {fileID: 0}
+  potionList:
+  - {fileID: 2643980062547453992, guid: bedd7404b87f0c04abbdde96f8c5b0a8, type: 3}
+  - {fileID: 1300201021728076347, guid: 97ca04daca2a68240856804e749e6feb, type: 3}
+  - {fileID: 2643980062547453992, guid: bedd7404b87f0c04abbdde96f8c5b0a8, type: 3}
+  - {fileID: 2643980062547453992, guid: 156e43da84302b74aa44ae945861daee, type: 3}
+  - {fileID: 2643980062547453992, guid: 3377e8de3d51f2e4fad8aa8b1b480022, type: 3}
+  - {fileID: 2643980062547453992, guid: 4da28aa929b885b44a0e1926e8c4aa70, type: 3}
+  - {fileID: 2643980062547453992, guid: 212828d1649dbdd44b7feb46e904c3da, type: 3}
+  - {fileID: 2643980062547453992, guid: 0d8eaeda9e1ee6f4d950de2e887664e6, type: 3}
+  - {fileID: 1300201021728076347, guid: 8e5b989cda657ef4a8fe6d0a9b639e46, type: 3}
+  - {fileID: 2643980062547453992, guid: b39ccb72dba63314e8589c65bd267f4e, type: 3}
+  - {fileID: 2643980062547453992, guid: f1a03777fc3c67f468197cec17594f94, type: 3}
+  - {fileID: 2643980062547453992, guid: e647482993065a44a8a3cf5d4e746f6d, type: 3}
+  - {fileID: 2643980062547453992, guid: 4b0c9d14850e5df4bab271a093fb137a, type: 3}
+  - {fileID: 2643980062547453992, guid: 2bafe05347376e24fbd45d633d404eb6, type: 3}
+  - {fileID: 1300201021728076347, guid: 36ccbcc3c7795af45b57b872746b8535, type: 3}
+  - {fileID: 2643980062547453992, guid: 5255f3233b9a81e4ab7b6b97eba13761, type: 3}
+  - {fileID: 2643980062547453992, guid: bf5fe6eeabc37b34ea988c4a62a25ea9, type: 3}
+  - {fileID: 2643980062547453992, guid: e5ba85772aacd8a4d9ea2f2c342e8f7f, type: 3}
+  - {fileID: 2643980062547453992, guid: 37e4736156a03984185eec2c81e73c1b, type: 3}
+  - {fileID: 2643980062547453992, guid: cbf044b018bb3ad4ea38eafd49d8e486, type: 3}
+  - {fileID: 1300201021728076347, guid: 66597de1597d44d419eec66a394ec1ea, type: 3}
+  - {fileID: 2643980062547453992, guid: e3aff39fa72f60c4d909c4180f205cf2, type: 3}
+  - {fileID: 2643980062547453992, guid: 39a40c1589be6a64a9424d459a40cc1a, type: 3}
+  - {fileID: 2643980062547453992, guid: c68d44235dc5a4e49b0d966ae8142605, type: 3}
+  - {fileID: 2643980062547453992, guid: d41af924c95aa344faed6f273dfd8842, type: 3}
+  - {fileID: 2643980062547453992, guid: bf29618dc30fdcf48aff3aa472206687, type: 3}
+  - {fileID: 1300201021728076347, guid: 7c83a2f8ca59d7347bb2df8c3c75107e, type: 3}
+  - {fileID: 2643980062547453992, guid: 6399b62ed4c308d48aa850be553aa3c8, type: 3}
+  - {fileID: 2643980062547453992, guid: 4ab91e8fc65a1e947ac4516ee045a21f, type: 3}
+  - {fileID: 2643980062547453992, guid: e49a82fb1aeb5104ca145cdcac84a63a, type: 3}
+  partMatch: 
+  partUsed: 
+  ingredientList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  receipes:
+  - Mandrake Red Blue
+  - Mandrake Yellow Red
+  - Mandrake Blue Yellow
+  - Mandrake Red Red
+  - Mandrake Yellow Yellow
+  - Mandrake Blue Blue
+  - Wolfsbane Blue Red
+  - Wolfsbane Yellow Red
+  - Wolfsbane Blue Yellow
+  - Wolfsbane Red Red
+  - Wolfsbane Blue Blue
+  - Wolfsbane Yellow Yellow
+  - Deadman'sDust Blue Red
+  - Deadman'sDust Yellow Red
+  - Deadman'sDust Blue Yellow
+  - Deadman'sDust Red Red
+  - Deadman'sDust Yellow Yellow
+  - Deadman'sDust Blue Blue
+  - Henbane Blue Red
+  - Henbane Yellow Red
+  - Henbane Blue Yellow
+  - Henbane Red Red
+  - Henbane Yellow Yellow
+  - Henbane Blue Blue
+  - RatGrass Blue Red
+  - RatGrass Yellow Red
+  - RatGrass Blue Yellow
+  - RatGrass Red Red
+  - RatGrass Yellow Yellow
+  - RatGrass Blue Blue
+  brewingResults:
+  - Gaze of the Outerside
+  - Feathered Steps
+  - Domain of Seclusion
+  - Herculean Serum
+  - Pinch of Eros
+  - Knowledge Mead
+  - Perceptual Array
+  - Forme of the Marionette
+  - Frogification
+  - Dragonic Shell
+  - Aqeous Form
+  - Narcissus Blend
+  - Deadman's Tongue
+  - Retrace Machination
+  - Woodland Whispers
+  - Divine Scryer
+  - Fortuitous Visions
+  - Potion of Premonition
+  - Calm of the Dead
+  - Auto-Repair
+  - Verdant Rejuvenation
+  - War Surge
+  - Touch of Wonderment
+  - Wizard's Brew
+  - Solomon's Blood
+  - Soul Install
+  - Dyrad's Offering
+  - Salamander's Bait
+  - Toadstool Essence
+  - Rusalka's Call
+  receipeResults: 
+  currentReceipeString: 

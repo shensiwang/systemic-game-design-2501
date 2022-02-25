@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ReceipeManager : MonoBehaviour
 {
+    public LevelScript levelScript;
+
     private Ingredients currentIngredient;
     public Image customCursor;
     public Image ingredientBlocker;
@@ -194,9 +196,14 @@ public class ReceipeManager : MonoBehaviour
     public void SellPotion()
     {
         //What happens after the potion is sold
+        levelScript.SellPotion(); //use the function found in levelscript (since it has info on customer.)
+
+        /*
         completePotionSlot.potionType = null;
         completePotionSlot.potionElement = null;
-        completePotionSlot.gameObject.SetActive(false);
+        completePotionSlot.gameObject.SetActive(false);*/ //shifted to levelscript.
+
+        
     }
 
     public void OnMouseDown(Ingredients ingredients)
