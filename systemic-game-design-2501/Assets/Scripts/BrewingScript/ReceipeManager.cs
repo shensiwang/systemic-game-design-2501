@@ -122,7 +122,7 @@ public class ReceipeManager : MonoBehaviour
 
                 if(partMatch[j] == false)
                 {
-                    Debug.Log("No matching part for" + receipeResults[i]);
+                    //Debug.Log("No matching part for" + receipeResults[i]);
                     break;
                 }
             }
@@ -165,6 +165,14 @@ public class ReceipeManager : MonoBehaviour
         Debug.Log("Gone");
     }
 
+    public void ClearTable()
+    {
+        completePotionSlot.potionType = null;
+        completePotionSlot.potionElement = null;
+        completePotionSlot.gameObject.SetActive(false);
+        ResetPot();
+    }
+
     public void BrewPotion()
     {
         foreach (Potions potion in potionList)
@@ -174,6 +182,8 @@ public class ReceipeManager : MonoBehaviour
                 Debug.Log("Brew");
                 completePotionSlot.gameObject.SetActive(true);
                 completePotionSlot.GetComponent<Image>().sprite = potion.GetComponent<Image>().sprite;
+                completePotionSlot.potionType = potion.potionType;
+                completePotionSlot.potionElement = potion.potionElement;
                 receipeResults = null;
                 ResetPot();
             }
@@ -184,6 +194,8 @@ public class ReceipeManager : MonoBehaviour
     public void SellPotion()
     {
         //What happens after the potion is sold
+        completePotionSlot.potionType = null;
+        completePotionSlot.potionElement = null;
         completePotionSlot.gameObject.SetActive(false);
     }
 
