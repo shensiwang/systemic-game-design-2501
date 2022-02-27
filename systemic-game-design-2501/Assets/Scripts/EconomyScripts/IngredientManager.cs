@@ -11,11 +11,19 @@ public class IngredientManager : MonoBehaviour
     public Ingredients baseHenbane;
     public Ingredients baseRatGrass;
 
+    public Ingredients secondaryRed;
+    public Ingredients secondaryYellow;
+    public Ingredients secondaryBlue;
+
     private int usedMandrakeAmt;
     private int usedWolfsbaneAmt;
     private int usedDeadmanDustAmt;
     private int usedHenbaneAmt;
     private int usedRatGrassAmt;
+
+    private int usedRedAmt;
+    private int usedYellowAmt;
+    private int usedBlueAmt;
 
     private float DailySales;
 
@@ -27,7 +35,22 @@ public class IngredientManager : MonoBehaviour
         usedDeadmanDustAmt  = 0;
         usedHenbaneAmt      = 0;
         usedRatGrassAmt     = 0;
+        usedRedAmt          = 0;
+        usedYellowAmt       = 0;
+        usedBlueAmt         = 0;
         DailySales          = 0;
+    }
+
+    public void ResetIngredientsPrice()
+    {
+        baseMandrake.marketPrice    = 5;
+        baseWolfsbane.marketPrice   = 5;
+        baseDeadmanDust.marketPrice = 5;
+        baseHenbane.marketPrice     = 5;
+        baseRatGrass.marketPrice    = 5;
+        secondaryRed.marketPrice    = 5;
+        secondaryYellow.marketPrice = 5;
+        secondaryBlue.marketPrice   = 5;
     }
 
     //============ call UsedIngredient(string ingredientName) to update inventory ingredient num & to track the num of ingredient you used ===============
@@ -36,50 +59,77 @@ public class IngredientManager : MonoBehaviour
         switch (ingredientName)
         {
             case "Mandrake":
-                if (baseMandrake.GetCurrentIngredient() > 0)
+                if (baseMandrake.GetCurrentIngredientQuantity() > 0)
                 {
                     usedMandrakeAmt++;
-                    baseMandrake.currentIngredient--;
+                    baseMandrake.currentIngredientQuantity--;
                 }
                 else { Debug.Log("No more Mandrake"); }
                 break;
 
             case "Wolfsbane":
-                if (baseWolfsbane.GetCurrentIngredient() > 0)
+                if (baseWolfsbane.GetCurrentIngredientQuantity() > 0)
                 {
                     usedWolfsbaneAmt++;
-                    baseWolfsbane.currentIngredient--;
+                    baseWolfsbane.currentIngredientQuantity--;
                 }
                 else { Debug.Log("No more Wolfsbane"); }
                 break;
 
             case "DeadmanDust":
-                if (baseDeadmanDust.GetCurrentIngredient() > 0)
+                if (baseDeadmanDust.GetCurrentIngredientQuantity() > 0)
                 {
                     usedDeadmanDustAmt++;
-                    baseDeadmanDust.currentIngredient--;
+                    baseDeadmanDust.currentIngredientQuantity--;
                 }
                 else { Debug.Log("No more DeadmanDust"); }
                 break;
 
             case "Henbane":
-                if (baseHenbane.GetCurrentIngredient() > 0)
+                if (baseHenbane.GetCurrentIngredientQuantity() > 0)
                 {
                     usedHenbaneAmt++;
-                    baseHenbane.currentIngredient--;
+                    baseHenbane.currentIngredientQuantity--;
                 }
                 else { Debug.Log("No more Henbane"); }
                 break;
 
             case "RatGrass":
-                if (baseRatGrass.GetCurrentIngredient() > 0)
+                if (baseRatGrass.GetCurrentIngredientQuantity() > 0)
                 {
                     usedRatGrassAmt++;
-                    baseRatGrass.currentIngredient--;
+                    baseRatGrass.currentIngredientQuantity--;
                 }
                 else { Debug.Log("No more RatGrass"); }
                 break;
-            
+
+            case "Red":
+                if (secondaryRed.GetCurrentIngredientQuantity() > 0)
+                {
+                    usedRedAmt++;
+                    secondaryRed.currentIngredientQuantity--;
+                }
+                else { Debug.Log("No more RatGrass"); }
+                break;
+
+            case "Yellow":
+                if (secondaryYellow.GetCurrentIngredientQuantity() > 0)
+                {
+                    usedYellowAmt++;
+                    secondaryYellow.currentIngredientQuantity--;
+                }
+                else { Debug.Log("No more RatGrass"); }
+                break;
+
+            case "Blue":
+                if (secondaryBlue.GetCurrentIngredientQuantity() > 0)
+                {
+                    usedBlueAmt++;
+                    secondaryBlue.currentIngredientQuantity--;
+                }
+                else { Debug.Log("No more RatGrass"); }
+                break;
+
             default:
                 Debug.Log("has no such ingredient name, check Ingredient Manager switch case ");
                 break;

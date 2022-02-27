@@ -13,16 +13,26 @@ public class PriceMaster : MonoBehaviour
     List<int> FiveBaseIngredients = new List<int>();
 
 
+
+
     private void Awake()
     {
-        InitiateFiveIngredients();
-    }
-    private void Start()
-    {
-        Get3RandomeIngredients(out ingredient1TEST, out ingredient2TEST, out ingredient3TEST);
-        Debug.Log("3 random number generated: " + ingredient1TEST + "," + ingredient2TEST + ", " + ingredient3TEST);
+        //set all value here:
+        priceFluctuation = 5;
+
     }
 
+
+
+
+    //=======HOW TO USE InitiateFiveIngredients()=======
+    // Call this every day morning -> restore List<>
+    // Each num represent different base:
+    //1: Mandrake
+    //2: Wolfsbane
+    //3: Deadman'sDust
+    //4: Henbane
+    //5: RatGrass
     public void InitiateFiveIngredients()
     {
         FiveBaseIngredients.Add(1);
@@ -31,6 +41,14 @@ public class PriceMaster : MonoBehaviour
         FiveBaseIngredients.Add(4);
         FiveBaseIngredients.Add(5);
     }
+
+
+
+
+    //=======HOW TO USE Get3RandomeIngredients(out 1, out 2, out 3)=======
+    // Call this every day morning -> regenerate 3 random ingredients
+    // step 1: Here randomly generate 3 ingredients
+    // step 2: Need to check those 3 out numbers. if(out 1 = 1) {Mandrake's price += priceFluctuation} ...
     public void Get3RandomeIngredients(out int ingredient01, out int ingredient02, out int ingredient03)
     {
 

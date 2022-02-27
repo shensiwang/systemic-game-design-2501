@@ -24,6 +24,8 @@ public class ReceipeManager : MonoBehaviour
     public string receipeResults;
     public string currentReceipeString;
 
+    public IngredientManager ingredientManagerRef;
+
     private void Start()
     {
         partMatch = new bool[3];
@@ -187,6 +189,13 @@ public class ReceipeManager : MonoBehaviour
                 completePotionSlot.potionType = potion.potionType;
                 completePotionSlot.potionElement = potion.potionElement;
                 receipeResults = null;
+
+                for (int i = 0; i < ingredientList.Count; i++) // before reset the pot, record the ingredient amount you used to brew potion
+                {
+                    ingredientManagerRef.UsedIngredient(ingredientList[i].ingredientName);
+                    Debug.Log("Brew success! Ingredient amount have recorded ");
+                }
+                
                 ResetPot();
             }
             else { Debug.Log("Cannot be brewed!");}

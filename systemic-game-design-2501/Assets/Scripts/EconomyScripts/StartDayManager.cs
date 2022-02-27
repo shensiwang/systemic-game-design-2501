@@ -5,13 +5,105 @@ using UnityEngine;
 public class StartDayManager : MonoBehaviour
 {
     public PriceMaster priceMasterRef;
-    private int ingredient1TEST, ingredient2TEST, ingredient3TEST;
+    public IngredientManager ingredientManagerRef;
+
+
+    private int ingredient1, ingredient2, ingredient3;
+
+
+    //=======HOW TO USE CallDayMorning()=======
+    // put everthing you need to reset for each day. eg: customer counter, ingredient price ...
+    public void CallDayMorning()
+    {
+        ingredientManagerRef.ResetIngredientsAmt();
+        ingredientManagerRef.ResetIngredientsPrice();
+        ProduceRamdomSellingPrice();
+        BaseIngredientPriceFluctuation();
+    }
 
 
     public void ProduceRamdomSellingPrice()
     {
-        priceMasterRef.Get3RandomeIngredients(out ingredient1TEST, out ingredient2TEST, out ingredient3TEST);
-
-        
+        priceMasterRef.InitiateFiveIngredients();
+        priceMasterRef.Get3RandomeIngredients(out ingredient1, out ingredient2, out ingredient3);
+        Debug.Log("3 random number generated: " + ingredient1 + "," + ingredient2 + ", " + ingredient3);
     }
+
+    public void BaseIngredientPriceFluctuation()
+    {
+        switch (ingredient1)
+        {
+            case 1:
+                ingredientManagerRef.baseMandrake.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 2:
+                ingredientManagerRef.baseWolfsbane.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 3:
+                ingredientManagerRef.baseDeadmanDust.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 4:
+                ingredientManagerRef.baseHenbane.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 5:
+                ingredientManagerRef.baseRatGrass.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+        }
+
+        switch (ingredient2)
+        {
+            case 1:
+                ingredientManagerRef.baseMandrake.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 2:
+                ingredientManagerRef.baseWolfsbane.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 3:
+                ingredientManagerRef.baseDeadmanDust.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 4:
+                ingredientManagerRef.baseHenbane.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 5:
+                ingredientManagerRef.baseRatGrass.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+        }
+
+        switch (ingredient3)
+        {
+            case 1:
+                ingredientManagerRef.baseMandrake.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 2:
+                ingredientManagerRef.baseWolfsbane.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 3:
+                ingredientManagerRef.baseDeadmanDust.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 4:
+                ingredientManagerRef.baseHenbane.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+
+            case 5:
+                ingredientManagerRef.baseRatGrass.marketPrice += priceMasterRef.priceFluctuation;
+                break;
+        }
+
+        Debug.Log("new 5 ingredient price: baseMandrake: " + ingredientManagerRef.baseMandrake.marketPrice + ", baseWolfsbane: " + ingredientManagerRef.baseWolfsbane.marketPrice + ", baseDeadmanDust: " + ingredientManagerRef.baseDeadmanDust.marketPrice + ", baseHenbane: " + ingredientManagerRef.baseHenbane.marketPrice + "，baseRatGrass: " + ingredientManagerRef.baseRatGrass.marketPrice);
+
+    }
+
+
+    
 }

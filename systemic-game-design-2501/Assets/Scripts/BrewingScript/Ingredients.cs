@@ -9,7 +9,7 @@ public class Ingredients : MonoBehaviour
 
     //============== Economy ============
     [SerializeField]
-    public int currentIngredient;
+    public int currentIngredientQuantity;
     public float sellPrice;
     public float marketPrice;
 
@@ -19,9 +19,9 @@ public class Ingredients : MonoBehaviour
         ingredientName = gameObject.name;
     }
 
-    public int GetCurrentIngredient()
+    public int GetCurrentIngredientQuantity()
     {
-        return currentIngredient;
+        return currentIngredientQuantity;
     }
 
     public float GetSellPrice()
