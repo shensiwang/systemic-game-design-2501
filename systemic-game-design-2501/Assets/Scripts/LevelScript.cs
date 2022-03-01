@@ -13,8 +13,8 @@ public class LevelScript : MonoBehaviour
     public int customersSucceeded;
     public int customersFailed;
 
-    public GameObject reviewSheet;
-    
+    //public GameObject reviewSheet;
+    public EndDayManager endDayReport;
 
     public GameObject customerPrefab;
     public GameObject currentCustomer;
@@ -153,9 +153,11 @@ public class LevelScript : MonoBehaviour
         {
             //display reviewsheet
 
-            reviewSheetRequestSuccess.text = "Requests fulfilled: " + customersSucceeded + "/" + totalCustomersPerDay;
+            //reviewSheetRequestSuccess.text = "Requests fulfilled: " + customersSucceeded + "/" + totalCustomersPerDay;
 
-            reviewSheet.SetActive(true);
+            //reviewSheet.SetActive(true);
+
+            endDayReport.CallEndDay();
         }
     }
 
