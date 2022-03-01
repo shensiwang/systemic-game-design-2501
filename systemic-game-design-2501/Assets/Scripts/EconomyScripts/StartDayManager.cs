@@ -34,73 +34,73 @@ public class StartDayManager : MonoBehaviour
         switch (ingredient1)
         {
             case 1:
-                ingredientManagerRef.baseMandrake.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseMandrake.sellPrice = ingredientManagerRef.baseMandrake.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 2:
-                ingredientManagerRef.baseWolfsbane.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseWolfsbane.sellPrice = ingredientManagerRef.baseWolfsbane.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 3:
-                ingredientManagerRef.baseDeadmanDust.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseDeadmanDust.sellPrice = ingredientManagerRef.baseDeadmanDust.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 4:
-                ingredientManagerRef.baseHenbane.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseHenbane.sellPrice = ingredientManagerRef.baseHenbane.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 5:
-                ingredientManagerRef.baseRatGrass.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseRatGrass.sellPrice = ingredientManagerRef.baseRatGrass.marketPrice + priceMasterRef.priceFluctuation;
                 break;
         }
 
         switch (ingredient2)
         {
             case 1:
-                ingredientManagerRef.baseMandrake.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseMandrake.sellPrice = ingredientManagerRef.baseMandrake.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 2:
-                ingredientManagerRef.baseWolfsbane.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseWolfsbane.sellPrice = ingredientManagerRef.baseWolfsbane.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 3:
-                ingredientManagerRef.baseDeadmanDust.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseDeadmanDust.sellPrice = ingredientManagerRef.baseDeadmanDust.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 4:
-                ingredientManagerRef.baseHenbane.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseHenbane.sellPrice = ingredientManagerRef.baseHenbane.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 5:
-                ingredientManagerRef.baseRatGrass.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseRatGrass.sellPrice = ingredientManagerRef.baseRatGrass.marketPrice + priceMasterRef.priceFluctuation;
                 break;
         }
 
         switch (ingredient3)
         {
             case 1:
-                ingredientManagerRef.baseMandrake.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseMandrake.sellPrice = ingredientManagerRef.baseMandrake.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 2:
-                ingredientManagerRef.baseWolfsbane.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseWolfsbane.sellPrice = ingredientManagerRef.baseWolfsbane.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 3:
-                ingredientManagerRef.baseDeadmanDust.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseDeadmanDust.sellPrice = ingredientManagerRef.baseDeadmanDust.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 4:
-                ingredientManagerRef.baseHenbane.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseHenbane.sellPrice = ingredientManagerRef.baseHenbane.marketPrice + priceMasterRef.priceFluctuation;
                 break;
 
             case 5:
-                ingredientManagerRef.baseRatGrass.marketPrice += priceMasterRef.priceFluctuation;
+                ingredientManagerRef.baseRatGrass.sellPrice = ingredientManagerRef.baseRatGrass.marketPrice + priceMasterRef.priceFluctuation;
                 break;
         }
 
-        Debug.Log("new 5 ingredient price: baseMandrake: " + ingredientManagerRef.baseMandrake.marketPrice + ", baseWolfsbane: " + ingredientManagerRef.baseWolfsbane.marketPrice + ", baseDeadmanDust: " + ingredientManagerRef.baseDeadmanDust.marketPrice + ", baseHenbane: " + ingredientManagerRef.baseHenbane.marketPrice + "，baseRatGrass: " + ingredientManagerRef.baseRatGrass.marketPrice);
+        Debug.Log("new 5 ingredient price: baseMandrake: " + ingredientManagerRef.baseMandrake.sellPrice + ", baseWolfsbane: " + ingredientManagerRef.baseWolfsbane.sellPrice + ", baseDeadmanDust: " + ingredientManagerRef.baseDeadmanDust.sellPrice + ", baseHenbane: " + ingredientManagerRef.baseHenbane.sellPrice + "，baseRatGrass: " + ingredientManagerRef.baseRatGrass.sellPrice);
 
     }
 
