@@ -6,15 +6,31 @@ public class StartDayManager : MonoBehaviour
 {
     public PriceMaster priceMasterRef;
     public IngredientManager ingredientManagerRef;
+    public LevelScript levelScriptRef;
+    public EndDayManager endDayManagerRef;
 
 
     private int ingredient1, ingredient2, ingredient3;
 
 
+
+
+
+
     //=======HOW TO USE CallDayMorning()=======
     // put everthing you need to reset for each day. eg: customer counter, ingredient price ...
+
     public void CallDayMorning()
     {
+        //set customer number amount
+        levelScriptRef.CalculateTotalCustomersPerDay();
+        levelScriptRef.numberOfCustomersLeft = levelScriptRef.totalCustomersPerDay;
+        levelScriptRef.SpawnCustomer();
+
+        //set dayEnd variables
+        endDayManagerRef.ResetDayEnded();
+
+        //set all ingredients economy
         ingredientManagerRef.ResetIngredientsAmt();
         ingredientManagerRef.ResetIngredientsPrice();
         ProduceRamdomSellingPrice();

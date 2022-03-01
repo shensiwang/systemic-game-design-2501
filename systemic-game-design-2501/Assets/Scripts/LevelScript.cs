@@ -6,6 +6,8 @@ using TMPro;
 
 public class LevelScript : MonoBehaviour
 {
+    public StartDayManager startDayManagerRef;
+
     public Slots completedPotion; //use to check for potion brewed.
 
     public int dayCount = 1;
@@ -23,7 +25,7 @@ public class LevelScript : MonoBehaviour
     public Transform customerSpawnPoint;
 
     public int totalCustomersPerDay;
-    private int numberOfCustomersLeft;
+    public int numberOfCustomersLeft;
 
     [Header("UI Elements")]
     public TextMeshProUGUI numberOfCustomersLeftUI;
@@ -39,19 +41,13 @@ public class LevelScript : MonoBehaviour
     private bool customerIsPresent = false; //check whether there is currently a customer
     private bool currentCustomerServed = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        CalculateTotalCustomersPerDay();
-        numberOfCustomersLeft = totalCustomersPerDay;
 
-        SpawnCustomer();
-        
-
+        startDayManagerRef.CallDayMorning();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
        
@@ -85,7 +81,7 @@ public class LevelScript : MonoBehaviour
 
     //CUSTOMER SPAWNING AND DESPAWNING//
 
-    private void SpawnCustomer() //spawn customer 
+    public void SpawnCustomer() //spawn customer 
     {
         if(customerIsPresent == false && numberOfCustomersLeft != 1) //make sure there is not currently a customer. make sure no more customers left.
         {
@@ -136,7 +132,7 @@ public class LevelScript : MonoBehaviour
 
     //CUSTOMER SPAWN AMOUNT//
 
-    private void CalculateTotalCustomersPerDay()
+    public void CalculateTotalCustomersPerDay()
     {
         int random = Random.Range(2, 6);
         int amountChange = RepManager.repMaster.CustomerAmountChangedFromRep();
@@ -149,7 +145,7 @@ public class LevelScript : MonoBehaviour
 
     private void ReviewSheet()
     {
-        if(numberOfCustomersLeft == 0)
+        if(numberOfCustomersLeft == 0 && !endDayReport.dayEnded)
         {
             //display reviewsheet
 
@@ -158,6 +154,7 @@ public class LevelScript : MonoBehaviour
             //reviewSheet.SetActive(true);
 
             endDayReport.CallEndDay();
+            endDayReport.dayEnded = true;
         }
     }
 
