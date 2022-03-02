@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &187265441235106207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 187265441235106201}
+  - component: {fileID: 187265441235106206}
+  m_Layer: 0
+  m_Name: CustomerRedux
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &187265441235106201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187265441235106207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 225.6513, y: 173.43059, z: -18.298836}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &187265441235106206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187265441235106207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be3880d26d1e7a46814d84d29523f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Faction: A
+  WinningFaction: A
+  Event: Fire
+  finalDialogueString: 
+  CustomerScript: []
+  NormalEventDialogue:
+  - '"War is coming..."'
+  - '"We need your help to prepare for battle against the enemy!"'
+  - '"Time''s a changing shopkeep. We need to prepare!'
+  A_Win_FireOutbreakEventDialogue:
+  - '"Come on! We are running Betram''s men to the ground! Let''s keep it up!"'
+  - '"I love the smell of Betram boys getting cooked! Let''s celebrate!"'
+  A_Lose_FireOutbreakEventDialogue:
+  - '"Betram boys got us good man! I can still see the smoke from my butt. Quick...'
+  - '"Can''t believe those Betram boys burned our men! We''re gonna need some help
+    man..."'
+  B_Win_FireOutbreakEventDialogue:
+  - '"Those Audrey scum are finally cooked! But let''s turn up the heat!"'
+  - '"We got those Audrey scum dancing with their pants on fire! Ha! Let see if we
+    can roast them even more!'
+  B_Lose_FireOutbreakEventDialogue:
+  - '"Those Audrey scum burnt alot of our men. We could use some help..."'
+  - '"Those pyromanic Audrey scum! I can''t believe they would stoop this low..."'
+  WarSurgeDialogue:
+  - We need to be mentally pumped up for combat!
+  DragonicShellDialogue:
+  - Give us the form of a dragon!
+  DivineScryerDialogue:
+  - Channel the gods!
+  HerculeanSerumDialogue:
+  - We need physical power above all else
+  SalamandersBaitDialogue:
+  - We need to summon something with fire to burn that shiet!
+  WizardsBrewDialogue:
+  - 1
+  AqeuousFromeDialogue:
+  - 2
+  PotionOfPremonitionDialogue:
+  - 3
+  KnowledgeMeadDialogue:
+  - 4
+  RusalkasCallDialogue:
+  - We need a summon that can call upon water!
+  - I need a potion that can evoke a creature of water!
+  TouchOfWondermentDialogue:
+  - a
+  NarcissusBlendDialogue:
+  - b
+  FortuitousVisionsDialogue:
+  - c
+  PinchOfErosDialogue:
+  - d
+  ToadstoolEssenceDialogue:
+  - e
+  VerdantRejuvenationDialogue:
+  - Poi
+  FrogificationDialogue:
+  - Qwe
+  WoodlandWhispersDialogue:
+  - Asd
+  DomainOfSeclusionDialogue:
+  - Lkj
+  DryadsOfferingDialogue:
+  - Zxc
+  AutoRepairDialogue:
+  - 123
+  FormeOfTheMarionetteDialogue:
+  - 321
+  RetraceMachinationDialogue:
+  - 432
+  FeatheredStepsDialogue:
+  - 234
+  SoulInstallDialogue:
+  - 345
+  CalmOfTheDeadDialogue:
+  - JayJay
+  PerceptualArrayDialogue:
+  - The
+  DeadmansTongueDialogue:
+  - Jet
+  GazeOfTheOutersideDialogue:
+  - Plane
+  SolomonsBloodDialogue:
+  - That's Me!
+  PatienceTimer: 0
+  CurrentTimer: 0
+  repPatienceTimerIncrement: 0
+  repReducePerCustomer: 4
+  patienceUI: {fileID: 0}

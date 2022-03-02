@@ -236,7 +236,7 @@ public class Customer : MonoBehaviour
                     SecondElement = new Yellow();
                     break;
             }
-            Debug.Log("This customer wants a " + MainElement.PotionName(BaseNeeded));
+            Debug.Log(BaseNeeded +" and "+ MainElement);
             switch (BaseNeeded.getType())
             {
                 case "Amelioration":

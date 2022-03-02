@@ -204,7 +204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &825729266
 GameObject:
@@ -250,14 +250,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21aaf531f40f82438ea8591436e6188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repTxt: {fileID: 0}
+  reputationInGrade: 
+  maxReputationAmount: 0
   reputationAmount: 0
+  repReducedPercustomer: 0
   ARatingAmount: 0
   BRatingAmount: 0
   CRatingAmount: 0
   DRatingAmount: 0
-  patienceChange: 0
+  patienceReducedOnARating: 0
+  patienceReducedOnBRating: 0
+  patienceReducedOnCRating: 0
+  patienceReducedOnDRating: 0
   customerPatienceChange: 0
+  customerAmountChangePerRep: 0
 --- !u!114 &825729269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +291,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &187265440814908301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 225.6513
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 173.43059
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.298836
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106201, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187265441235106207, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
+      propertyPath: m_Name
+      value: CustomerRedux
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
 --- !u!1001 &1405509141580314560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -295,6 +358,10 @@ PrefabInstance:
     - target: {fileID: 1405509142087768745, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
       propertyPath: m_Name
       value: Customer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405509142087768745, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1405509142087768747, guid: f477391d1d1c9204d95d58273c0ac077, type: 3}
       propertyPath: m_LocalPosition.x
