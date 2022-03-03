@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BaseIngredient
   - SubIngredient
+  - Customer
   layers:
   - Default
   - TransparentFX
