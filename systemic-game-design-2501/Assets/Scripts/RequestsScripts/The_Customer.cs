@@ -338,6 +338,7 @@ public class The_Customer : MonoBehaviour
 
         }
 
+        //Determines Final Sentence
         switch (BaseNeeded.getType())
         {
             case "Amelioration":
