@@ -53,80 +53,97 @@ MonoBehaviour:
   - '"We need your help to prepare for battle against the enemy!"'
   - '"Time''s a changing shopkeep. We need to prepare!'
   A_Win_FireOutbreakEventDialogue:
-  - '"Come on! We are running Betram''s men to the ground! Let''s keep it up!"'
-  - '"I love the smell of Betram boys getting cooked! Let''s celebrate!"'
+  - Come on! We are running Betram's men to the ground! Let's keep it up!
+  - I love the smell of Betram boys getting cooked! Let's celebrate!
   A_Lose_FireOutbreakEventDialogue:
-  - '"Betram boys got us good man! I can still see the smoke from my butt. Quick...'
-  - '"Can''t believe those Betram boys burned our men! We''re gonna need some help
-    man..."'
+  - Betram boys got us good man! I can still see the smoke from my butt. Quick...
+  - Can't believe those Betram boys burned our men! We're gonna need some help man...
   B_Win_FireOutbreakEventDialogue:
-  - '"Those Audrey scum are finally cooked! But let''s turn up the heat!"'
-  - '"We got those Audrey scum dancing with their pants on fire! Ha! Let see if we
-    can roast them even more!'
+  - Those Audrey scum are finally cooked! But let's turn up the heat!
+  - We got those Audrey scum dancing with their pants on fire! Ha! Let see if we
+    can roast them even more!
   B_Lose_FireOutbreakEventDialogue:
-  - '"Those Audrey scum burnt alot of our men. We could use some help..."'
-  - '"Those pyromanic Audrey scum! I can''t believe they would stoop this low..."'
+  - Those Audrey scum burnt alot of our men. We could use some help...
+  - Those pyromanic Audrey scum! I can't believe they would stoop this low...
   WarSurgeDialogue:
-  - We need to be mentally pumped up for combat!
+  - You've heard stories of the beserkers from the Nordic traders. We need something
+    that can inherit their warrior's passion.
   DragonicShellDialogue:
-  - Give us the form of a dragon!
+  - Hey owner, do you a transformation potion?  Something that can turn me into a
+    powerful beast.
   DivineScryerDialogue:
-  - Channel the gods!
+  - Potionmaker, we require some divine knowledge! Perhaps the gods may advise us
+    on our next step.
   HerculeanSerumDialogue:
-  - We need physical power above all else
+  - We need great power to overcome our foes! Deliver us the potion soon.
   SalamandersBaitDialogue:
-  - We need to summon something with fire to burn that shiet!
+  - 'We need to summon a powerful spirit. Something that can incinerate things. '
   WizardsBrewDialogue:
-  - 1
+  - Potiomaster! Our clan's magus requires something to replenish their mana for
+    the task at hand.
   AqeuousFromeDialogue:
-  - 2
+  - Hey there, I need something that can make me extremely flexible for an upcoming
+    task. You know that saying "Be like water"...
   PotionOfPremonitionDialogue:
-  - 3
+  - 'Please give us a potion that grants us knowledge of the near future.  '
   KnowledgeMeadDialogue:
-  - 4
+  - Potionmaster! I need something that can make me smarter.
   RusalkasCallDialogue:
-  - We need a summon that can call upon water!
+  - We need a summon that can call upon vast amount of water!
   - I need a potion that can evoke a creature of water!
   TouchOfWondermentDialogue:
-  - a
+  - I need something that helps spruce up the mood. Perhaps you have the right potion?
   NarcissusBlendDialogue:
-  - b
+  - We need a transformation potion that someone the star of the next theatre!
   FortuitousVisionsDialogue:
-  - c
+  - One can never have too much luck. I wonder if there's a potion that allows one
+    to predict luck?
   PinchOfErosDialogue:
-  - d
+  - The season of love is arriving. I need you to brew something for the family,
+    something that gets people into the "Groove".
   ToadstoolEssenceDialogue:
-  - e
+  - 'The family require the help of a summon. Perhaps something that can perk us
+    up?
+
+'
   VerdantRejuvenationDialogue:
-  - Poi
+  - I heard that there is a potion that aids in farming. We need some of those for
+    our fields.
   FrogificationDialogue:
-  - Qwe
+  - I want a potion that can turn someone into a croacker. Don't ask any questions,
+    just have my order ready.
   WoodlandWhispersDialogue:
-  - Asd
+  - 'I want a potion that lets me understand the tongue of the trees. '
   DomainOfSeclusionDialogue:
-  - Lkj
+  - We need a potion that can give some mental solitude.
   DryadsOfferingDialogue:
-  - Zxc
+  - I need a potion that can summon the great nature spirits.
   AutoRepairDialogue:
-  - 123
+  - Potionmaker, we require something that is able to fix inanimate structures. Perhaps
+    you can cook something up.
   FormeOfTheMarionetteDialogue:
-  - 321
+  - 'Do you have a potion that turns someone into a erm... a puppet. '
   RetraceMachinationDialogue:
-  - 432
+  - We need to know where this object has been and who has been in contact with it.
+    Hurry the order!
   FeatheredStepsDialogue:
-  - 234
+  - 'Potionmaker, we require something that makes our feet as light as the air. '
   SoulInstallDialogue:
-  - 345
+  - Our mages require a potoin that is able to breathe life into the inanimate. No,
+    are not making a golem. After all its illegal to owe one.
   CalmOfTheDeadDialogue:
-  - JayJay
+  - We need something that can calm the restless ones.
   PerceptualArrayDialogue:
-  - The
+  - Do you have something that hides the identity of someone?
   DeadmansTongueDialogue:
-  - Jet
+  - Potionmaker, we require to commute with the dead. I hear that you are capable
+    of producing such a concotion.
   GazeOfTheOutersideDialogue:
-  - Plane
+  - Potionmaster we need a potion that allows one foresight of the great unknown.
+    Some calming herbs to go with it.
   SolomonsBloodDialogue:
-  - That's Me!
+  - 'Tonight is the devil''s night. We require a medium capable of bringing forth
+    a great being of darkness. '
   PatienceTimer: 0
   CurrentTimer: 0
   repPatienceTimerIncrement: 0

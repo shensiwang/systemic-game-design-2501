@@ -13,7 +13,6 @@ public class Ingredients : MonoBehaviour
     public float sellPrice;
     public float marketPrice;
 
-
     private void Awake()
     {
         ingredientName = gameObject.name;

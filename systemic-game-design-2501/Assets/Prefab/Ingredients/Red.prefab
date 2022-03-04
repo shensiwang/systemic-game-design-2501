@@ -90,9 +90,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientName: Red
-  currentIngredient: 0
+  currentIngredientQuantity: 0
   sellPrice: 0
   marketPrice: 0
+  subIngredientType: 1
 --- !u!114 &5031207968308527254
 MonoBehaviour:
   m_ObjectHideFlags: 0
