@@ -203,30 +203,30 @@ public class The_Customer : MonoBehaviour
 
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
 
-                        if(EventSpecificPotionRandomizer==0)
+                        if(EventSpecificPotionRandomizer==0) //Draconic Shell
                         {
-                            BaseNeeded = new Emanation();
-                            MainElement = new Blue();
+                            BaseNeeded = new Mutation();
+                            MainElement = new Red();
                             FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithBlue();
-                            SecondElement = new Blue();
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
                             Debug.Log(MainElement);
                         }
-                        else if(EventSpecificPotionRandomizer == 1)
-                        {
-                            BaseNeeded = new Evocation();
-                            MainElement = new Blue();
-                            FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithBlue();
-                            SecondElement = new Blue();
-                        }
-                        else
+                        else if(EventSpecificPotionRandomizer == 1)//Salamander Bait
                         {
                             BaseNeeded = new Evocation();
                             MainElement = new Red();
                             FirstElement = MainElement;
                             MainElement = MainElement.AddedWithRed();
                             SecondElement = new Red();
+                        }
+                        else
+                        {
+                            BaseNeeded = new Amelioration();//Touch Of Wonderment
+                            MainElement = new Yellow();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
                         }
                       
                     }
@@ -237,29 +237,29 @@ public class The_Customer : MonoBehaviour
 
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
 
-                        if (EventSpecificPotionRandomizer == 0)
+                        if (EventSpecificPotionRandomizer == 0)//Verdant Rejuvination
                         {
-                            BaseNeeded = new Emanation();
-                            MainElement = new Red();
+                            BaseNeeded = new Amelioration();
+                            MainElement = new Blue();
                             FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithBlue();
-                            SecondElement = new Blue();
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
                         }
-                        else if (EventSpecificPotionRandomizer == 1)
-                        {
-                            BaseNeeded = new Evocation();
-                            MainElement = new Red();
-                            FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithRed();
-                            SecondElement = new Blue();
-                        }
-                        else
+                        else if (EventSpecificPotionRandomizer == 1)//Auto-Repair
                         {
                             BaseNeeded = new Amelioration();
                             MainElement = new Red();
                             FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithRed();
-                            SecondElement = new Red();
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
+                        }
+                        else
+                        {
+                            BaseNeeded = new Haruspical(); //Deadman's Tongue
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
                         }
                     }
                     else
@@ -275,15 +275,7 @@ public class The_Customer : MonoBehaviour
                         CustomerScript.Add(A_Lose_FireOutbreakEventDialogue[EventDialogueRandomizer]);
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
 
-                        if (EventSpecificPotionRandomizer == 0)
-                        {
-                            BaseNeeded = new Emanation();
-                            MainElement = new Blue();
-                            FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithYellow();
-                            SecondElement = new Yellow();
-                        }
-                        else if (EventSpecificPotionRandomizer == 1)
+                        if (EventSpecificPotionRandomizer == 0) //Salamander's Bait
                         {
                             BaseNeeded = new Evocation();
                             MainElement = new Red();
@@ -291,13 +283,21 @@ public class The_Customer : MonoBehaviour
                             MainElement = MainElement.AddedWithRed();
                             SecondElement = new Red();
                         }
-                        else
+                        else if (EventSpecificPotionRandomizer == 1)//Wizard's Brew
                         {
-                            BaseNeeded = new Evocation();
-                            MainElement = new Yellow();
+                            BaseNeeded = new Amelioration();
+                            MainElement = new Blue();
                             FirstElement = MainElement;
                             MainElement = MainElement.AddedWithBlue();
                             SecondElement = new Blue();
+                        }
+                        else
+                        {
+                            BaseNeeded = new Emanation();//War Surge
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
                         }
                     }
                     else if (Faction == "B")
@@ -306,26 +306,26 @@ public class The_Customer : MonoBehaviour
                         CustomerScript.Add(B_Win_FireOutbreakEventDialogue[EventDialogueRandomizer]);
 
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
-                        if (EventSpecificPotionRandomizer == 0)
+                        if (EventSpecificPotionRandomizer == 0)//Fortuitous Visions
                         {
-                            BaseNeeded = new Amelioration();
-                            MainElement = new Red();
+                            BaseNeeded = new Haruspical();
+                            MainElement = new Yellow();
                             FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithRed();
-                            SecondElement = new Red();
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
                         }
-                        else if (EventSpecificPotionRandomizer == 1)
+                        else if (EventSpecificPotionRandomizer == 1) // Perceptual Array
                         {
                             BaseNeeded = new Mutation();
                             MainElement = new Red();
                             FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithRed();
-                            SecondElement = new Red();
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
                         }
                         else
                         {
-                            BaseNeeded = new Evocation();
-                            MainElement = new Red();
+                            BaseNeeded = new Haruspical();//Potion of Premonition
+                            MainElement = new Blue();
                             FirstElement = MainElement;
                             MainElement = MainElement.AddedWithBlue();
                             SecondElement = new Blue();

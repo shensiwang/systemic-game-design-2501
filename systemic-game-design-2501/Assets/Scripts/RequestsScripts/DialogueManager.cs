@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
     private The_Customer CurrentCustomer;
-    public Text Dialogue;
+    public TextMeshProUGUI Dialogue;
     private int sentenceLine = 0;
     private List<string> CurrentCustomerScript;
+    private LevelScript currentlevel;
     void Start()
     {
-        
+        currentlevel = GameObject.FindObjectOfType<LevelScript>();   
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         if(CurrentCustomer==null)
         {
             sentenceLine = 0;
             Dialogue.text = "";
-            GameObject Customer = GameObject.FindGameObjectWithTag("Customer");
+            GameObject Customer = currentlevel.currentCustomer;
             if (Customer!=null)
             {
                 CurrentCustomer = Customer.GetComponent<The_Customer>();

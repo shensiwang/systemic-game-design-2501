@@ -27,7 +27,7 @@ public class LevelScript : MonoBehaviour
     public GameObject customerPrefab;
     public GameObject currentCustomer;
 
-    private The_Customer currentCustomerScript;
+    public The_Customer currentCustomerScript;
     public Transform customerSpawnPoint;
 
     public int totalCustomersPerDay = 2;
@@ -42,7 +42,7 @@ public class LevelScript : MonoBehaviour
 
     public TextMeshProUGUI reviewSheetRequestSuccess;
 
-    
+
 
     private bool customerIsPresent = false; //check whether there is currently a customer
     private bool currentCustomerServed = false;
@@ -66,7 +66,7 @@ public class LevelScript : MonoBehaviour
 
         if (!lose)
         {
-            DisplayDialogue();
+            //DisplayDialogue();
 
             currentCustomerInterval -= Time.deltaTime;
 

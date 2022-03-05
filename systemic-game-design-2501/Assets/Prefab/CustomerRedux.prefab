@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Faction: A
   WinningFaction: A
+  factionInfo: {fileID: 0}
   Event: Fire
   finalDialogueString: 
   CustomerScript: []
@@ -73,8 +74,7 @@ MonoBehaviour:
   - Those Audrey scum burnt alot of our men. We could use some help...
   - Those pyromanic Audrey scum! I can't believe they would stoop this low...
   WarSurgeDialogue:
-  - You've heard stories of the beserkers from the Nordic traders. We need something
-    that can inherit their warrior's passion.
+  - We need to be mentally pumped up for combat!
   DragonicShellDialogue:
   - Hey owner, do you a transformation potion?  Something that can turn me into a
     powerful beast.
@@ -105,6 +105,7 @@ MonoBehaviour:
   FortuitousVisionsDialogue:
   - One can never have too much luck. I wonder if there's a potion that allows one
     to predict luck?
+  - We could use something that would allow us to forsee our next luck streak.
   PinchOfErosDialogue:
   - The season of love is arriving. I need you to brew something for the family,
     something that gets people into the "Groove".
@@ -142,6 +143,7 @@ MonoBehaviour:
   - We need something that can calm the restless ones.
   PerceptualArrayDialogue:
   - Do you have something that hides the identity of someone?
+  - 'We need a potion that can keep someone''s identity a mystery for infiltration. '
   DeadmansTongueDialogue:
   - Potionmaker, we require to commute with the dead. I hear that you are capable
     of producing such a concotion.
