@@ -7,6 +7,8 @@ public class The_Customer : MonoBehaviour
 {
     public string Faction = "";
     public string WinningFaction; //Once the Faction script is ready, take the winning faction
+    public Faction factionInfo;
+
     public string Event = "Normal";// Once Event script is done, take current event name
 
     public BaseInterface BaseNeeded;
@@ -126,6 +128,10 @@ public class The_Customer : MonoBehaviour
 
         int EventSpecificPotionRandomizer;
         int EventDialogueRandomizer;
+
+        factionInfo = FindObjectOfType<Faction>();
+        WinningFaction = factionInfo.winningFaction; //get winning faction
+
         switch (Event)
         {
             case "Normal":

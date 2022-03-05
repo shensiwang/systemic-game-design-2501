@@ -22,9 +22,9 @@ public class StartDayManager : MonoBehaviour
 
     public void CallDayMorning()
     {
-        //set customer number amount
-        levelScriptRef.CalculateTotalCustomersPerDay();
+
         levelScriptRef.numberOfCustomersLeft = levelScriptRef.totalCustomersPerDay;
+        
         levelScriptRef.SpawnCustomer();
 
         //set dayEnd variables

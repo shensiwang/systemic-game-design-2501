@@ -6,14 +6,20 @@ using TMPro;
 
 public class LevelScript : MonoBehaviour
 {
+    public Faction faction;
+
     public StartDayManager startDayManagerRef;
+
+    public float customerInterval;
+    private float currentCustomerInterval;
 
     public Slots completedPotion; //use to check for potion brewed.
 
+    public bool lose = false;
     public int dayCount = 1;
 
-    public int customersSucceeded;
-    public int customersFailed;
+    //public int customersSucceeded;
+    //public int customersFailed;
 
     //public GameObject reviewSheet;
     public EndDayManager endDayReport;
@@ -21,15 +27,15 @@ public class LevelScript : MonoBehaviour
     public GameObject customerPrefab;
     public GameObject currentCustomer;
 
-    private Customer currentCustomerScript;
+    private The_Customer currentCustomerScript;
     public Transform customerSpawnPoint;
 
-    public int totalCustomersPerDay;
+    public int totalCustomersPerDay = 2;
     public int numberOfCustomersLeft;
 
     [Header("UI Elements")]
-    public TextMeshProUGUI numberOfCustomersLeftUI;
-    public TextMeshProUGUI reputationUI;
+    //public TextMeshProUGUI numberOfCustomersLeftUI;
+    //public TextMeshProUGUI reputationUI;
     public TextMeshProUGUI dayCountUI;
 
     public TextMeshProUGUI dialogueUIText;
@@ -43,39 +49,47 @@ public class LevelScript : MonoBehaviour
 
     void Start()
     {
-
         startDayManagerRef.CallDayMorning();
-
     }
 
     void Update()
     {
-       
+
         //Debug.Log(currentCustomerScript.finalDialogueString);
 
-        numberOfCustomersLeft = totalCustomersPerDay - customersSucceeded - customersFailed;
-        numberOfCustomersLeftUI.text = "Customers left: " + numberOfCustomersLeft;
+        //numberOfCustomersLeft = totalCustomersPerDay - customersSucceeded - customersFailed;
+        //numberOfCustomersLeftUI.text = "Customers left: " + numberOfCustomersLeft;
+        //reputationUI.text = "Reputation: " + RepManager.repMaster.reputationInGrade;
+        //dayCountUI.text = "Day: " + dayCount;
+        //ReviewSheet();
+        //DELETED CAUSE OF CHANGES
 
-        ReviewSheet();
-
-        DisplayDialogue();
-
-        reputationUI.text = "Reputation: " + RepManager.repMaster.reputationInGrade;
-        dayCountUI.text = "Day: " + dayCount;
-
-
-        ///---check for different scenarios like request succeed/fail or patience run out.---///
-
-        if (customerIsPresent == true && currentCustomerServed == false && currentCustomerScript.CurrentTimer <= 0)//Once the patience runs out
+        if (!lose)
         {
-            DespawnCustomer();
-            customersFailed += 1;
-            RepManager.repMaster.DecreaseRep(RepManager.repMaster.repReducedPercustomer); //decrease rep
-            StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
+            DisplayDialogue();
 
-            Debug.Log("customer failed due to time");
+            currentCustomerInterval -= Time.deltaTime;
 
+
+            ///---check if timer ran out. To allow game to pregress without player input---///
+
+            if (customerIsPresent == true && customerInterval <= 0)//despawn after certain amount of time, To allow game to pregress without player input
+            {
+                faction.DecreaseAgression(currentCustomerScript.Faction);
+                faction.DecreaseLoyalty(currentCustomerScript.Faction);
+
+                DespawnCustomer();
+
+                StartCoroutine(DelayedSpawn()); 
+
+                currentCustomerInterval = customerInterval; //reset timer
+
+                Debug.Log("customer failed due to time");
+
+            }
         }
+
+        
 
     }
 
@@ -83,24 +97,56 @@ public class LevelScript : MonoBehaviour
 
     public void SpawnCustomer() //spawn customer 
     {
-        if(customerIsPresent == false && numberOfCustomersLeft != 1) //make sure there is not currently a customer. make sure no more customers left.
+        if (!lose)
         {
-            Debug.Log("spawn");
+            if (customerIsPresent == false && numberOfCustomersLeft != 0) //make sure there is not currently a customer. 
+            {
+                Debug.Log("spawn");
+
+                currentCustomer = Instantiate(customerPrefab, customerSpawnPoint);
+                currentCustomerScript = currentCustomer.gameObject.GetComponent<The_Customer>();
+
+                if(numberOfCustomersLeft == 2) currentCustomerScript.Faction = "A"; //FIRST CUSTOMER IS FROM FACTION A
+                else if(numberOfCustomersLeft == 1) currentCustomerScript.Faction = "B"; //SECOND CUSTOMER IS FROM FACTION B
+
+                customerIsPresent = true;
+                currentCustomerServed = false;
+
+                numberOfCustomersLeft -= 1;
+            }
+            
+        }
+        
+    }
+    IEnumerator DelayedSpawn() //delay added to allow for despawning first (since that was delayed, this needs to be delayed too)
+    {
+        yield return new WaitForSeconds(.1f);
+
+        if (customerIsPresent == false && numberOfCustomersLeft != 0) //make sure there is not currently a customer. make sure no more customers left.
+        {
+            Debug.Log("delyaedspawn");
 
             currentCustomer = Instantiate(customerPrefab, customerSpawnPoint);
-            currentCustomerScript = currentCustomer.gameObject.GetComponent<Customer>();
+            currentCustomerScript = currentCustomer.gameObject.GetComponent<The_Customer>();
+
+            if (numberOfCustomersLeft == 2) currentCustomerScript.Faction = "A"; //FIRST CUSTOMER IS FROM FACTION A
+            else if (numberOfCustomersLeft == 1) currentCustomerScript.Faction = "B"; //SECOND CUSTOMER IS FROM FACTION B
 
             customerIsPresent = true;
             currentCustomerServed = false;
+
+            numberOfCustomersLeft -= 1;
         }
     }
-
     private void DespawnCustomer()
     {
-        if(customerIsPresent == true)
+        if (!lose)
         {
-            Destroy(currentCustomer); //or whatever code to remove the customer
-            customerIsPresent = false;
+            if (customerIsPresent == true)
+            {
+                Destroy(currentCustomer); //or whatever code to remove the customer
+                customerIsPresent = false;
+            }
         }
     }
 
@@ -114,24 +160,11 @@ public class LevelScript : MonoBehaviour
         }
     }
 
-    IEnumerator DelayedSpawn() //delay added to allow for despawning first (since that was delayed, this needs to be delayed too)
-    {
-        yield return new WaitForSeconds(.1f);
-
-        if (customerIsPresent == false && numberOfCustomersLeft != 0) //make sure there is not currently a customer. make sure no more customers left.
-        {
-            Debug.Log("delyaedspawn");
-
-            currentCustomer = Instantiate(customerPrefab, customerSpawnPoint);
-            currentCustomerScript = currentCustomer.gameObject.GetComponent<Customer>();
-
-            customerIsPresent = true;
-            currentCustomerServed = false;
-        }
-    }
+    
 
     //CUSTOMER SPAWN AMOUNT//
 
+    /*
     public void CalculateTotalCustomersPerDay()
     {
         int random = Random.Range(2, 6);
@@ -140,6 +173,7 @@ public class LevelScript : MonoBehaviour
         //Debug.Log(amountChange);
         totalCustomersPerDay = random + amountChange;
     }
+    */
 
     //REVIEW SHEET//
 
@@ -171,7 +205,12 @@ public class LevelScript : MonoBehaviour
 
     private void DisplayDialogue()
     {
-        dialogueUIText.text = currentCustomerScript.finalDialogueString;
+        dialogueUIText.text = currentCustomerScript.CustomerScript[0] + "\n" + currentCustomerScript.CustomerScript[1];
+
+        if(currentCustomerScript == null)
+        {
+            dialogueUIText.text = "";
+        }
     }
 
 
@@ -214,16 +253,17 @@ public class LevelScript : MonoBehaviour
 
         if (customerIsPresent == true)
         {
+            /*
             if (currentCustomerScript.Fickleness.IsFickle())
             {
                 if (CheckPotionElement() == true && CheckPotionType() == true)  //correct potion
                 {
                     StartCoroutine(DelayedDespawn());
-                    customersSucceeded += 1;
-
-
+                    
+                    
+                    //customersSucceeded += 1;
                     //add changes to rep or money here//
-                    RepManager.repMaster.IncreaseRep(5); 
+                    //RepManager.repMaster.IncreaseRep(5); 
                     //
 
                     completedPotion.potionType = null;
@@ -238,10 +278,10 @@ public class LevelScript : MonoBehaviour
                 else
                 {
                     StartCoroutine(DelayedDespawn());
-                    customersFailed += 1;
-
+                   
+                    //customersFailed += 1;
                     //add changes to rep or money here//
-                    RepManager.repMaster.DecreaseRep(RepManager.repMaster.repReducedPercustomer);
+                    //RepManager.repMaster.DecreaseRep(RepManager.repMaster.repReducedPercustomer);
                     //
                     
                     Debug.Log("Wrong Potion");
@@ -254,16 +294,17 @@ public class LevelScript : MonoBehaviour
                 }
             }
             else
-            {
-                if (CheckPotionType() == true)  //correct potion
+
+            */
+            
+                if (CheckPotionType() == true)  //CORRECT potion
                 {
                     StartCoroutine(DelayedDespawn());
-                    customersSucceeded += 1;
 
-                    //add changes to rep or money here//
-                    RepManager.repMaster.IncreaseRep(5); 
-                    //
-                    
+                //CHANGE FACTION STATS//
+
+                faction.IncreaseAgression(currentCustomerScript.Faction);
+                faction.IncreaseLoyalty(currentCustomerScript.Faction);
 
                     completedPotion.potionType = null;
                     completedPotion.potionElement = null;
@@ -271,17 +312,15 @@ public class LevelScript : MonoBehaviour
 
                     Debug.Log("Correct Potion");
 
-                    StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
+                    StartCoroutine(DelayedSpawn()); 
 
                 }
-                else
+                else //WRONG POTION
                 {
-                    StartCoroutine(DelayedDespawn());
-                    customersFailed += 1;
+                faction.DecreaseAgression(currentCustomerScript.Faction);
+                faction.DecreaseLoyalty(currentCustomerScript.Faction);
 
-                    //add changes to rep or money here//
-                    RepManager.repMaster.DecreaseRep(RepManager.repMaster.repReducedPercustomer);
-                    //
+                StartCoroutine(DelayedDespawn());
                     
                     Debug.Log("Wrong Potion");
 
@@ -291,9 +330,17 @@ public class LevelScript : MonoBehaviour
 
                     StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
                 }
-            }
+            
             
             
         }
+    }
+
+    public void Lose()
+    {
+        //lose
+        //Lose pop up
+
+        lose = true;
     }
 }
