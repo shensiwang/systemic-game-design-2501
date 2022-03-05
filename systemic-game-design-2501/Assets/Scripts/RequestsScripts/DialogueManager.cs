@@ -7,7 +7,6 @@ public class DialogueManager : MonoBehaviour
 {
     private The_Customer CurrentCustomer;
     public Text Dialogue;
-    public bool StartedDialogue = false;
     private int sentenceLine = 0;
     private List<string> CurrentCustomerScript;
     void Start()
@@ -39,7 +38,6 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue()
     {
         Dialogue.text = CurrentCustomerScript[sentenceLine];
-        StartedDialogue = true;
     }
 
     public void NextDialogue()
