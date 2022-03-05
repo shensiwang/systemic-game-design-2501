@@ -1,15 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Faction : MonoBehaviour
 {
+    [Header("Faction UI Elements")]
+    public Slider factionAMoraleUI;
+    public Slider factionBMoraleUI;
+
+    [Header("Level reference")]
     public LevelScript levelScript;
 
+    [Header("Max Amount")]
     public float maxMorale;
     public float maxAgression;
     public int maxLoyalty;
 
+    [Header("Loyalty, Aggression, Morale")]
     public int factionALoyalty;
     public int factionBLoyalty;
 
@@ -20,11 +28,12 @@ public class Faction : MonoBehaviour
     public float factionAMorale;
     public float factionBMorale;
 
-    public string winningFaction;
-
+    [Header("Amount to change per stat")]
     public float MoraleChange;
     public float AgressionChange;
     public int LoyaltyChange;
+
+    public string winningFaction;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +51,17 @@ public class Faction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (factionAAgression > factionBAgression)
+        //update bars
+
+        factionAMoraleUI.value = factionAMorale / maxMorale;
+        factionBMoraleUI.value = factionBMorale / maxMorale;
+
+
+        if (factionAMorale > factionBMorale)
         {
             winningFaction = "A";
         }
-        else if(factionBAgression > factionAAgression)
+        else if(factionBMorale > factionAMorale)
         {
             winningFaction = "B";
         }
