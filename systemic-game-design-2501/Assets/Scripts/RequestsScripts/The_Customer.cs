@@ -135,7 +135,7 @@ public class The_Customer : MonoBehaviour
 
         eventMasterRef = GameObject.Find("LevelInformation").GetComponent<EventMaster>(); // get random event type from EventMaster
 
-        switch (eventMasterRef.GetEvent())
+        switch (eventMasterRef.GetEventString())
         {
             case "Normal":
                 EventDialogueRandomizer = Random.Range(0, NormalEventDialogue.Length);
