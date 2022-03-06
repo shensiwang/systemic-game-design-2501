@@ -7162,11 +7162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: factionBLoyalty
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: factionALoyalty
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: factionAMoraleUI
@@ -7194,15 +7194,15 @@ PrefabInstance:
       objectReference: {fileID: 1531822096}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: LoyaltyChange
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: AgressionChange
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: MoraleChange
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319770, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: m_LocalPosition.x

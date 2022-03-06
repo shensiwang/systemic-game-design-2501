@@ -6,31 +6,34 @@ using TMPro;
 
 public class LevelScript : MonoBehaviour
 {
-    public Faction faction;
-    public ReceipeManager rm;
 
-    public StartDayManager startDayManagerRef;
-
-    public float customerInterval;
-    private float currentCustomerInterval;
-
-    public Slots completedPotion; //use to check for potion brewed.
-
+    [Header("Game Info")]
     public bool lose = false;
     public int dayCount = 1;
 
+    [Header("References to scripts")]
+    public Faction faction;
+    //public ReceipeManager rm;
+    public StartDayManager startDayManagerRef;
+
+    public Slots completedPotion; //use to check for potion brewed.
     //public int customersSucceeded;
     //public int customersFailed;
 
     //public GameObject reviewSheet;
     public EndDayManager endDayReport;
-
+    
+    [Header("Customer")]
     public GameObject customerPrefab;
     public GameObject currentCustomer;
 
     public The_Customer currentCustomerScript;
     public Transform customerSpawnPoint;
 
+    public float customerInterval; //used to despawn customers after this amount of time
+    private float currentCustomerInterval;
+
+    [Header("Customer Amount")]
     public int totalCustomersPerDay = 2;
     public int numberOfCustomersLeft;
 
@@ -41,7 +44,8 @@ public class LevelScript : MonoBehaviour
 
     public TextMeshProUGUI dialogueUIText;
 
-    public TextMeshProUGUI reviewSheetRequestSuccess;
+
+    //public TextMeshProUGUI reviewSheetRequestSuccess;
 
 
 
@@ -51,6 +55,8 @@ public class LevelScript : MonoBehaviour
     void Start()
     {
         startDayManagerRef.CallDayMorning();
+
+        
     }
 
     void Update()
@@ -74,7 +80,7 @@ public class LevelScript : MonoBehaviour
 
             ///---check if timer ran out. To allow game to pregress without player input---///
 
-            if (customerIsPresent == true && customerInterval <= 0)//despawn after certain amount of time, To allow game to pregress without player input
+            if (customerIsPresent == true && currentCustomerInterval <= 0)//despawn after certain amount of time, To allow game to pregress without player input
             {
                 faction.DecreaseAgression(currentCustomerScript.Faction);
                 faction.DecreaseLoyalty(currentCustomerScript.Faction);
@@ -116,6 +122,8 @@ public class LevelScript : MonoBehaviour
             {
                 Debug.Log("spawn");
 
+                currentCustomerInterval = customerInterval;
+
                 currentCustomer = Instantiate(customerPrefab, customerSpawnPoint);
                 currentCustomerScript = currentCustomer.gameObject.GetComponent<The_Customer>();
 
@@ -138,6 +146,8 @@ public class LevelScript : MonoBehaviour
         if (customerIsPresent == false && numberOfCustomersLeft != 0) //make sure there is not currently a customer. make sure no more customers left.
         {
             Debug.Log("delyaedspawn");
+
+            currentCustomerInterval = customerInterval;
 
             currentCustomer = Instantiate(customerPrefab, customerSpawnPoint);
             currentCustomerScript = currentCustomer.gameObject.GetComponent<The_Customer>();
