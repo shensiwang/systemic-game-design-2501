@@ -11,19 +11,8 @@ public class EventMaster : MonoBehaviour
     public GameObject imageAFireB;
     public GameObject imageBFireA;
 
-    public string GetEvent()
-    {
-        int typeOfEvent = Random.Range(0, 2);
-        if (typeOfEvent == 0)
-        {
-            return "Normal";
-        }
-        else 
-        {
-            GetRandEvent();
-            return "Fire";
-        }
-    }
+    public string EventStr;
+
 
     public void GetRandEvent()
     {
@@ -129,5 +118,115 @@ public class EventMaster : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         imageBFireA.SetActive(false);
     }
+    public void GetEvent()
+    {
+        int typeOfEvent = Random.Range(0, 2);
+        if (typeOfEvent == 0)
+        {
+            EventStr = "Normal";
+        }
+        else
+        {
+            GetRandomEvent();
+            EventStr = "Fire";
+        }
+    }
 
+    public string GetEventString()
+    {
+        return EventStr;
+    }
+
+    public void GetRandomEvent()
+    {
+        if (factionRef.factionAAgression > factionRef.factionBAgression) // A setting fire on B
+        {
+            int element = Random.Range(0, 2);
+            if (element == 0) // Moral
+            {
+                int quantity = Random.Range(0, 2);
+                if (quantity == 0) // decrease moral
+                {
+                    factionRef.DecreaseMorale("A", 10);
+                    factionRef.IncreaseMorale("B", 10);
+                    StartCoroutine(AFireBEvent());
+                    Debug.Log("Random Event:          'A' faction 'decrease' 'morale',          A setting fire to B");
+                }
+                else // increase moral
+                {
+                    factionRef.IncreaseMorale("A", 10);
+                    factionRef.DecreaseMorale("B", 10);
+                    StartCoroutine(AFireBEvent());
+                    Debug.Log("Random Event:          'A' faction 'increase' 'morale',          A setting fire to B");
+                }
+            }
+
+            else // Aggression
+            {
+                int quantity = Random.Range(0, 2);
+                if (quantity == 0) // decrease agression
+                {
+                    factionRef.DecreaseAgression("A", 10);
+                    factionRef.IncreaseAgression("B", 10);
+                    StartCoroutine(AFireBEvent());
+                    Debug.Log("Random Event:          'A' faction 'decrease' 'aggression',          B setting fire to A");
+                }
+                else // increase agression
+                {
+                    factionRef.IncreaseAgression("A", 10);
+                    factionRef.DecreaseAgression("B", 10);
+                    StartCoroutine(AFireBEvent());
+                    Debug.Log("Random Event:          'A' faction 'increase' 'aggression',          B setting fire to A");
+                }
+            }
+
+
+        }
+
+        else if (factionRef.factionAAgression <= factionRef.factionBAgression) // B setting fire on A
+        {
+            int element = Random.Range(0, 2);
+            if (element == 0) // Moral
+            {
+                int quantity = Random.Range(0, 2);
+                if (quantity == 0) // decrease moral
+                {
+                    factionRef.DecreaseMorale("A", 10);
+                    factionRef.IncreaseMorale("B", 10);
+                    StartCoroutine(BFireAEvent());
+                    Debug.Log("Random Event:          'B' faction 'decrease' 'morale',          B setting fire to A");
+                }
+                else // increase moral
+                {
+                    factionRef.IncreaseMorale("A", 10);
+                    factionRef.DecreaseMorale("B", 10);
+                    StartCoroutine(BFireAEvent());
+                    Debug.Log("Random Event:          'B' faction 'increase' 'morale',          B setting fire to A");
+                }
+            }
+
+            else // Aggression
+            {
+                int quantity = Random.Range(0, 2);
+                if (quantity == 0) // decrease agression
+                {
+                    factionRef.DecreaseAgression("A", 10);
+                    factionRef.IncreaseAgression("B", 10);
+                    StartCoroutine(BFireAEvent());
+                    Debug.Log("Random Event:          'B' faction 'decrease' 'aggression',          A setting fire to B");
+                }
+                else // increase agression
+                {
+                    factionRef.IncreaseAgression("A", 10);
+                    factionRef.DecreaseAgression("B", 10);
+                    StartCoroutine(BFireAEvent());
+                    Debug.Log("Random Event:          'B' faction 'increase' 'aggression',          A setting fire to B");
+                }
+            }
+        }
+
+        else {}
+
+
+    }
 }
