@@ -88,6 +88,18 @@ public class LevelScript : MonoBehaviour
                 Debug.Log("customer failed due to time");
 
             }
+
+            if(numberOfCustomersLeft == 0)
+            {
+                //move to next day
+
+                startDayManagerRef.CallDayMorning();
+
+                dayCount += 1;
+
+            }
+
+            dayCountUI.text = "Day: " + dayCount; //update day counter
         }
 
         

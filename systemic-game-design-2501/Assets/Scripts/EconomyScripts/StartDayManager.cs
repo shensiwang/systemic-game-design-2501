@@ -25,8 +25,10 @@ public class StartDayManager : MonoBehaviour
     {
 
         levelScriptRef.numberOfCustomersLeft = levelScriptRef.totalCustomersPerDay;
-        levelScriptRef.SpawnCustomer();
+
         eventMasterRef.GetEvent();
+        levelScriptRef.SpawnCustomer();
+        
 
         //set dayEnd variables
         endDayManagerRef.ResetDayEnded();

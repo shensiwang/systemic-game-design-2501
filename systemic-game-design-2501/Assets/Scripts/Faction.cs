@@ -21,13 +21,12 @@ public class Faction : MonoBehaviour
     [Header("Max Amount")]
     public float maxMorale;
     public float maxAgression;
-    public int maxLoyalty;
+    public float maxLoyalty;
 
     [Header("Loyalty, Aggression, Morale")]
-    public int factionALoyalty;
-    public int factionBLoyalty;
+    public float factionALoyalty;
+    public float factionBLoyalty;
 
-    //values of aggression or morale can be float instead.
     public float factionAAgression;
     public float factionBAgression;
 
