@@ -182,9 +182,7 @@ public class LevelScript : MonoBehaviour
         if(numberOfCustomersLeft == 0 && !endDayReport.dayEnded)
         {
             //display reviewsheet
-
             //reviewSheetRequestSuccess.text = "Requests fulfilled: " + customersSucceeded + "/" + totalCustomersPerDay;
-
             //reviewSheet.SetActive(true);
 
             endDayReport.CallEndDay();

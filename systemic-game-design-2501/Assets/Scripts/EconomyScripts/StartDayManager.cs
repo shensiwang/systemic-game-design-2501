@@ -8,7 +8,6 @@ public class StartDayManager : MonoBehaviour
     public IngredientManager ingredientManagerRef;
     public LevelScript levelScriptRef;
     public EndDayManager endDayManagerRef;
-    public EventMaster eventMasterRef;
 
 
     private int ingredient1, ingredient2, ingredient3;
@@ -26,7 +25,6 @@ public class StartDayManager : MonoBehaviour
 
         levelScriptRef.numberOfCustomersLeft = levelScriptRef.totalCustomersPerDay;
         levelScriptRef.SpawnCustomer();
-        eventMasterRef.GetRandEvent();
 
         //set dayEnd variables
         endDayManagerRef.ResetDayEnded();

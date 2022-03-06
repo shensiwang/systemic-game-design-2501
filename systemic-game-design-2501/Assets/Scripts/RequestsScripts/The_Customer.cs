@@ -10,6 +10,7 @@ public class The_Customer : MonoBehaviour
     public Faction factionInfo;
 
     public string Event = "Normal";// Once Event script is done, take current event name
+    public EventMaster eventMasterRef; 
 
     public BaseInterface BaseNeeded;
     public ElementInterface FirstElement;
@@ -132,7 +133,9 @@ public class The_Customer : MonoBehaviour
         factionInfo = FindObjectOfType<Faction>();
         WinningFaction = factionInfo.winningFaction; //get winning faction
 
-        switch (Event)
+        eventMasterRef = GameObject.Find("LevelInformation").GetComponent<EventMaster>(); // get random event type from EventMaster
+
+        switch (eventMasterRef.GetEvent())
         {
             case "Normal":
                 EventDialogueRandomizer = Random.Range(0, NormalEventDialogue.Length);

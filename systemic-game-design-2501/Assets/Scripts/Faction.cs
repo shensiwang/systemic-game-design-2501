@@ -119,4 +119,28 @@ public class Faction : MonoBehaviour
         if (faction == "A") factionALoyalty += LoyaltyChange;
         else factionBLoyalty += LoyaltyChange;
     }
+
+    public void DecreaseMorale(string faction, float moraleChange)
+    {
+        if (faction == "A") factionAMorale -= moraleChange;
+        else factionBMorale -= moraleChange;
+    }
+
+    public void IncreaseMorale(string faction, float moraleChange)
+    {
+        if (faction == "A") factionAMorale += moraleChange;
+        else factionBMorale += moraleChange;
+    }
+
+    public void DecreaseAgression(string faction, float agressionChange)
+    {
+        if (faction == "A") factionAAgression -= agressionChange;
+        else factionBAgression -= agressionChange;
+    }
+
+    public void IncreaseAgression(string faction, float agressionChange)
+    {
+        if (faction == "A") factionAAgression += agressionChange;
+        else factionBAgression += agressionChange;
+    }
 }
