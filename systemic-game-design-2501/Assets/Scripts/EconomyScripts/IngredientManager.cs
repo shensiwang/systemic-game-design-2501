@@ -150,40 +150,6 @@ public class IngredientManager : MonoBehaviour
     //============ call CalculateDailySales() to update the final sales of the day ===============
     public float CalculateDailySales()
     {
-        //float MandrakeTotalSales;
-        //float WolfsbaneTotalSales;
-        //float DeadmanDustTotalSales;
-        //float HenbaneTotalSales;
-        //float RatGrassTotalSales;
-
-
-        //if (usedMandrakeAmt != 0)
-        //{
-        //    MandrakeTotalSales = baseMandrake.sellPrice * usedMandrakeAmt;
-        //    DailySales += MandrakeTotalSales;
-        //}
-        //else if (usedWolfsbaneAmt != 0)
-        //{
-        //    WolfsbaneTotalSales = baseWolfsbane.sellPrice * usedWolfsbaneAmt;
-        //    DailySales += WolfsbaneTotalSales;
-        //}
-        //else if (usedDeadmanDustAmt != 0)
-        //{
-        //    DeadmanDustTotalSales = baseDeadmanDust.sellPrice * usedDeadmanDustAmt;
-        //    DailySales += DeadmanDustTotalSales;
-        //}
-        //else if (usedHenbaneAmt != 0)
-        //{
-        //    HenbaneTotalSales = baseHenbane.sellPrice * usedHenbaneAmt;
-        //    DailySales += HenbaneTotalSales;
-        //}
-        //else if (usedRatGrassAmt != 0)
-        //{
-        //    RatGrassTotalSales = baseRatGrass.sellPrice * usedRatGrassAmt;
-        //    DailySales += RatGrassTotalSales;
-        //}
-
-
         DailySales = baseMandrake.sellPrice * usedMandrakeAmt + baseWolfsbane.sellPrice * usedWolfsbaneAmt + baseDeadmanDust.sellPrice * usedDeadmanDustAmt + baseHenbane.sellPrice * usedHenbaneAmt + baseRatGrass.sellPrice * usedRatGrassAmt;
 
         Debug.Log("baseMandrake.sellPrice: $" + baseMandrake.sellPrice + " & " + "usedMandrakeAmt: " + usedMandrakeAmt);

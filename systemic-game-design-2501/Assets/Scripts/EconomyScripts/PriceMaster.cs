@@ -5,15 +5,9 @@ using UnityEngine;
 public class PriceMaster : MonoBehaviour
 {
     public int priceFluctuation;
-
-
     private int RanNum, RanNum2, RanNum3;
     private int ingredient1TEST, ingredient2TEST, ingredient3TEST;
-
     List<int> FiveBaseIngredients = new List<int>();
-
-
-
 
     private void Awake()
     {

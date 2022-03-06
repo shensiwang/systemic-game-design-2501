@@ -10,13 +10,9 @@ public class StartDayManager : MonoBehaviour
     public EndDayManager endDayManagerRef;
     public EventMaster eventMasterRef;
 
-
     private int ingredient1, ingredient2, ingredient3;
 
-
-
-
-
+    public float priceAnimDuration;
 
     //=======HOW TO USE CallDayMorning()=======
     // put everthing you need to reset for each day. eg: customer counter, ingredient price ...
@@ -54,22 +50,27 @@ public class StartDayManager : MonoBehaviour
         {
             case 1:
                 ingredientManagerRef.baseMandrake.sellPrice = ingredientManagerRef.baseMandrake.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseMandrake));
                 break;
 
             case 2:
                 ingredientManagerRef.baseWolfsbane.sellPrice = ingredientManagerRef.baseWolfsbane.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseWolfsbane));
                 break;
 
             case 3:
                 ingredientManagerRef.baseDeadmanDust.sellPrice = ingredientManagerRef.baseDeadmanDust.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseDeadmanDust));
                 break;
 
             case 4:
                 ingredientManagerRef.baseHenbane.sellPrice = ingredientManagerRef.baseHenbane.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseHenbane));
                 break;
 
             case 5:
                 ingredientManagerRef.baseRatGrass.sellPrice = ingredientManagerRef.baseRatGrass.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseRatGrass));
                 break;
         }
 
@@ -77,22 +78,27 @@ public class StartDayManager : MonoBehaviour
         {
             case 1:
                 ingredientManagerRef.baseMandrake.sellPrice = ingredientManagerRef.baseMandrake.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseMandrake));
                 break;
 
             case 2:
                 ingredientManagerRef.baseWolfsbane.sellPrice = ingredientManagerRef.baseWolfsbane.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseWolfsbane));
                 break;
 
             case 3:
                 ingredientManagerRef.baseDeadmanDust.sellPrice = ingredientManagerRef.baseDeadmanDust.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseDeadmanDust));
                 break;
 
             case 4:
                 ingredientManagerRef.baseHenbane.sellPrice = ingredientManagerRef.baseHenbane.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseHenbane));
                 break;
 
             case 5:
                 ingredientManagerRef.baseRatGrass.sellPrice = ingredientManagerRef.baseRatGrass.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseRatGrass));
                 break;
         }
 
@@ -100,22 +106,27 @@ public class StartDayManager : MonoBehaviour
         {
             case 1:
                 ingredientManagerRef.baseMandrake.sellPrice = ingredientManagerRef.baseMandrake.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseMandrake));
                 break;
 
             case 2:
                 ingredientManagerRef.baseWolfsbane.sellPrice = ingredientManagerRef.baseWolfsbane.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseWolfsbane));
                 break;
 
             case 3:
                 ingredientManagerRef.baseDeadmanDust.sellPrice = ingredientManagerRef.baseDeadmanDust.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseDeadmanDust));
                 break;
 
             case 4:
                 ingredientManagerRef.baseHenbane.sellPrice = ingredientManagerRef.baseHenbane.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseHenbane));
                 break;
 
             case 5:
                 ingredientManagerRef.baseRatGrass.sellPrice = ingredientManagerRef.baseRatGrass.marketPrice + priceMasterRef.priceFluctuation;
+                //StartCoroutine(RisePrice(priceAnimDuration, ingredientManagerRef.baseRatGrass));
                 break;
         }
 
@@ -123,6 +134,13 @@ public class StartDayManager : MonoBehaviour
 
     }
 
+    IEnumerator RisePrice(float duration, Ingredients ingredient)
+    {
+        ingredient.transform.GetChild(1).gameObject.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        ingredient.transform.GetChild(1).gameObject.SetActive(false);
+    }
 
-    
+
+
 }
