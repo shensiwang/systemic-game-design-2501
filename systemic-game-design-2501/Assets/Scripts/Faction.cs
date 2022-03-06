@@ -9,6 +9,12 @@ public class Faction : MonoBehaviour
     public Slider factionAMoraleUI;
     public Slider factionBMoraleUI;
 
+    public Slider factionAAgressionUI;
+    public Slider factionBAgressionUI;
+
+    public Slider factionALoyaltyUI;
+    public Slider factionBLoyaltyUI;
+
     [Header("Level reference")]
     public LevelScript levelScript;
 
