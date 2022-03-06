@@ -62,6 +62,12 @@ public class Faction : MonoBehaviour
         factionAMoraleUI.value = factionAMorale / maxMorale;
         factionBMoraleUI.value = factionBMorale / maxMorale;
 
+        factionAAgressionUI.value = factionAAgression / maxAgression;
+        factionBAgressionUI.value = factionBAgression / maxAgression;
+
+        factionALoyaltyUI.value = factionALoyalty / maxLoyalty;
+        factionBLoyaltyUI.value = factionBLoyalty / maxLoyalty;
+
 
         if (factionAMorale > factionBMorale)
         {
