@@ -14,6 +14,8 @@ public class ReceipeManager : MonoBehaviour
     public Slots baseCraftingSlots;
     public Slots[] subCraftingSlots;
     public Slots completePotionSlot;
+    public GameObject potionPrefab; //added for placeholder purposes
+
     public Potions[] potionList;
     public bool[] partMatch;
     public bool[] partUsed;
@@ -167,6 +169,8 @@ public class ReceipeManager : MonoBehaviour
         //CheckForCreatedReceipes();
         ingredientBlocker.gameObject.SetActive(false);
         Debug.Log("Gone");
+
+        //if (potionPrefab != null) Destroy(potionPrefab); //added for placeholder
     }
 
     public void ClearTable()
@@ -175,6 +179,8 @@ public class ReceipeManager : MonoBehaviour
         completePotionSlot.potionElement = null;
         completePotionSlot.gameObject.SetActive(false);
         ResetPot();
+
+        //if(potionPrefab != null) Destroy(potionPrefab); //added for placeholder
     }
 
     public void BrewPotion()
@@ -186,6 +192,10 @@ public class ReceipeManager : MonoBehaviour
                 Debug.Log("Brew");
                 completePotionSlot.gameObject.SetActive(true);
                 completePotionSlot.GetComponent<Image>().sprite = potion.GetComponent<Image>().sprite;
+
+                potionPrefab = Instantiate(potion.gameObject, completePotionSlot.transform); //added for placeholder
+
+
                 completePotionSlot.potionType = potion.potionType;
                 completePotionSlot.potionElement = potion.potionElement;
                 receipeResults = null;
@@ -206,6 +216,8 @@ public class ReceipeManager : MonoBehaviour
     {
         //What happens after the potion is sold
         levelScript.SellPotion(); //use the function found in levelscript (since it has info on customer.)
+
+        
 
         /*
         completePotionSlot.potionType = null;

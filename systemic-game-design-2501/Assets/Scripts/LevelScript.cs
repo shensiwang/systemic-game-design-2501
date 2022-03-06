@@ -7,6 +7,7 @@ using TMPro;
 public class LevelScript : MonoBehaviour
 {
     public Faction faction;
+    public ReceipeManager rm;
 
     public StartDayManager startDayManagerRef;
 
@@ -304,13 +305,17 @@ public class LevelScript : MonoBehaviour
                 faction.IncreaseAgression(currentCustomerScript.Faction);
                 faction.IncreaseLoyalty(currentCustomerScript.Faction);
 
-                    completedPotion.potionType = null;
-                    completedPotion.potionElement = null;
-                    completedPotion.gameObject.SetActive(false);
+                //reset completed potion
 
-                    Debug.Log("Correct Potion");
+                completedPotion.potionType = null;
+                completedPotion.potionElement = null;
+                completedPotion.gameObject.SetActive(false);
 
-                    StartCoroutine(DelayedSpawn()); 
+                //Destroy(rm.potionPrefab); //added for placeholder
+
+                Debug.Log("Correct Potion");
+
+                StartCoroutine(DelayedSpawn()); 
 
                 }
                 else //WRONG POTION
@@ -320,13 +325,15 @@ public class LevelScript : MonoBehaviour
 
                 StartCoroutine(DelayedDespawn());
                     
-                    Debug.Log("Wrong Potion");
+                Debug.Log("Wrong Potion");
 
-                    completedPotion.potionType = null;
-                    completedPotion.potionElement = null;
-                    completedPotion.gameObject.SetActive(false);
+                completedPotion.potionType = null;
+                completedPotion.potionElement = null;
+                completedPotion.gameObject.SetActive(false);
 
-                    StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
+                //Destroy(rm.potionPrefab); //added for placeholder
+
+                StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
                 }
             
             
