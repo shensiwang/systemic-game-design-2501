@@ -142,88 +142,39 @@ public class EventMaster : MonoBehaviour
     {
         if (factionRef.factionAAgression > factionRef.factionBAgression) // A setting fire on B
         {
-            int element = Random.Range(0, 2);
-            if (element == 0) // Moral
-            {
-                int quantity = Random.Range(0, 2);
-                if (quantity == 0) // decrease moral
-                {
-                    factionRef.DecreaseMorale("A", 10);
-                    factionRef.IncreaseMorale("B", 10);
-                    StartCoroutine(AFireBEvent());
-                    Debug.Log("Random Event:          'A' faction 'decrease' 'morale',          A setting fire to B");
-                }
-                else // increase moral
-                {
-                    factionRef.IncreaseMorale("A", 10);
-                    factionRef.DecreaseMorale("B", 10);
-                    StartCoroutine(AFireBEvent());
-                    Debug.Log("Random Event:          'A' faction 'increase' 'morale',          A setting fire to B");
-                }
-            }
+            int moraleAmt       = Random.Range(5, 30);
+            int aggressionAmt   = Random.Range(5, 30);
 
-            else // Aggression
-            {
-                int quantity = Random.Range(0, 2);
-                if (quantity == 0) // decrease agression
-                {
-                    factionRef.DecreaseAgression("A", 10);
-                    factionRef.IncreaseAgression("B", 10);
-                    StartCoroutine(AFireBEvent());
-                    Debug.Log("Random Event:          'A' faction 'decrease' 'aggression',          B setting fire to A");
-                }
-                else // increase agression
-                {
-                    factionRef.IncreaseAgression("A", 10);
-                    factionRef.DecreaseAgression("B", 10);
-                    StartCoroutine(AFireBEvent());
-                    Debug.Log("Random Event:          'A' faction 'increase' 'aggression',          B setting fire to A");
-                }
-            }
+            // increase moral
+            factionRef.IncreaseMorale("A", moraleAmt);
+            factionRef.DecreaseMorale("B", moraleAmt); 
+            StartCoroutine(AFireBEvent());
 
 
+            // decrease agression
+            factionRef.DecreaseAgression("A", aggressionAmt);
+            factionRef.IncreaseAgression("B", aggressionAmt);
+            StartCoroutine(AFireBEvent());
+            
+            Debug.Log("Random Event:   'A' faction 'increase morale', 'decrease aggression'  -  A setting fire to B");
         }
 
         else if (factionRef.factionAAgression <= factionRef.factionBAgression) // B setting fire on A
         {
-            int element = Random.Range(0, 2);
-            if (element == 0) // Moral
-            {
-                int quantity = Random.Range(0, 2);
-                if (quantity == 0) // decrease moral
-                {
-                    factionRef.DecreaseMorale("A", 10);
-                    factionRef.IncreaseMorale("B", 10);
-                    StartCoroutine(BFireAEvent());
-                    Debug.Log("Random Event:          'B' faction 'decrease' 'morale',          B setting fire to A");
-                }
-                else // increase moral
-                {
-                    factionRef.IncreaseMorale("A", 10);
-                    factionRef.DecreaseMorale("B", 10);
-                    StartCoroutine(BFireAEvent());
-                    Debug.Log("Random Event:          'B' faction 'increase' 'morale',          B setting fire to A");
-                }
-            }
+            int moraleAmt = Random.Range(5, 30);
+            int aggressionAmt = Random.Range(5, 30);
 
-            else // Aggression
-            {
-                int quantity = Random.Range(0, 2);
-                if (quantity == 0) // decrease agression
-                {
-                    factionRef.DecreaseAgression("A", 10);
-                    factionRef.IncreaseAgression("B", 10);
-                    StartCoroutine(BFireAEvent());
-                    Debug.Log("Random Event:          'B' faction 'decrease' 'aggression',          A setting fire to B");
-                }
-                else // increase agression
-                {
-                    factionRef.IncreaseAgression("A", 10);
-                    factionRef.DecreaseAgression("B", 10);
-                    StartCoroutine(BFireAEvent());
-                    Debug.Log("Random Event:          'B' faction 'increase' 'aggression',          A setting fire to B");
-                }
-            }
+            // increase moral
+            factionRef.IncreaseMorale("B", moraleAmt);
+            factionRef.DecreaseMorale("A", moraleAmt);
+            StartCoroutine(BFireAEvent());
+                
+            // decrease agression
+            factionRef.DecreaseAgression("B", aggressionAmt);
+            factionRef.IncreaseAgression("A", aggressionAmt);
+            StartCoroutine(BFireAEvent());
+
+            Debug.Log("Random Event:   'B' faction 'increase morale', 'decrease aggression'  -  B setting fire to A");
         }
 
         else {}
