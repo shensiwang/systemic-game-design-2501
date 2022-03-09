@@ -40,8 +40,11 @@ public class Faction : MonoBehaviour
 
     public string winningFaction;
 
-    private bool oneTimeBonusA1 = false;
-    private bool oneTimeBonusB1 = false;
+    private bool oneTimeBonusA6 = false;
+    private bool oneTimeBonusB6 = false;
+
+    private bool oneTimeBonusA8 = false;
+    private bool oneTimeBonusB8 = false;
 
     private bool oneTimeBonusA3 = false;
     private bool oneTimeBonusB3 = false;
@@ -111,21 +114,36 @@ public class Faction : MonoBehaviour
 
     private void CheckForLoyaltyBonus()
     {
-        if(factionALoyalty >= 60)
+        if (factionALoyalty >= 80)
         {
-            if(oneTimeBonusA1 == false) //apply bonus only once.
+            if (oneTimeBonusA8 == false) //apply bonus only once.
             {
-                oneTimeBonusA1 = true;
-                //bonus here
-                //add money
+                CurrencyManager.currencyMaster.IncreaseCurrency(200);
+                oneTimeBonusA8 = true;
+            }
+        }
+        else if (factionBLoyalty >= 80)
+        {
+            if (oneTimeBonusB8 == false)
+            {
+                CurrencyManager.currencyMaster.IncreaseCurrency(200);
+                oneTimeBonusB8 = true;
+            }
+        }
+        if (factionALoyalty >= 60)
+        {
+            if(oneTimeBonusA6 == false) //apply bonus only once.
+            {
+                //CurrencyManager.currencyMaster.IncreaseCurrency(250);
+                oneTimeBonusA6 = true;
             }
         }
         else if(factionBLoyalty >= 60)
         {
-            if(oneTimeBonusB1 == false)
+            if(oneTimeBonusB6 == false)
             {
-                oneTimeBonusB1 = true;
-                
+                //CurrencyManager.currencyMaster.IncreaseCurrency(250);
+                oneTimeBonusB6 = true;
             }
         }
 
