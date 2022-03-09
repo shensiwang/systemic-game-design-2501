@@ -324,8 +324,12 @@ public class LevelScript : MonoBehaviour
 
                 //CHANGE FACTION STATS//
 
+                //increase aggression of faction.
                 faction.IncreaseAgression(currentCustomerScript.Faction);
-                faction.IncreaseLoyalty(currentCustomerScript.Faction);
+
+                //increase loyalty of faction. decrease loyalty of opposing faction.
+                faction.IncreaseLoyalty(currentCustomerScript.Faction); 
+                faction.DecreaseLoyalty(currentCustomerScript.oppFaction); 
 
                 //reset completed potion
 
