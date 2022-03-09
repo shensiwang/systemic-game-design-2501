@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class The_Customer : MonoBehaviour
 {
     public string Faction = "";
+    public string oppFaction = "";
     public string WinningFaction; //Once the Faction script is ready, take the winning faction
     public Faction factionInfo;
 
@@ -123,6 +124,9 @@ public class The_Customer : MonoBehaviour
 
     private void Start()
     {
+        if (Faction == "A") oppFaction = "B"; //track opposing faction. use for changing loyalty in levelscript.
+        else oppFaction = "A";
+
         int BaseRandomizer;
         int ElementRandomizer1;
         int ElementRandomizer2;
