@@ -10696,6 +10696,10 @@ PrefabInstance:
       propertyPath: totalCustomersPerDay
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8202484375034533647, guid: fa9c7e8482742464291f5af94146d955, type: 3}
+      propertyPath: ingredientManagerRef
+      value: 
+      objectReference: {fileID: 982072027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa9c7e8482742464291f5af94146d955, type: 3}
 --- !u!224 &8266282446584387694

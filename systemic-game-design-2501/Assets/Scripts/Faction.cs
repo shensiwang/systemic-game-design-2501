@@ -43,7 +43,15 @@ public class Faction : MonoBehaviour
     private bool oneTimeBonusA1 = false;
     private bool oneTimeBonusB1 = false;
 
+    private bool oneTimeBonusA3 = false;
+    private bool oneTimeBonusB3 = false;
+
     public float moneyMultiplier = 1; //multiply this when adding money. can be used for bonuses or decrease.
+    public float factionAchanceOfPay = 100f;
+    public float factionBchanceOfPay = 100f;
+
+    public float factionAPercentagePay = 100f;
+    public float factionBPercentagePay = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -111,7 +119,8 @@ public class Faction : MonoBehaviour
                 //bonus here
                 //add money
             }
-        }else if(factionBLoyalty >= 60)
+        }
+        else if(factionBLoyalty >= 60)
         {
             if(oneTimeBonusB1 == false)
             {
@@ -119,8 +128,60 @@ public class Faction : MonoBehaviour
                 
             }
         }
-    }
 
+        ///loyalty at 40 or lower - 90% of cost
+
+        if (factionALoyalty <= 40)
+        {
+            factionAPercentagePay = 90f;
+        }
+        if (factionBLoyalty <= 40)
+        {
+            factionBPercentagePay = 90f;
+        }
+
+
+        ///loyalty at 30 or lower - deduct money
+        if (factionALoyalty <= 30)
+        {
+            if(oneTimeBonusA3 == false)
+            {
+                //deduct money
+                CurrencyManager.currencyMaster.decreaseCurrency(250);
+                oneTimeBonusA3 = true;
+            }
+        }
+        if (factionBLoyalty <= 30)
+        {
+            if (oneTimeBonusB3 == false)
+            {
+                //deduct money
+                CurrencyManager.currencyMaster.decreaseCurrency(250);
+                oneTimeBonusB3 = true;
+            }
+        }
+
+
+        ///loyalty at 20 or lower - //change chance of pay, according to loyalty//
+        if (factionALoyalty <= 20)
+        {
+            factionAchanceOfPay = 70f; //change chance of pay
+        }
+        else
+        {
+            factionAchanceOfPay = 100f; //change chance of pay
+        }
+
+
+        if(factionBLoyalty <= 20f)
+        {
+            factionBchanceOfPay = 70f;
+        }
+        else
+        {
+            factionBchanceOfPay = 100f;
+        }
+    }
 
 
 

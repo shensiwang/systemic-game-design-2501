@@ -15,6 +15,7 @@ public class LevelScript : MonoBehaviour
     public Faction faction;
     //public ReceipeManager rm;
     public StartDayManager startDayManagerRef;
+    public IngredientManager ingredientManagerRef;
 
     public Slots completedPotion; //use to check for potion brewed.
     //public int customersSucceeded;
@@ -322,6 +323,13 @@ public class LevelScript : MonoBehaviour
                 {
                     StartCoroutine(DelayedDespawn());
 
+                //EARN MONEY//
+                if (currentCustomerScript.willPay == true)
+                {
+                    ingredientManagerRef.CalculateDailySales(currentCustomerScript.percentagePaid);
+                }
+                
+
                 //CHANGE FACTION STATS//
 
                 //increase aggression of faction.
@@ -346,7 +354,9 @@ public class LevelScript : MonoBehaviour
                 }
                 else //WRONG POTION
                 {
-                faction.DecreaseAgression(currentCustomerScript.Faction);
+
+                //decrease loyalty of faction.
+                //faction.DecreaseAgression(currentCustomerScript.Faction);
                 faction.DecreaseLoyalty(currentCustomerScript.Faction);
 
                 StartCoroutine(DelayedDespawn());
