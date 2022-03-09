@@ -51,8 +51,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Faction: A
+  oppFaction: 
   WinningFaction: A
   factionInfo: {fileID: 0}
+  willPay: 1
+  percentagePaid: 100
   Event: Fire
   eventMasterRef: {fileID: 0}
   finalDialogueString: 
@@ -91,11 +94,28 @@ MonoBehaviour:
   - Poison threats from those Audrey scum? Those buffoons. We need to find out what
     their up to.
   - Audrey scum... up to no good with those threats of poisons... we need information.
-  DivineFavorEventDialogue: []
-  A_Win_SecretPlanEventDialogue: []
-  A_Lose_SecretPlanEventDialogue: []
-  B_Win_SecretPlanEventDialogue: []
-  B_Lose_SecretPlanEventDialogue: []
+  DivineFavorEventDialogue:
+  - Finally the great ones are smiling upon us. Today is the turning point for the
+    Audreys, we shall burn and kill all the Betrams, they will pay!
+  - The gods have given us their grace. A brief recession for us to gather our strength.
+    The Audrey scums will regret messing with us.
+  A_Win_SecretPlanEventDialogue:
+  - Don't tell anyone. We have a plan that is sure to mess with the Betrams. They
+    will never see it coming.
+  - I am so hype for tonight. What we have planned for Betrams, everyone will be
+    talking about it for years to come.
+  A_Lose_SecretPlanEventDialogue:
+  - 'This wasn''t part of the rules. They... they can''t do this. '
+  - 'Betrams, they pulled one over us. '
+  B_Win_SecretPlanEventDialogue:
+  - This about time the Audreys knew that strength isn't the solution to all answers.
+    We have something in stored for them.
+  - 'Potionmaster, here''s a little hint for your services. Its time for you to come
+    over to our side, the right side. For tonight, everything will change. '
+  B_Lose_SecretPlanEventDialogue:
+  - 'Those Audrey scums, I never thought they would pull off something like this. '
+  - I can't believe we didn't see this coming. We are suppose to be the smarter ones.
+    Looks like we will need to replace some roles in our family.
   WarSurgeDialogue:
   - We need to be mentally pumped up for combat!
   DragonicShellDialogue:
@@ -137,45 +157,63 @@ MonoBehaviour:
     up?
 
 '
+  - 'The family require the help of a summon. Perhaps something that can perk us
+    up?
+
+'
   VerdantRejuvenationDialogue:
-  - I heard that there is a potion that aids in farming. We need some of those for
-    our fields.
+  - I heard that there is a potion that heals the sick or wounded.
+  - Do you have a potion that improves the conditions of my crops?
   FrogificationDialogue:
   - I want a potion that can turn someone into a croacker. Don't ask any questions,
     just have my order ready.
+  - I hear that you have a potion that turns someone into something slimy. Sounds
+    like something out of a fairytale but is what we need.
   WoodlandWhispersDialogue:
   - 'I want a potion that lets me understand the tongue of the trees. '
+  - We need a potion that allows someone to hear what the voices in the woods are
+    saying.
   DomainOfSeclusionDialogue:
   - We need a potion that can give some mental solitude.
+  - We require a potion that aids in concentration.
   DryadsOfferingDialogue:
   - I need a potion that can summon the great nature spirits.
+  - Have you heard stories of spirits living in the forest. We need a potion that
+    can summon one of them.
   AutoRepairDialogue:
   - Potionmaker, we require something that is able to fix inanimate structures. Perhaps
     you can cook something up.
+  - We have given up fixing it. Do you have something that will help us?
   FormeOfTheMarionetteDialogue:
   - 'Do you have a potion that turns someone into a erm... a puppet. '
+  - I need a potion that allows me to control pver those that drinks it.
   RetraceMachinationDialogue:
   - We need to know where this object has been and who has been in contact with it.
-    Hurry the order!
+  - It would be nice if I knew where this thing has been.
   FeatheredStepsDialogue:
   - 'Potionmaker, we require something that makes our feet as light as the air. '
+  - We need a potion that allows us to run as fast as the wind.
   SoulInstallDialogue:
-  - Our mages require a potoin that is able to breathe life into the inanimate. No,
-    are not making a golem. After all its illegal to owe one.
+  - Our mages require a potion that is able to breathe life into the inanimate.
+  - We have been trying to give sentience to this object? Perhaps you have a potion
+    that would help us.
   CalmOfTheDeadDialogue:
   - We need something that can calm the restless ones.
+  - The spirits have been distrubing us. Do you have something for them?
   PerceptualArrayDialogue:
   - Do you have something that hides the identity of someone?
   - 'We need a potion that can keep someone''s identity a mystery for infiltration. '
   DeadmansTongueDialogue:
   - Potionmaker, we require to commute with the dead. I hear that you are capable
     of producing such a concotion.
+  - We need to speak to someone that has passed recently.
   GazeOfTheOutersideDialogue:
   - Potionmaster we need a potion that allows one foresight of the great unknown.
-    Some calming herbs to go with it.
+  - We need something that shows the maddness of the unseen world.
   SolomonsBloodDialogue:
   - 'Tonight is the devil''s night. We require a medium capable of bringing forth
     a great being of darkness. '
+  - It pains to say this, do you have a potion that summons a great evil?
   PatienceTimer: 0
   CurrentTimer: 0
   repPatienceTimerIncrement: 0
