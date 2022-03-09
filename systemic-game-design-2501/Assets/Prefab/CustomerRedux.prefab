@@ -118,33 +118,48 @@ MonoBehaviour:
     Looks like we will need to replace some roles in our family.
   WarSurgeDialogue:
   - We need to be mentally pumped up for combat!
+  - Is there a potion that gives us a huge boost of adrenaline?
   DragonicShellDialogue:
   - Hey owner, do you a transformation potion?  Something that can turn me into a
     powerful beast.
+  - Is there a potion in that receipe book of yours that allows us to transform into
+    a mighty creature?
   DivineScryerDialogue:
   - Potionmaker, we require some divine knowledge! Perhaps the gods may advise us
     on our next step.
+  - We need a potion to receive guidance from higher powers.
   HerculeanSerumDialogue:
   - We need great power to overcome our foes! Deliver us the potion soon.
+  - Great strength is required to complete the task ahead. Do you have a potion of
+    that sorts?
   SalamandersBaitDialogue:
   - 'We need to summon a powerful spirit. Something that can incinerate things. '
+  - We require something that is able to set things ablaze.
   WizardsBrewDialogue:
   - Potiomaster! Our clan's magus requires something to replenish their mana for
     the task at hand.
+  - Our mages have been felling out of sorts recently. Do you have a potion that
+    can help with that?
   AqeuousFromeDialogue:
   - Hey there, I need something that can make me extremely flexible for an upcoming
     task. You know that saying "Be like water"...
+  - We need potion that transforms the user into something more flexible.
   PotionOfPremonitionDialogue:
   - 'Please give us a potion that grants us knowledge of the near future.  '
+  - 'We need a potion that let us view the future. '
   KnowledgeMeadDialogue:
   - Potionmaster! I need something that can make me smarter.
+  - Could you brew a potion that makes someone smarter?
   RusalkasCallDialogue:
   - We need a summon that can call upon vast amount of water!
   - I need a potion that can evoke a creature of water!
   TouchOfWondermentDialogue:
   - I need something that helps spruce up the mood. Perhaps you have the right potion?
+  - The fight has been really stressful for us. Could we have something that takes
+    the edge off?
   NarcissusBlendDialogue:
-  - We need a transformation potion that someone the star of the next theatre!
+  - We need a transformation potion that makes someone the star of the next theatre!
+  - Do you have a potion that makes someone look much more appleasing?
   FortuitousVisionsDialogue:
   - One can never have too much luck. I wonder if there's a potion that allows one
     to predict luck?
@@ -152,15 +167,14 @@ MonoBehaviour:
   PinchOfErosDialogue:
   - The season of love is arriving. I need you to brew something for the family,
     something that gets people into the "Groove".
+  - We require two individual to fall in love with each other.
   ToadstoolEssenceDialogue:
   - 'The family require the help of a summon. Perhaps something that can perk us
     up?
 
 '
-  - 'The family require the help of a summon. Perhaps something that can perk us
-    up?
-
-'
+  - A small situation has occured, we require the assistance of the fae clan. Perhaps
+    you have a potion that calls upon one of them?
   VerdantRejuvenationDialogue:
   - I heard that there is a potion that heals the sick or wounded.
   - Do you have a potion that improves the conditions of my crops?
