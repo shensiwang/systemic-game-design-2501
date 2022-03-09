@@ -54,6 +54,7 @@ MonoBehaviour:
   WinningFaction: A
   factionInfo: {fileID: 0}
   Event: Fire
+  eventMasterRef: {fileID: 0}
   finalDialogueString: 
   CustomerScript: []
   NormalEventDialogue:
@@ -73,6 +74,28 @@ MonoBehaviour:
   B_Lose_FireOutbreakEventDialogue:
   - Those Audrey scum burnt alot of our men. We could use some help...
   - Those pyromanic Audrey scum! I can't believe they would stoop this low...
+  HolidayEventDialogue:
+  - It's the holidays! We're putting the war on break!
+  - Time to make this day count! We're gonna need something for the party!
+  A_Win_ThreatsOfPoisonEventDialogue:
+  - Let's see how sick we can make those Betram boys, heheheh!
+  - 'We need potions to mess up those Betram boys! '
+  A_Lose_ThreatsOfPoisonEventDialogue:
+  - Dang, we need to stock up against Betram's poisons!
+  - Betram's poison threat doesn't sound like a joke! We need to prepare!
+  B_Win_ThreatsOfPoisonEventDialogue:
+  - The boss is requesting potions for us to poison those Audrey scum...
+  - Time to strike a little terror to those Audrey scum by spiking their disgusting
+    drinks!
+  B_Lose_ThreatsOfPoisonEventDialogue:
+  - Poison threats from those Audrey scum? Those buffoons. We need to find out what
+    their up to.
+  - Audrey scum... up to no good with those threats of poisons... we need information.
+  DivineFavorEventDialogue: []
+  A_Win_SecretPlanEventDialogue: []
+  A_Lose_SecretPlanEventDialogue: []
+  B_Win_SecretPlanEventDialogue: []
+  B_Lose_SecretPlanEventDialogue: []
   WarSurgeDialogue:
   - We need to be mentally pumped up for combat!
   DragonicShellDialogue:

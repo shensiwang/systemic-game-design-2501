@@ -10,7 +10,7 @@ public class The_Customer : MonoBehaviour
     public string WinningFaction; //Once the Faction script is ready, take the winning faction
     public Faction factionInfo;
 
-    public string Event = "Normal";// Once Event script is done, take current event name
+    public string Event = "Normal";
     public EventMaster eventMasterRef; 
 
     public BaseInterface BaseNeeded;
@@ -35,6 +35,36 @@ public class The_Customer : MonoBehaviour
 
     [TextArea(5, 5)]
     public string[] B_Lose_FireOutbreakEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] HolidayEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] A_Win_ThreatsOfPoisonEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] A_Lose_ThreatsOfPoisonEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] B_Win_ThreatsOfPoisonEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] B_Lose_ThreatsOfPoisonEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] DivineFavorEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] A_Win_SecretPlanEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] A_Lose_SecretPlanEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] B_Win_SecretPlanEventDialogue;
+
+    [TextArea(5, 5)]
+    public string[] B_Lose_SecretPlanEventDialogue;
 
     [Header("-----------Super Red Dialogue--------------")]
     [TextArea(5, 5)]
@@ -197,9 +227,8 @@ public class The_Customer : MonoBehaviour
                         SecondElement = new Yellow();
                         break;
                 }
-               
-
                 break;
+
             case "Fire":
                 if(WinningFaction=="A")
                 {
@@ -282,13 +311,13 @@ public class The_Customer : MonoBehaviour
                         CustomerScript.Add(A_Lose_FireOutbreakEventDialogue[EventDialogueRandomizer]);
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
 
-                        if (EventSpecificPotionRandomizer == 0) //Salamander's Bait
+                        if (EventSpecificPotionRandomizer == 0) //Auto-Repair
                         {
-                            BaseNeeded = new Evocation();
+                            BaseNeeded = new Amelioration();
                             MainElement = new Red();
                             FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithRed();
-                            SecondElement = new Red();
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
                         }
                         else if (EventSpecificPotionRandomizer == 1)//Wizard's Brew
                         {
@@ -298,13 +327,13 @@ public class The_Customer : MonoBehaviour
                             MainElement = MainElement.AddedWithBlue();
                             SecondElement = new Blue();
                         }
-                        else
+                        else//Aqueous Frome
                         {
-                            BaseNeeded = new Emanation();//War Surge
-                            MainElement = new Red();
+                            BaseNeeded = new Mutation();
+                            MainElement = new Blue();
                             FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithRed();
-                            SecondElement = new Red();
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
                         }
                     }
                     else if (Faction == "B")
@@ -321,21 +350,21 @@ public class The_Customer : MonoBehaviour
                             MainElement = MainElement.AddedWithYellow();
                             SecondElement = new Yellow();
                         }
-                        else if (EventSpecificPotionRandomizer == 1) // Perceptual Array
+                        else if (EventSpecificPotionRandomizer == 1) //Salamander Bait
                         {
-                            BaseNeeded = new Mutation();
+                            BaseNeeded = new Evocation();
                             MainElement = new Red();
                             FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithBlue();
-                            SecondElement = new Blue();
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
                         }
                         else
                         {
-                            BaseNeeded = new Haruspical();//Potion of Premonition
-                            MainElement = new Blue();
+                            BaseNeeded = new Emanation();//Feathered Steps
+                            MainElement = new Red();
                             FirstElement = MainElement;
-                            MainElement = MainElement.AddedWithBlue();
-                            SecondElement = new Blue();
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
                         }
                     }
                     else
@@ -349,6 +378,568 @@ public class The_Customer : MonoBehaviour
                 }
                 break;
 
+            case "Holiday":
+
+                EventDialogueRandomizer = Random.Range(0, HolidayEventDialogue.Length);
+                CustomerScript.Add(HolidayEventDialogue[EventDialogueRandomizer]);
+
+                EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                if (EventSpecificPotionRandomizer == 0) //ToadStool Essesnce
+                {
+                    BaseNeeded = new Evocation();
+                    MainElement = new Yellow();
+                    FirstElement = MainElement;
+                    MainElement = MainElement.AddedWithYellow();
+                    SecondElement = new Yellow();
+                    Debug.Log(MainElement);
+                }
+                else if (EventSpecificPotionRandomizer == 1)//Rusalka Call
+                {
+                    BaseNeeded = new Evocation();
+                    MainElement = new Blue();
+                    FirstElement = MainElement;
+                    MainElement = MainElement.AddedWithBlue();
+                    SecondElement = new Blue();
+                }
+                else
+                {
+                    BaseNeeded = new Amelioration();//Touch Of Wonderment
+                    MainElement = new Yellow();
+                    FirstElement = MainElement;
+                    MainElement = MainElement.AddedWithYellow();
+                    SecondElement = new Yellow();
+                }
+                break;
+
+            case "Poison":
+                if (WinningFaction == "A")
+                {
+                    if (Faction == "A")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, A_Win_ThreatsOfPoisonEventDialogue.Length);
+                        CustomerScript.Add(A_Win_ThreatsOfPoisonEventDialogue[EventDialogueRandomizer]);
+
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0) //Gaze of the Outerside
+                        {
+                            BaseNeeded = new Emanation();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1)//Frogification
+                        {
+                            BaseNeeded = new Mutation();
+                            MainElement = new Blue();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
+                            Debug.Log(MainElement);
+                        }
+                        else
+                        {
+                            BaseNeeded = new Amelioration();//War Surge
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
+                            Debug.Log(MainElement);
+                        }
+
+                    }
+                    else if (Faction == "B")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, B_Lose_ThreatsOfPoisonEventDialogue.Length);
+                        CustomerScript.Add(B_Lose_ThreatsOfPoisonEventDialogue[EventDialogueRandomizer]);
+
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0)//Retrace Machination
+                        {
+                            BaseNeeded = new Haruspical();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1)//Premonition
+                        {
+                            BaseNeeded = new Haruspical();
+                            MainElement = new Blue();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+
+                        }
+                        else//Perceptual Array
+                        {
+                            BaseNeeded = new Mutation();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("HAHA");
+                    }
+                }
+                else if (WinningFaction == "B")
+                {
+                    if (Faction == "A")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, A_Lose_ThreatsOfPoisonEventDialogue.Length);
+                        CustomerScript.Add(A_Lose_ThreatsOfPoisonEventDialogue[EventDialogueRandomizer]);
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0) //Verdant Rejuv
+                        {
+                            BaseNeeded = new Amelioration(); 
+                            MainElement = new Yellow();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1)//Rusalka
+                        {
+                            BaseNeeded = new Evocation();
+                            MainElement = new Blue();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else
+                        {
+                            BaseNeeded = new Haruspical();//Divine Scryer
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
+                            Debug.Log(MainElement);
+                        }
+                    }
+                    else if (Faction == "B")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, B_Win_ThreatsOfPoisonEventDialogue.Length);
+                        CustomerScript.Add(B_Win_ThreatsOfPoisonEventDialogue[EventDialogueRandomizer]);
+
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0)// Solomon Blood
+                        {
+                            BaseNeeded = new Evocation();//War Surge
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1) // Marionette
+                        {
+                            BaseNeeded = new Mutation();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
+                            Debug.Log(MainElement);
+                        }
+                        else // Outerside
+                        {
+                            BaseNeeded = new Emanation();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("HAHA");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Nothing is here you stupid idiot!");
+                }
+                break;
+
+            case "Favor":
+                if (WinningFaction == "A")
+                {
+                    if (Faction == "A")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, DivineFavorEventDialogue.Length);
+                        CustomerScript.Add(DivineFavorEventDialogue[EventDialogueRandomizer]);
+
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0) //Divine Scryer
+                        {
+                            BaseNeeded = new Haruspical();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1)//Herculem
+                        {
+                            BaseNeeded = new Emanation();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
+                            Debug.Log(MainElement);
+                        }
+                        else
+                        {
+                            BaseNeeded = new Amelioration();//Touch Of Wonderment
+                            MainElement = new Yellow();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
+                            Debug.Log(MainElement);
+                        }
+                        break;
+
+                    }
+                    else if (Faction == "B")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, NormalEventDialogue.Length);
+                        CustomerScript.Add(NormalEventDialogue[EventDialogueRandomizer]);
+
+                        BaseRandomizer = Random.Range(0, 5);
+                        ElementRandomizer1 = Random.Range(0, 3);
+                        ElementRandomizer2 = Random.Range(0, 3);
+
+                        switch (BaseRandomizer)
+                        {
+                            case 0:
+                                BaseNeeded = new Amelioration();
+                                break;
+                            case 1:
+                                BaseNeeded = new Mutation();
+                                break;
+                            case 2:
+                                BaseNeeded = new Haruspical();
+                                break;
+                            case 3:
+                                BaseNeeded = new Emanation();
+                                break;
+                            case 4:
+                                BaseNeeded = new Evocation();
+                                break;
+                        }
+                        switch (ElementRandomizer1)
+                        {
+                            case 0://Main element is red
+                                MainElement = new Red();
+                                break;
+                            case 1://Main element is blue
+                                MainElement = new Blue();
+                                break;
+                            case 2://main element is yellow
+                                MainElement = new Yellow();
+                                break;
+                        }
+                        FirstElement = MainElement;
+                        switch (ElementRandomizer2)
+                        {
+                            case 0://When second element is red
+                                MainElement = MainElement.AddedWithRed();
+                                SecondElement = new Red();
+                                break;
+
+                            case 1://when second element is blue
+                                MainElement = MainElement.AddedWithBlue();
+                                SecondElement = new Blue();
+                                break;
+
+                            case 2://when second element is yellow
+                                MainElement = MainElement.AddedWithYellow();
+                                SecondElement = new Yellow();
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("HAHA");
+                    }
+                }
+                else if (WinningFaction == "B")
+                {
+                    if (Faction == "A")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, NormalEventDialogue.Length);
+                        CustomerScript.Add(NormalEventDialogue[EventDialogueRandomizer]);
+
+                        BaseRandomizer = Random.Range(0, 5);
+                        ElementRandomizer1 = Random.Range(0, 3);
+                        ElementRandomizer2 = Random.Range(0, 3);
+
+                        switch (BaseRandomizer)
+                        {
+                            case 0:
+                                BaseNeeded = new Amelioration();
+                                break;
+                            case 1:
+                                BaseNeeded = new Mutation();
+                                break;
+                            case 2:
+                                BaseNeeded = new Haruspical();
+                                break;
+                            case 3:
+                                BaseNeeded = new Emanation();
+                                break;
+                            case 4:
+                                BaseNeeded = new Evocation();
+                                break;
+                        }
+                        switch (ElementRandomizer1)
+                        {
+                            case 0://Main element is red
+                                MainElement = new Red();
+                                break;
+                            case 1://Main element is blue
+                                MainElement = new Blue();
+                                break;
+                            case 2://main element is yellow
+                                MainElement = new Yellow();
+                                break;
+                        }
+                        FirstElement = MainElement;
+                        switch (ElementRandomizer2)
+                        {
+                            case 0://When second element is red
+                                MainElement = MainElement.AddedWithRed();
+                                SecondElement = new Red();
+                                break;
+
+                            case 1://when second element is blue
+                                MainElement = MainElement.AddedWithBlue();
+                                SecondElement = new Blue();
+                                break;
+
+                            case 2://when second element is yellow
+                                MainElement = MainElement.AddedWithYellow();
+                                SecondElement = new Yellow();
+                                break;
+                        }
+                    }
+                    else if (Faction == "B")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, B_Win_ThreatsOfPoisonEventDialogue.Length);
+                        CustomerScript.Add(B_Win_ThreatsOfPoisonEventDialogue[EventDialogueRandomizer]);
+
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0)// Fortutious Vision
+                        {
+                            BaseNeeded = new Haruspical();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1) // Wizard Brew
+                        {
+                            BaseNeeded = new Amelioration();
+                            MainElement = new Blue();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else // Outerside
+                        {
+                            BaseNeeded = new Emanation();
+                            MainElement = new Blue();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
+                            Debug.Log(MainElement);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("HAHA");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Nothing is here you stupid idiot!");
+                }
+                break;
+            case "Secret":
+                if (WinningFaction == "A")
+                {
+                    if (Faction == "A")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, A_Win_SecretPlanEventDialogue.Length);
+                        CustomerScript.Add(A_Win_SecretPlanEventDialogue[EventDialogueRandomizer]);
+
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0) //Herculean
+                        {
+                            BaseNeeded = new Emanation();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1)//Wizard
+                        {
+                            BaseNeeded = new Amelioration();
+                            MainElement = new Blue();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else
+                        {
+                            BaseNeeded = new Amelioration();//Potion of Premonition
+                            MainElement = new Blue();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        break;
+
+                    }
+                    else if (Faction == "B")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, B_Win_SecretPlanEventDialogue.Length);
+                        CustomerScript.Add(B_Win_SecretPlanEventDialogue[EventDialogueRandomizer]);
+
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0) //Soul Intsall
+                        {
+                            BaseNeeded = new Evocation();
+                            MainElement = new Yellow();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1)//Woodland Wisphers
+                        {
+                            BaseNeeded = new Haruspical();
+                            MainElement = new Yellow();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else
+                        {
+                            BaseNeeded = new Mutation();//Perceptual Array
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                    }
+                }
+                else if (WinningFaction == "B")
+                {
+                    if (Faction == "A")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, A_Lose_SecretPlanEventDialogue.Length);
+                        CustomerScript.Add(A_Lose_SecretPlanEventDialogue[EventDialogueRandomizer]);
+
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0) //Soul Intsall
+                        {
+                            BaseNeeded = new Evocation();
+                            MainElement = new Yellow();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithRed();
+                            SecondElement = new Red();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1)//Domain 
+                        {
+                            BaseNeeded = new Emanation();
+                            MainElement = new Yellow();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else
+                        {
+                            BaseNeeded = new Mutation();//Premonition
+                            MainElement = new Blue();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                    }
+                    else if (Faction == "B")
+                    {
+                        EventDialogueRandomizer = Random.Range(0, B_Win_ThreatsOfPoisonEventDialogue.Length);
+                        CustomerScript.Add(B_Win_ThreatsOfPoisonEventDialogue[EventDialogueRandomizer]);
+
+                        EventSpecificPotionRandomizer = Random.Range(0, 2);
+
+                        if (EventSpecificPotionRandomizer == 0)//Perceptual Array
+                        {
+                            BaseNeeded = new Mutation();
+                            MainElement = new Red();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithBlue();
+                            SecondElement = new Blue();
+                            Debug.Log(MainElement);
+                        }
+                        else if (EventSpecificPotionRandomizer == 1) // Narcisius
+                        {
+                            BaseNeeded = new Mutation();
+                            MainElement = new Yellow();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
+                            Debug.Log(MainElement);
+                        }
+                        else // Dryad
+                        {
+                            BaseNeeded = new Mutation();
+                            MainElement = new Blue();
+                            FirstElement = MainElement;
+                            MainElement = MainElement.AddedWithYellow();
+                            SecondElement = new Yellow();
+                            Debug.Log(MainElement);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("HAHA");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Nothing is here you stupid idiot!");
+                }
+                break;
         }
 
         //Determines Final Sentence
