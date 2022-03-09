@@ -40,6 +40,11 @@ public class Faction : MonoBehaviour
 
     public string winningFaction;
 
+    private bool oneTimeBonusA1 = false;
+    private bool oneTimeBonusB1 = false;
+
+    public float moneyMultiplier = 1; //multiply this when adding money. can be used for bonuses or decrease.
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +99,29 @@ public class Faction : MonoBehaviour
             levelScript.Lose();
         }
     }
+
+
+    private void CheckForLoyaltyBonus()
+    {
+        if(factionALoyalty >= 60)
+        {
+            if(oneTimeBonusA1 == false) //apply bonus only once.
+            {
+                oneTimeBonusA1 = true;
+                //bonus here
+                //add money
+            }
+        }else if(factionBLoyalty >= 60)
+        {
+            if(oneTimeBonusB1 == false)
+            {
+                oneTimeBonusB1 = true;
+                
+            }
+        }
+    }
+
+
 
 
     public void DecreaseMorale(string faction)
