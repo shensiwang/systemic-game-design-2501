@@ -157,11 +157,7 @@ public class The_Customer : MonoBehaviour
 
     private void Start()
     {
-        if (Faction == "A") oppFaction = "B"; //track opposing faction. use for changing loyalty in levelscript.
-        else oppFaction = "A";
-
-        CheckPayPercentage();
-        CheckIfPay();
+        
 
         int BaseRandomizer;
         int ElementRandomizer1;
@@ -172,6 +168,12 @@ public class The_Customer : MonoBehaviour
 
         factionInfo = FindObjectOfType<Faction>();
         WinningFaction = factionInfo.winningFaction; //get winning faction
+
+        if (Faction == "A") oppFaction = "B"; //track opposing faction. use for changing loyalty in levelscript.
+        else oppFaction = "A";
+
+        CheckPayPercentage();
+        CheckIfPay();
 
         eventMasterRef = GameObject.Find("LevelInformation").GetComponent<EventMaster>(); // get random event type from EventMaster
 
