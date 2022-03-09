@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ReceipeManager : MonoBehaviour
 {
     public LevelScript levelScript;
+    public IngredientManager ingredientManagerRef;
 
     private Ingredients currentIngredient;
     public Image customCursor;
@@ -25,8 +26,6 @@ public class ReceipeManager : MonoBehaviour
     public string[] brewingResults;
     public string receipeResults;
     public string currentReceipeString;
-
-    public IngredientManager ingredientManagerRef;
 
     private void Start()
     {
@@ -205,7 +204,7 @@ public class ReceipeManager : MonoBehaviour
                     ingredientManagerRef.UsedIngredient(ingredientList[i].ingredientName);
                     Debug.Log("Brew success! Ingredient amount have recorded ");
                 }
-                
+
                 ResetPot();
             }
             else { Debug.Log("Cannot be brewed!");}
@@ -216,15 +215,15 @@ public class ReceipeManager : MonoBehaviour
     {
         //What happens after the potion is sold
         levelScript.SellPotion(); //use the function found in levelscript (since it has info on customer.)
+        ingredientManagerRef.CalculateDailySales();
 
-        
 
         /*
         completePotionSlot.potionType = null;
         completePotionSlot.potionElement = null;
         completePotionSlot.gameObject.SetActive(false);*/ //shifted to levelscript.
 
-        
+
     }
 
     public void OnMouseDown(Ingredients ingredients)

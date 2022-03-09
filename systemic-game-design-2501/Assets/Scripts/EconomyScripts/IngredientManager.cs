@@ -150,11 +150,13 @@ public class IngredientManager : MonoBehaviour
     //============ call CalculateDailySales() to update the final sales of the day ===============
     public float CalculateDailySales()
     {
-        DailySales = baseMandrake.sellPrice * usedMandrakeAmt + baseWolfsbane.sellPrice * usedWolfsbaneAmt + baseDeadmanDust.sellPrice * usedDeadmanDustAmt + baseHenbane.sellPrice * usedHenbaneAmt + baseRatGrass.sellPrice * usedRatGrassAmt;
+        DailySales = baseMandrake.sellPrice * usedMandrakeAmt + baseWolfsbane.sellPrice * usedWolfsbaneAmt + baseDeadmanDust.sellPrice * usedDeadmanDustAmt + baseHenbane.sellPrice * usedHenbaneAmt + baseRatGrass.sellPrice * usedRatGrassAmt + secondaryRed.sellPrice * usedRedAmt + secondaryYellow.sellPrice * usedYellowAmt + secondaryBlue.sellPrice * usedBlueAmt;
 
-        Debug.Log("baseMandrake.sellPrice: $" + baseMandrake.sellPrice + " & " + "usedMandrakeAmt: " + usedMandrakeAmt);
+        CurrencyManager.currencyMaster.IncreaseCurrency(DailySales);
 
         return DailySales;
+
+
     }
 
 

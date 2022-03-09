@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CurrencyMaster : MonoBehaviour
 {
-    public Text currencyTxt;
+    public TextMeshProUGUI currencyTxt;
 
     int id;
     int currency;
@@ -23,14 +24,20 @@ public class CurrencyMaster : MonoBehaviour
         currency = 0; 
     }
 
-    public void IncreaseCurrency(int amount)
+    private void Update()
     {
-        currency += amount;
+        currencyTxt.text = "$ " + currency.ToString();
     }
 
-    public void decreaseCurrency(int amount)
+    public void IncreaseCurrency(float amount)
     {
-        currency -= amount;
+        currency += (int)amount;
+        Debug.Log("____________Currency Amount: " + currency);
+    }
+
+    public void decreaseCurrency(float amount)
+    {
+        currency -= (int)amount;
     }
 
 }
