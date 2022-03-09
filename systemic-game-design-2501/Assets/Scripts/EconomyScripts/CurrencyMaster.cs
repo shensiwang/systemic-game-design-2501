@@ -32,7 +32,6 @@ public class CurrencyMaster : MonoBehaviour
     public void IncreaseCurrency(float amount)
     {
         currency += (int)amount;
-        Debug.Log("____________Currency Amount: " + currency);
     }
 
     public void decreaseCurrency(float amount)
