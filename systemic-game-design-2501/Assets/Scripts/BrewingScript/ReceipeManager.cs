@@ -215,7 +215,8 @@ public class ReceipeManager : MonoBehaviour
     {
         //What happens after the potion is sold
         levelScript.SellPotion(); //use the function found in levelscript (since it has info on customer.)
-        ingredientManagerRef.CalculateDailySales();
+        
+        
 
 
         /*

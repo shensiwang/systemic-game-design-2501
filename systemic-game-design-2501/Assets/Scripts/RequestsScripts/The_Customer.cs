@@ -10,6 +10,9 @@ public class The_Customer : MonoBehaviour
     public string WinningFaction; //Once the Faction script is ready, take the winning faction
     public Faction factionInfo;
 
+    public bool willPay = true;
+    public float percentagePaid = 100f;
+
     public string Event = "Normal";
     public EventMaster eventMasterRef; 
 
@@ -154,8 +157,7 @@ public class The_Customer : MonoBehaviour
 
     private void Start()
     {
-        if (Faction == "A") oppFaction = "B"; //track opposing faction. use for changing loyalty in levelscript.
-        else oppFaction = "A";
+        
 
         int BaseRandomizer;
         int ElementRandomizer1;
@@ -166,6 +168,12 @@ public class The_Customer : MonoBehaviour
 
         factionInfo = FindObjectOfType<Faction>();
         WinningFaction = factionInfo.winningFaction; //get winning faction
+
+        if (Faction == "A") oppFaction = "B"; //track opposing faction. use for changing loyalty in levelscript.
+        else oppFaction = "A";
+
+        CheckPayPercentage();
+        CheckIfPay();
 
         eventMasterRef = GameObject.Find("LevelInformation").GetComponent<EventMaster>(); // get random event type from EventMaster
 
@@ -1119,5 +1127,51 @@ public class The_Customer : MonoBehaviour
         Debug.Log(CustomerScript[0] + "\n" + CustomerScript[1]);
   
 
+    }
+
+    public void CheckIfPay() //check if customer will pay, based of faction chance of pay.
+    {
+        float r = Random.Range(0, 100);
+
+        if (Faction == "A")
+        {
+            if (factionInfo.factionAchanceOfPay == 100)
+            {
+                willPay = true;
+            }
+            else
+            {
+                if (r <= factionInfo.factionAchanceOfPay) //0-70, 70% chance
+                {
+                    willPay = true;
+                }
+            }
+        }
+        else
+        {
+            if (factionInfo.factionBchanceOfPay == 100)
+            {
+                willPay = true;
+            }
+            else
+            {
+                if (r <= factionInfo.factionBchanceOfPay) //0-70, 70% chance
+                {
+                    willPay = true;
+                }
+            }
+        }
+    }
+
+    public void CheckPayPercentage()
+    {
+        if (Faction == "A")
+        {
+            percentagePaid = factionInfo.factionAPercentagePay / 100f;
+        }
+        else
+        {
+            percentagePaid = factionInfo.factionBPercentagePay / 100f;
+        }
     }
 }

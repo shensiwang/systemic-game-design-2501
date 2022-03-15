@@ -40,10 +40,21 @@ public class Faction : MonoBehaviour
 
     public string winningFaction;
 
-    private bool oneTimeBonusA1 = false;
-    private bool oneTimeBonusB1 = false;
+    private bool oneTimeBonusA6 = false;
+    private bool oneTimeBonusB6 = false;
+
+    private bool oneTimeBonusA8 = false;
+    private bool oneTimeBonusB8 = false;
+
+    private bool oneTimeBonusA3 = false;
+    private bool oneTimeBonusB3 = false;
 
     public float moneyMultiplier = 1; //multiply this when adding money. can be used for bonuses or decrease.
+    public float factionAchanceOfPay = 100f;
+    public float factionBchanceOfPay = 100f;
+
+    public float factionAPercentagePay = 100f;
+    public float factionBPercentagePay = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -103,24 +114,92 @@ public class Faction : MonoBehaviour
 
     private void CheckForLoyaltyBonus()
     {
-        if(factionALoyalty >= 60)
+        if (factionALoyalty >= 80)
         {
-            if(oneTimeBonusA1 == false) //apply bonus only once.
+            if (oneTimeBonusA8 == false) //apply bonus only once.
             {
-                oneTimeBonusA1 = true;
-                //bonus here
-                //add money
-            }
-        }else if(factionBLoyalty >= 60)
-        {
-            if(oneTimeBonusB1 == false)
-            {
-                oneTimeBonusB1 = true;
-                
+                CurrencyManager.currencyMaster.IncreaseCurrency(200);
+                oneTimeBonusA8 = true;
             }
         }
-    }
+        else if (factionBLoyalty >= 80)
+        {
+            if (oneTimeBonusB8 == false)
+            {
+                CurrencyManager.currencyMaster.IncreaseCurrency(200);
+                oneTimeBonusB8 = true;
+            }
+        }
+        if (factionALoyalty >= 60)
+        {
+            if(oneTimeBonusA6 == false) //apply bonus only once.
+            {
+                //CurrencyManager.currencyMaster.IncreaseCurrency(250);
+                oneTimeBonusA6 = true;
+            }
+        }
+        else if(factionBLoyalty >= 60)
+        {
+            if(oneTimeBonusB6 == false)
+            {
+                //CurrencyManager.currencyMaster.IncreaseCurrency(250);
+                oneTimeBonusB6 = true;
+            }
+        }
 
+        ///loyalty at 40 or lower - 90% of cost
+
+        if (factionALoyalty <= 40)
+        {
+            factionAPercentagePay = 90f;
+        }
+        if (factionBLoyalty <= 40)
+        {
+            factionBPercentagePay = 90f;
+        }
+
+
+        ///loyalty at 30 or lower - deduct money
+        if (factionALoyalty <= 30)
+        {
+            if(oneTimeBonusA3 == false)
+            {
+                //deduct money
+                CurrencyManager.currencyMaster.decreaseCurrency(250);
+                oneTimeBonusA3 = true;
+            }
+        }
+        if (factionBLoyalty <= 30)
+        {
+            if (oneTimeBonusB3 == false)
+            {
+                //deduct money
+                CurrencyManager.currencyMaster.decreaseCurrency(250);
+                oneTimeBonusB3 = true;
+            }
+        }
+
+
+        ///loyalty at 20 or lower - //change chance of pay, according to loyalty//
+        if (factionALoyalty <= 20)
+        {
+            factionAchanceOfPay = 70f; //change chance of pay
+        }
+        else
+        {
+            factionAchanceOfPay = 100f; //change chance of pay
+        }
+
+
+        if(factionBLoyalty <= 20f)
+        {
+            factionBchanceOfPay = 70f;
+        }
+        else
+        {
+            factionBchanceOfPay = 100f;
+        }
+    }
 
 
 
