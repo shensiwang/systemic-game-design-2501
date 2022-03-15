@@ -46,6 +46,10 @@ public class LevelScript : MonoBehaviour
     public TextMeshProUGUI dialogueUIText;
 
 
+    [Header("Floating Text")]
+    public TextMeshProUGUI moneyEarned;
+
+
     //public TextMeshProUGUI reviewSheetRequestSuccess;
 
 
@@ -327,6 +331,8 @@ public class LevelScript : MonoBehaviour
                 if (currentCustomerScript.willPay == true)
                 {
                     ingredientManagerRef.CalculateDailySales(currentCustomerScript.percentagePaid);
+                    StartCoroutine(moneyEarnedFloatingText(3f));
+
                 }
                 
 
@@ -370,6 +376,8 @@ public class LevelScript : MonoBehaviour
                 //Destroy(rm.potionPrefab); //added for placeholder
 
                 StartCoroutine(DelayedSpawn()); //only spawns when there is currently no customer & there are still remaining customers
+
+                StartCoroutine(noMoneyEarnedFloatingText(3F));
                 }
             
             
@@ -383,5 +391,23 @@ public class LevelScript : MonoBehaviour
         //Lose pop up
 
         lose = true;
+    }
+
+    IEnumerator moneyEarnedFloatingText(float time)
+    {
+        moneyEarned.text = "+ $ " + ingredientManagerRef.CalculateDailySales(currentCustomerScript.percentagePaid);
+        moneyEarned.color = Color.red;
+        moneyEarned.gameObject.SetActive(true);
+        yield return new WaitForSeconds(time);
+        moneyEarned.gameObject.SetActive(false);
+    }
+
+    IEnumerator noMoneyEarnedFloatingText(float time) 
+    {
+        moneyEarned.text = "Wrong Potion  No Money ! ";
+        moneyEarned.color = Color.green;
+        moneyEarned.gameObject.SetActive(true);
+        yield return new WaitForSeconds(time);
+        moneyEarned.gameObject.SetActive(false);
     }
 }
