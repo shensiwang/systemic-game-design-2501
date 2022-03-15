@@ -27,6 +27,11 @@ public class ReceipeManager : MonoBehaviour
     public string receipeResults;
     public string currentReceipeString;
 
+    public AudioClip brewBubbles;
+    public AudioClip trashSFX;
+    public AudioClip selectionSFX;
+    public AudioSource audioSource;
+
     private void Start()
     {
         partMatch = new bool[3];
@@ -76,6 +81,8 @@ public class ReceipeManager : MonoBehaviour
                     }
                   
                 }
+                audioSource.clip = selectionSFX;
+                audioSource.Play();
                 nearestSlot.gameObject.SetActive(true);
                 nearestSlot.GetComponent<Image>().sprite = currentIngredient.GetComponent<Image>().sprite;
                 nearestSlot.ingredients = currentIngredient;
@@ -174,6 +181,8 @@ public class ReceipeManager : MonoBehaviour
 
     public void ClearTable()
     {
+        audioSource.clip = trashSFX;
+        audioSource.Play();
         completePotionSlot.potionType = null;
         completePotionSlot.potionElement = null;
         completePotionSlot.gameObject.SetActive(false);
@@ -204,7 +213,8 @@ public class ReceipeManager : MonoBehaviour
                     ingredientManagerRef.UsedIngredient(ingredientList[i].ingredientName);
                     Debug.Log("Brew success! Ingredient amount have recorded ");
                 }
-
+                audioSource.clip = brewBubbles;
+                audioSource.Play();
                 ResetPot();
             }
             else { Debug.Log("Cannot be brewed!");}

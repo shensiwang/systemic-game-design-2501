@@ -47,6 +47,9 @@ public class LevelScript : MonoBehaviour
     [Header("Floating Text")]
     public TextMeshProUGUI moneyEarned;
 
+    public AudioClip doorBell;
+    public AudioClip paymentSFX;
+    public AudioSource audioSource;
 
     //public TextMeshProUGUI reviewSheetRequestSuccess;
 
@@ -58,8 +61,7 @@ public class LevelScript : MonoBehaviour
     void Start()
     {
         startDayManagerRef.CallDayMorning();
-
-        
+        audioSource.clip = doorBell;
     }
 
     void Update()
@@ -123,6 +125,11 @@ public class LevelScript : MonoBehaviour
         {
             if (customerIsPresent == false && numberOfCustomersLeft != 0) //make sure there is not currently a customer. 
             {
+                //Player Doorbell SFX
+                audioSource.clip = doorBell;
+                audioSource.enabled = true;
+                audioSource.Play(); 
+                
                 Debug.Log("spawn");
 
                 currentCustomerInterval = customerInterval;
@@ -148,6 +155,10 @@ public class LevelScript : MonoBehaviour
 
         if (customerIsPresent == false && numberOfCustomersLeft != 0) //make sure there is not currently a customer. make sure no more customers left.
         {
+            //Player Doorbell SFX
+            audioSource.clip = doorBell;
+            audioSource.Play();
+
             Debug.Log("delyaedspawn");
 
             currentCustomerInterval = customerInterval;
@@ -331,6 +342,9 @@ public class LevelScript : MonoBehaviour
                     ingredientManagerRef.CalculateDailySales(currentCustomerScript.percentagePaid);
                     StartCoroutine(moneyEarnedFloatingText(3f));
 
+                    //Player Money SFX
+                    audioSource.clip = paymentSFX;
+                    audioSource.Play();
                 }
                 
 

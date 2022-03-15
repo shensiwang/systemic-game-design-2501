@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e86836b812250f48907c00e3e23ed70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelScript: {fileID: 0}
+  ingredientManagerRef: {fileID: 0}
   customCursor: {fileID: 0}
   ingredientBlocker: {fileID: 0}
   baseCraftingSlots: {fileID: 0}
@@ -50,8 +52,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   completePotionSlot: {fileID: 0}
+  potionPrefab: {fileID: 0}
   potionList:
-  - {fileID: 2643980062547453992, guid: bedd7404b87f0c04abbdde96f8c5b0a8, type: 3}
+  - {fileID: 2643980062547453992, guid: e25d68397e47fc54aa368cd9793312df, type: 3}
   - {fileID: 1300201021728076347, guid: 97ca04daca2a68240856804e749e6feb, type: 3}
   - {fileID: 2643980062547453992, guid: bedd7404b87f0c04abbdde96f8c5b0a8, type: 3}
   - {fileID: 2643980062547453992, guid: 156e43da84302b74aa44ae945861daee, type: 3}
@@ -151,3 +154,5 @@ MonoBehaviour:
   - Rusalka's Call
   receipeResults: 
   currentReceipeString: 
+  brewBubbles: {fileID: 8300000, guid: 78bf743cf38057141be99a53c2101788, type: 3}
+  audioSource: {fileID: 0}

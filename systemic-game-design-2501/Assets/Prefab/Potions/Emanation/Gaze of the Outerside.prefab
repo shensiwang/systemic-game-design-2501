@@ -88,6 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea96f433f8508f459eb4195f23eb566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potionName: Gaze of the Outsider
+  potionName: Gaze of the Outerside
   potionType: Emanation
   potionElement: Purple

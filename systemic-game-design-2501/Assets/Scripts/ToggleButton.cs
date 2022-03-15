@@ -5,12 +5,15 @@ using UnityEngine;
 public class ToggleButton : MonoBehaviour
 {
     public GameObject uiElement;
+    public AudioClip grimoireActivate;
 
+    private AudioSource activateSound;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        activateSound = this.GetComponent<AudioSource>();
+        activateSound.clip = grimoireActivate;
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class ToggleButton : MonoBehaviour
         }
         else
         {
+            activateSound.Play();
             uiElement.SetActive(true);
         }
     }
