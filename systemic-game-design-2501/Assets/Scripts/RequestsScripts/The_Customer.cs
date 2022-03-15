@@ -14,7 +14,11 @@ public class The_Customer : MonoBehaviour
     public float percentagePaid = 100f;
 
     public string Event = "Normal";
-    public EventMaster eventMasterRef; 
+    public EventMaster eventMasterRef;
+    public LevelScript levelScriptRef;
+
+    [Header("UI")]
+    public Image timerUI; //temp use, can be changed
 
     public BaseInterface BaseNeeded;
     public ElementInterface FirstElement;
@@ -170,6 +174,7 @@ public class The_Customer : MonoBehaviour
         int EventDialogueRandomizer;
 
         factionInfo = FindObjectOfType<Faction>();
+        levelScriptRef = FindObjectOfType<LevelScript>();
         WinningFaction = factionInfo.winningFaction; //get winning faction
 
         if (Faction == "A") oppFaction = "B"; //track opposing faction. use for changing loyalty in levelscript.
@@ -1132,6 +1137,11 @@ public class The_Customer : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        timerUI.fillAmount = levelScriptRef.currentCustomerInterval / levelScriptRef.customerInterval; //update timer UI
+    }
+
     public void CheckIfPay() //check if customer will pay, based of faction chance of pay.
     {
         float r = Random.Range(0, 100);
@@ -1177,4 +1187,6 @@ public class The_Customer : MonoBehaviour
             percentagePaid = factionInfo.factionBPercentagePay / 100f;
         }
     }
+
+    
 }

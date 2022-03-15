@@ -32,7 +32,7 @@ public class LevelScript : MonoBehaviour
     public Transform customerSpawnPoint;
 
     public float customerInterval; //used to despawn customers after this amount of time
-    private float currentCustomerInterval;
+    public float currentCustomerInterval;
 
     [Header("Customer Amount")]
     public int totalCustomersPerDay = 2;
@@ -42,9 +42,7 @@ public class LevelScript : MonoBehaviour
     //public TextMeshProUGUI numberOfCustomersLeftUI;
     //public TextMeshProUGUI reputationUI;
     public TextMeshProUGUI dayCountUI;
-
     public TextMeshProUGUI dialogueUIText;
-
 
     [Header("Floating Text")]
     public TextMeshProUGUI moneyEarned;
