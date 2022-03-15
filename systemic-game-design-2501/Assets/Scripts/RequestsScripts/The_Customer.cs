@@ -9,7 +9,7 @@ public class The_Customer : MonoBehaviour
     public string oppFaction = "";
     public string WinningFaction; //Once the Faction script is ready, take the winning faction
     public Faction factionInfo;
-
+    public AudioClip[] Rabbles;
     public bool willPay = true;
     public float percentagePaid = 100f;
 
@@ -23,6 +23,7 @@ public class The_Customer : MonoBehaviour
 
     public string finalDialogueString; //added to access this variable and display it
     public List<string> CustomerScript; //The final script of the customer;
+    private AudioSource CurrentRabble;
     [Header("-----------Event Dialogue--------------")]
     [TextArea(5, 5)]
     public string[] NormalEventDialogue;
@@ -157,8 +158,10 @@ public class The_Customer : MonoBehaviour
 
     private void Start()
     {
-        
-
+        int rabbleRandomizer = Random.Range(0, Rabbles.Length);
+        CurrentRabble = GetComponent<AudioSource>();
+        CurrentRabble.clip = Rabbles[rabbleRandomizer];
+        CurrentRabble.Play();
         int BaseRandomizer;
         int ElementRandomizer1;
         int ElementRandomizer2;
