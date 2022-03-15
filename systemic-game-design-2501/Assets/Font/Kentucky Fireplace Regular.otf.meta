@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 59b87344d12d8e84f93d2004f9ce6b71
+guid: 81739e92c1cbd7346b75ce271c4c7fb3
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Cup and Talon
+  - Kentucky Fireplace
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
