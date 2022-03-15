@@ -38,6 +38,14 @@ public class Faction : MonoBehaviour
     public float AgressionChange;
     public int LoyaltyChange;
 
+    [Header("Faction House Sprites")]
+    public List<Image> redFactionSprites;
+    public List<Image> blueFactionSprites;
+
+    public Image currentRedFactionSprite;
+    public Image currentBlueFactionSprite;
+
+    [Header("Other Factio info")]
     public string winningFaction;
 
     private bool oneTimeBonusA6 = false;
@@ -72,6 +80,10 @@ public class Faction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //update factioh house sprite
+
+        ChangeFactionSprite();
+
         //update bars
 
         factionAMoraleUI.value = factionAMorale / maxMorale;
@@ -260,5 +272,50 @@ public class Faction : MonoBehaviour
     {
         if (faction == "A") factionAAgression += agressionChange;
         else factionBAgression += agressionChange;
+    }
+
+    private void ChangeFactionSprite()
+    {
+        if((factionAMorale / maxMorale) * 100 <= 20)
+        {
+            currentRedFactionSprite.sprite = redFactionSprites[0].sprite;
+        }
+        else if((factionAMorale / maxMorale) * 100 <= 40)
+        {
+            currentRedFactionSprite.sprite = redFactionSprites[1].sprite;
+        }
+        else if ((factionAMorale / maxMorale) * 100 <= 60)
+        {
+            currentRedFactionSprite.sprite = redFactionSprites[2].sprite;
+        }
+        else if ((factionAMorale / maxMorale) * 100 <= 80)
+        {
+            currentRedFactionSprite.sprite = redFactionSprites[3].sprite;
+        }
+        else if ((factionAMorale / maxMorale) * 100 <= 100)
+        {
+            currentRedFactionSprite.sprite = redFactionSprites[4].sprite;
+        }
+
+        if ((factionBMorale / maxMorale) * 100 <= 20)
+        {
+            currentBlueFactionSprite.sprite = blueFactionSprites[0].sprite;
+        }
+        else if ((factionBMorale / maxMorale) * 100 <= 40)
+        {
+            currentBlueFactionSprite.sprite = blueFactionSprites[1].sprite;
+        }
+        else if ((factionBMorale / maxMorale) * 100 <= 60)
+        {
+            currentBlueFactionSprite.sprite = blueFactionSprites[2].sprite;
+        }
+        else if ((factionBMorale / maxMorale) * 100 <= 80)
+        {
+            currentBlueFactionSprite.sprite = blueFactionSprites[3].sprite;
+        }
+        else if ((factionBMorale / maxMorale) * 100 <= 100)
+        {
+            currentBlueFactionSprite.sprite = blueFactionSprites[4].sprite;
+        }
     }
 }
