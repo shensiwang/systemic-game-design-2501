@@ -31,9 +31,9 @@ public class EndDayManager : MonoBehaviour
 
     public void UpdateDailySales()
     {
-        Debug.Log("CalculateDailySales: "+ ingredientManagerRef.CalculateDailySales(100));
+       //Debug.Log("CalculateDailySales: "+ ingredientManagerRef.CalculateDailySales(100));
 
-        dailySales.text = "Daily Sales:      " + ingredientManagerRef.CalculateDailySales(100).ToString();
+        //dailySales.text = "Daily Sales:      " + ingredientManagerRef.CalculateDailySales(100).ToString();
     }
 
     public void DisplayOtherUI()
