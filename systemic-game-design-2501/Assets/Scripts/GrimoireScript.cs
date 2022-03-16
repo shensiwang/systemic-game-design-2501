@@ -22,7 +22,7 @@ public class GrimoireScript : MonoBehaviour
     {
         grimoireSound = this.GetComponent<AudioSource>();
         currentPage = 1;
-        CheckShownPage();
+        StartCoroutine(Fade(true));
     }
 
     public void Close()
@@ -88,11 +88,11 @@ public class GrimoireScript : MonoBehaviour
         }
     }
 
-    IEnumerator Fade(bool fadeAway)
+    IEnumerator Fade(bool isFade)
     {
-        if (fadeAway)
+        if(isFade)
         {
-            for(float i = 1; i >= 0; i -= Time.deltaTime)
+            for(float i = 1; i >=0; i -= 3*Time.unscaledDeltaTime)
             {
                 leftPage.color = new Color(1, 1, 1, i);
                 rightPage.color = new Color(1, 1, 1, i);
@@ -103,7 +103,7 @@ public class GrimoireScript : MonoBehaviour
         else
         {
             CheckShownPage();
-            for (float i = 0; i <= 1; i += Time.deltaTime)
+            for (float i = 0; i <= 1; i += Time.unscaledDeltaTime)
             {
                 leftPage.color = new Color(1, 1, 1, i);
                 rightPage.color = new Color(1, 1, 1, i);

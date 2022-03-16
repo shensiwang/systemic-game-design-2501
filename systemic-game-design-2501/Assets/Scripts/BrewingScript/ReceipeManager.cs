@@ -201,8 +201,7 @@ public class ReceipeManager : MonoBehaviour
                 completePotionSlot.gameObject.SetActive(true);
                 completePotionSlot.GetComponent<Image>().sprite = potion.GetComponent<Image>().sprite;
 
-                potionPrefab = Instantiate(potion.gameObject, completePotionSlot.transform); //added for placeholder
-
+                //potionPrefab = Instantiate(potion.gameObject, completePotionSlot.transform); //added for placeholder
 
                 completePotionSlot.potionType = potion.potionType;
                 completePotionSlot.potionElement = potion.potionElement;
@@ -225,10 +224,6 @@ public class ReceipeManager : MonoBehaviour
     {
         //What happens after the potion is sold
         levelScript.SellPotion(); //use the function found in levelscript (since it has info on customer.)
-        
-        
-
-
         /*
         completePotionSlot.potionType = null;
         completePotionSlot.potionElement = null;

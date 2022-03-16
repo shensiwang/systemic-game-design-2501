@@ -11,9 +11,10 @@ public class DialogueManager : MonoBehaviour
     private int sentenceLine = 0;
     private List<string> CurrentCustomerScript;
     private LevelScript currentlevel;
+    public Button dialogueBtn;
     void Start()
     {
-        currentlevel = GameObject.FindObjectOfType<LevelScript>();   
+        currentlevel = GameObject.FindObjectOfType<LevelScript>();
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class DialogueManager : MonoBehaviour
             sentenceLine = 0;
             Dialogue.text = "";
             GameObject Customer = currentlevel.currentCustomer;
+            dialogueBtn.interactable = false;
             if (Customer!=null)
             {
                 CurrentCustomer = Customer.GetComponent<The_Customer>();
@@ -33,6 +35,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            dialogueBtn.interactable = true;
             StartDialogue();
         }
     }
@@ -44,10 +47,13 @@ public class DialogueManager : MonoBehaviour
 
     public void NextDialogue()
     {
-        if(sentenceLine < CurrentCustomerScript.Count-1)
+        if(CurrentCustomer != null) 
         {
-            sentenceLine++;
-            Dialogue.text = CurrentCustomerScript[sentenceLine];
+            if (sentenceLine < CurrentCustomerScript.Count - 1)
+            {
+                sentenceLine++;
+                Dialogue.text = CurrentCustomerScript[sentenceLine];
+            }
         }
 
     }

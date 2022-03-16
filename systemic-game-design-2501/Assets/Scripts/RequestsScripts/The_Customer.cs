@@ -25,6 +25,10 @@ public class The_Customer : MonoBehaviour
     public ElementInterface MainElement;
     public ElementInterface SecondElement;
 
+    //Display the correct Faction Sprite
+    public Sprite audreyMember;
+    public Sprite betramMember;
+
     public string finalDialogueString; //added to access this variable and display it
     public List<string> CustomerScript; //The final script of the customer;
     private AudioSource CurrentRabble;
@@ -179,6 +183,9 @@ public class The_Customer : MonoBehaviour
 
         if (Faction == "A") oppFaction = "B"; //track opposing faction. use for changing loyalty in levelscript.
         else oppFaction = "A";
+
+        //New Stuff
+        DisplayFactionMember();
 
         CheckPayPercentage();
         CheckIfPay();
@@ -1188,5 +1195,17 @@ public class The_Customer : MonoBehaviour
         }
     }
 
+    public void DisplayFactionMember()
+    {
+        if(Faction == "A")
+        {
+            this.gameObject.GetComponent<Image>().sprite = audreyMember;
+        }
+
+        else
+        {
+            this.gameObject.GetComponent<Image>().sprite = betramMember;
+        }
+    }
     
 }
