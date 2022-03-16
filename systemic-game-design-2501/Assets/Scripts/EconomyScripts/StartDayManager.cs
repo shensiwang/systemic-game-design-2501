@@ -22,9 +22,8 @@ public class StartDayManager : MonoBehaviour
 
         levelScriptRef.numberOfCustomersLeft = levelScriptRef.totalCustomersPerDay;
 
-        eventMasterRef.GetEvent();
-        levelScriptRef.SpawnCustomer();
-        
+        //Get Event then spawn customer
+        StartCoroutine(DelayedSpawnCustomer());
 
         //set dayEnd variables
         endDayManagerRef.ResetDayEnded();
@@ -141,6 +140,11 @@ public class StartDayManager : MonoBehaviour
         ingredient.transform.GetChild(1).gameObject.SetActive(false);
     }
 
-
+    IEnumerator DelayedSpawnCustomer()
+    {
+        eventMasterRef.GetEvent();
+        yield return new WaitForSeconds(eventMasterRef.eventPopUpTime);
+        levelScriptRef.SpawnCustomer();
+    }
 
 }

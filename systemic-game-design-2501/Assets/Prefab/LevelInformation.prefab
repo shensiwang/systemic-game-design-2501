@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8202484375034533641}
   - component: {fileID: 8202484375034533642}
   - component: {fileID: 982072027}
+  - component: {fileID: 6461804839221731570}
   m_Layer: 0
   m_Name: LevelInformation
   m_TagString: Untagged
@@ -47,18 +48,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7011694cf269a3458f39abac5547852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDayManagerRef: {fileID: 0}
-  completedPotion: {fileID: 0}
+  lose: 0
   dayCount: 1
+  faction: {fileID: 0}
+  startDayManagerRef: {fileID: 0}
+  ingredientManagerRef: {fileID: 0}
+  completedPotion: {fileID: 0}
   endDayReport: {fileID: 0}
   customerPrefab: {fileID: 187265441235106207, guid: 07934d00f7ca8214991611f7ba3449c7, type: 3}
   currentCustomer: {fileID: 0}
+  currentCustomerScript: {fileID: 0}
   customerSpawnPoint: {fileID: 0}
+  customerInterval: 0
+  currentCustomerInterval: 0
   totalCustomersPerDay: 1
   numberOfCustomersLeft: 0
   dayCountUI: {fileID: 0}
   dialogueUIText: {fileID: 0}
-  reviewSheetRequestSuccess: {fileID: 0}
+  moneyEarned: {fileID: 0}
+  doorBell: {fileID: 0}
+  paymentSFX: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &8202484375034533640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,3 +141,15 @@ MonoBehaviour:
   secondaryRed: {fileID: 0}
   secondaryYellow: {fileID: 0}
   secondaryBlue: {fileID: 0}
+--- !u!114 &6461804839221731570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202484375034533643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce9c3cc75f235643beb90ee7c43ff2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

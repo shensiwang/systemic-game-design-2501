@@ -6547,6 +6547,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1805359901}
+        m_TargetAssemblyTypeName: TimerManager, Assembly-CSharp
+        m_MethodName: ResumeTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1519946197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7611,7 +7623,18 @@ MonoBehaviour:
   imageSecretA: {fileID: 1352078896}
   imageSecretB: {fileID: 750224412}
   EventStr: 
-  eventPopUpTime: 6
+  eventPopUpTime: 5
+--- !u!114 &1805359901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6461804839221731570, guid: fa9c7e8482742464291f5af94146d955, type: 3}
+  m_PrefabInstance: {fileID: 8202484375408385043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805359895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce9c3cc75f235643beb90ee7c43ff2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1827797108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8669,6 +8692,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2081682670}
         m_TargetAssemblyTypeName: ToggleButton, Assembly-CSharp
         m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1805359901}
+        m_TargetAssemblyTypeName: TimerManager, Assembly-CSharp
+        m_MethodName: PauseTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
