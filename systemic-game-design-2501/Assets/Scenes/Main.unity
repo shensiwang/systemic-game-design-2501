@@ -10457,7 +10457,7 @@ PrefabInstance:
       objectReference: {fileID: 1038331042}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: factionBAgression
-      value: 53
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: factionAMorale
@@ -10465,7 +10465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: factionBMorale
-      value: 53
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: maxLoyalty
@@ -10473,11 +10473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: factionBLoyalty
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: factionALoyalty
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3479614907379319749, guid: f24f7cd391c8f8b4fa53fcd37b2bf159, type: 3}
       propertyPath: factionAMoraleUI

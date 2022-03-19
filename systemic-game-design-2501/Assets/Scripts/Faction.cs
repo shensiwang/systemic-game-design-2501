@@ -116,6 +116,9 @@ public class Faction : MonoBehaviour
         if (factionAMorale > maxMorale) factionAMorale = maxMorale;
         if (factionBMorale > maxMorale) factionBMorale = maxMorale;
 
+        if (factionALoyalty < 0) factionALoyalty = 0;
+        if (factionBLoyalty < 0) factionBLoyalty = 0;
+
 
         if (factionAMorale <= 0 || factionBMorale <= 0)
         {
