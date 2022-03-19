@@ -143,7 +143,7 @@ public class LevelScript : MonoBehaviour
                 customerIsPresent = true;
                 currentCustomerServed = false;
 
-                numberOfCustomersLeft -= 1;
+                
             }
             
         }
@@ -172,7 +172,7 @@ public class LevelScript : MonoBehaviour
             customerIsPresent = true;
             currentCustomerServed = false;
 
-            numberOfCustomersLeft -= 1;
+            //numberOfCustomersLeft -= 1;
         }
     }
     private void DespawnCustomer()
@@ -182,6 +182,7 @@ public class LevelScript : MonoBehaviour
             if (customerIsPresent == true)
             {
                 Destroy(currentCustomer); //or whatever code to remove the customer
+                numberOfCustomersLeft -= 1;
                 customerIsPresent = false;
             }
         }
@@ -193,6 +194,7 @@ public class LevelScript : MonoBehaviour
         {
             yield return new WaitForSeconds(.1f);
             Destroy(currentCustomer); //or whatever code to remove the customer
+            numberOfCustomersLeft -= 1;
             customerIsPresent = false;
         }
     }
