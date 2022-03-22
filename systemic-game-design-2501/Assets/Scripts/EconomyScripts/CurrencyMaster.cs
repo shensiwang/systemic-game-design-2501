@@ -9,7 +9,7 @@ public class CurrencyMaster : MonoBehaviour
     public TextMeshProUGUI currencyTxt;
 
     int id;
-    int currency;
+    public int currency;
     
 
     private void Awake()

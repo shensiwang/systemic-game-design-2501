@@ -47,6 +47,11 @@ public class LevelScript : MonoBehaviour
     [Header("Floating Text")]
     public TextMeshProUGUI moneyEarned;
 
+    [Header("WIN/LOSE")]
+    public int winningCurrency;
+
+
+    [Header("AUDIO")]
     public AudioClip doorBell;
     public AudioClip paymentSFX;
     public AudioSource audioSource;
@@ -78,6 +83,11 @@ public class LevelScript : MonoBehaviour
 
         if (!lose)
         {
+
+            if (CurrencyManager.currencyMaster.currency >= winningCurrency) //winning condition
+            {
+                Win();
+            }
             //DisplayDialogue();
 
             currentCustomerInterval -= Time.deltaTime;
@@ -401,10 +411,15 @@ public class LevelScript : MonoBehaviour
 
     public void Lose()
     {
-        //lose
-        //Lose pop up
 
         lose = true;
+
+        //popup lose screen. reload scene option?
+    }
+
+    public void Win()
+    {
+        //popup win screen
     }
 
     IEnumerator moneyEarnedFloatingText(float time)
