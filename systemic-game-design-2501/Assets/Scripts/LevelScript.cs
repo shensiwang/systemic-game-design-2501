@@ -105,7 +105,7 @@ public class LevelScript : MonoBehaviour
             {
                 faction.DecreaseAgression(currentCustomerScript.Faction);
                 faction.DecreaseLoyalty(currentCustomerScript.Faction);
-
+                StartCoroutine(waitTooLongFloatingText(3F));
                 DespawnCustomer();
 
                 StartCoroutine(DelayedSpawn()); 
@@ -449,4 +449,17 @@ public class LevelScript : MonoBehaviour
         moneyEarned.gameObject.SetActive(false);
         customer_wrong_potion.SetActive(false);
     }
+
+    IEnumerator waitTooLongFloatingText(float time)
+    {
+        moneyEarned.text = "Wait Too Long  No Money ! ";
+        moneyEarned.color = Color.yellow;
+        moneyEarned.gameObject.SetActive(true);
+        customer_wait_too_long.SetActive(true);
+        yield return new WaitForSeconds(time);
+        moneyEarned.gameObject.SetActive(false);
+        customer_wait_too_long.SetActive(false);
+    }
+
+
 }
