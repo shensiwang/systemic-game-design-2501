@@ -96,7 +96,7 @@ public class LevelScript : MonoBehaviour
             }
             //DisplayDialogue();
 
-            currentCustomerInterval -= Time.deltaTime;
+            if(currentCustomer != null) currentCustomerInterval -= Time.deltaTime;
 
 
             ///---check if timer ran out. To allow game to pregress without player input---///
