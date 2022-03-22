@@ -27,6 +27,8 @@ public class IngredientManager : MonoBehaviour
 
     private float DailySales;
 
+    public float SalesOnEachTime;
+
     //=========== this manager just do tracking of the ingredient has used a day =================
     public void ResetIngredientsAmt()
     {
@@ -152,8 +154,10 @@ public class IngredientManager : MonoBehaviour
     {
         DailySales = baseMandrake.sellPrice * usedMandrakeAmt + baseWolfsbane.sellPrice * usedWolfsbaneAmt + baseDeadmanDust.sellPrice * usedDeadmanDustAmt + baseHenbane.sellPrice * usedHenbaneAmt + baseRatGrass.sellPrice * usedRatGrassAmt + secondaryRed.sellPrice * usedRedAmt + secondaryYellow.sellPrice * usedYellowAmt + secondaryBlue.sellPrice * usedBlueAmt;
 
-        CurrencyManager.currencyMaster.IncreaseCurrency(DailySales * multiplier);
-
+        SalesOnEachTime = DailySales * multiplier;
+        CurrencyManager.currencyMaster.IncreaseCurrency(SalesOnEachTime);
+        Debug.Log("IncreaseCurrency: " + SalesOnEachTime);
+        Debug.Log("Total Currency" + CurrencyManager.currencyMaster.currency);
         return DailySales;
 
 

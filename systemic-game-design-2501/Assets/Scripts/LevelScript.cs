@@ -47,9 +47,20 @@ public class LevelScript : MonoBehaviour
     [Header("Floating Text")]
     public TextMeshProUGUI moneyEarned;
 
+    [Header("WIN/LOSE")]
+    public int winningCurrency;
+
+
+    [Header("AUDIO")]
     public AudioClip doorBell;
     public AudioClip paymentSFX;
     public AudioSource audioSource;
+
+
+    [Header("Customer Feedback Card")]
+    public GameObject customer_wait_too_long;
+    public GameObject customer_wrong_potion;
+    public GameObject customer_correct_potion;
 
     //public TextMeshProUGUI reviewSheetRequestSuccess;
 
@@ -78,9 +89,14 @@ public class LevelScript : MonoBehaviour
 
         if (!lose)
         {
+
+            if (CurrencyManager.currencyMaster.currency >= winningCurrency) //winning condition
+            {
+                Win();
+            }
             //DisplayDialogue();
 
-            currentCustomerInterval -= Time.deltaTime;
+            if(currentCustomer != null) currentCustomerInterval -= Time.deltaTime;
 
 
             ///---check if timer ran out. To allow game to pregress without player input---///
@@ -89,7 +105,7 @@ public class LevelScript : MonoBehaviour
             {
                 faction.DecreaseAgression(currentCustomerScript.Faction);
                 faction.DecreaseLoyalty(currentCustomerScript.Faction);
-
+                StartCoroutine(waitTooLongFloatingText(3F));
                 DespawnCustomer();
 
                 StartCoroutine(DelayedSpawn()); 
@@ -401,27 +417,49 @@ public class LevelScript : MonoBehaviour
 
     public void Lose()
     {
-        //lose
-        //Lose pop up
 
         lose = true;
+
+        //popup lose screen. reload scene option?
+    }
+
+    public void Win()
+    {
+        //popup win screen
     }
 
     IEnumerator moneyEarnedFloatingText(float time)
     {
-        moneyEarned.text = "+ $ " + ingredientManagerRef.CalculateDailySales(currentCustomerScript.percentagePaid);
-        moneyEarned.color = Color.red;
+        moneyEarned.text = "+ $ " + ingredientManagerRef.SalesOnEachTime;
+        moneyEarned.color = Color.green;
         moneyEarned.gameObject.SetActive(true);
+        customer_correct_potion.SetActive(true);
         yield return new WaitForSeconds(time);
         moneyEarned.gameObject.SetActive(false);
+        customer_correct_potion.SetActive(false);
     }
 
     IEnumerator noMoneyEarnedFloatingText(float time) 
     {
         moneyEarned.text = "Wrong Potion  No Money ! ";
-        moneyEarned.color = Color.green;
+        moneyEarned.color = Color.red;
         moneyEarned.gameObject.SetActive(true);
+        customer_wrong_potion.SetActive(true);
         yield return new WaitForSeconds(time);
         moneyEarned.gameObject.SetActive(false);
+        customer_wrong_potion.SetActive(false);
     }
+
+    IEnumerator waitTooLongFloatingText(float time)
+    {
+        moneyEarned.text = "Wait Too Long  No Money ! ";
+        moneyEarned.color = Color.yellow;
+        moneyEarned.gameObject.SetActive(true);
+        customer_wait_too_long.SetActive(true);
+        yield return new WaitForSeconds(time);
+        moneyEarned.gameObject.SetActive(false);
+        customer_wait_too_long.SetActive(false);
+    }
+
+
 }
