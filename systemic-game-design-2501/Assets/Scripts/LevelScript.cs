@@ -56,6 +56,12 @@ public class LevelScript : MonoBehaviour
     public AudioClip paymentSFX;
     public AudioSource audioSource;
 
+
+    [Header("Customer Feedback Card")]
+    public GameObject customer_wait_too_long;
+    public GameObject customer_wrong_potion;
+    public GameObject customer_correct_potion;
+
     //public TextMeshProUGUI reviewSheetRequestSuccess;
 
 
@@ -425,7 +431,7 @@ public class LevelScript : MonoBehaviour
     IEnumerator moneyEarnedFloatingText(float time)
     {
         moneyEarned.text = "+ $ " + ingredientManagerRef.CalculateDailySales(currentCustomerScript.percentagePaid);
-        moneyEarned.color = Color.red;
+        moneyEarned.color = Color.green;
         moneyEarned.gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         moneyEarned.gameObject.SetActive(false);
@@ -434,7 +440,7 @@ public class LevelScript : MonoBehaviour
     IEnumerator noMoneyEarnedFloatingText(float time) 
     {
         moneyEarned.text = "Wrong Potion  No Money ! ";
-        moneyEarned.color = Color.green;
+        moneyEarned.color = Color.red;
         moneyEarned.gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         moneyEarned.gameObject.SetActive(false);
