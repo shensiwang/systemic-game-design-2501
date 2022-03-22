@@ -433,8 +433,10 @@ public class LevelScript : MonoBehaviour
         moneyEarned.text = "+ $ " + ingredientManagerRef.CalculateDailySales(currentCustomerScript.percentagePaid);
         moneyEarned.color = Color.green;
         moneyEarned.gameObject.SetActive(true);
+        customer_correct_potion.SetActive(true);
         yield return new WaitForSeconds(time);
         moneyEarned.gameObject.SetActive(false);
+        customer_correct_potion.SetActive(false);
     }
 
     IEnumerator noMoneyEarnedFloatingText(float time) 
@@ -442,7 +444,9 @@ public class LevelScript : MonoBehaviour
         moneyEarned.text = "Wrong Potion  No Money ! ";
         moneyEarned.color = Color.red;
         moneyEarned.gameObject.SetActive(true);
+        customer_wrong_potion.SetActive(true);
         yield return new WaitForSeconds(time);
         moneyEarned.gameObject.SetActive(false);
+        customer_wrong_potion.SetActive(false);
     }
 }
