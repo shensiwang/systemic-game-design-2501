@@ -430,7 +430,7 @@ public class LevelScript : MonoBehaviour
 
     IEnumerator moneyEarnedFloatingText(float time)
     {
-        moneyEarned.text = "+ $ " + ingredientManagerRef.CalculateDailySales(currentCustomerScript.percentagePaid);
+        moneyEarned.text = "+ $ " + ingredientManagerRef.SalesOnEachTime;
         moneyEarned.color = Color.green;
         moneyEarned.gameObject.SetActive(true);
         customer_correct_potion.SetActive(true);
