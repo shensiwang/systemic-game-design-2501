@@ -57,9 +57,9 @@ public class GrimoireScript : MonoBehaviour
     {
         grimoireSound.clip = flipGrimoire;
         grimoireSound.Play();
-        if (currentPage == 3)
+        if (currentPage == 8)
         {
-            currentPage = 3;
+            currentPage = 8;
             StartCoroutine(Fade(true));
         }
         else
@@ -84,6 +84,26 @@ public class GrimoireScript : MonoBehaviour
             case 3:
                 leftPage.GetComponent<Image>().sprite = pages[4];
                 rightPage.GetComponent<Image>().sprite = pages[5];
+                break;
+            case 4:
+                leftPage.GetComponent<Image>().sprite = pages[6];
+                rightPage.GetComponent<Image>().sprite = pages[7];
+                break;
+            case 5:
+                leftPage.GetComponent<Image>().sprite = pages[8];
+                rightPage.GetComponent<Image>().sprite = pages[9];
+                break;
+            case 6:
+                leftPage.GetComponent<Image>().sprite = pages[10];
+                rightPage.GetComponent<Image>().sprite = pages[11];
+                break;
+            case 7:
+                leftPage.GetComponent<Image>().sprite = pages[12];
+                rightPage.GetComponent<Image>().sprite = pages[13];
+                break;
+            case 8:
+                leftPage.GetComponent<Image>().sprite = pages[14];
+                rightPage.GetComponent<Image>().sprite = pages[15];
                 break;
         }
     }
@@ -119,7 +139,7 @@ public class GrimoireScript : MonoBehaviour
             leftButton.interactable = false;
         }
 
-        else if(currentPage == 3)
+        else if(currentPage == 8)
         {
             rightButton.interactable = false;
         }
