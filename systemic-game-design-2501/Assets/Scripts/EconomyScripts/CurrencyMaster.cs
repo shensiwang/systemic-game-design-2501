@@ -26,7 +26,7 @@ public class CurrencyMaster : MonoBehaviour
 
     private void Update()
     {
-        currencyTxt.text = "$ " + currency.ToString();
+        currencyTxt.text = "" + currency.ToString();
     }
 
     public void IncreaseCurrency(float amount)
