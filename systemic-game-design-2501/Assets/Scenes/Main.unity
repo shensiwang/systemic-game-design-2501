@@ -11847,14 +11847,6 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1013120589}
-    - target: {fileID: 4192911993530328641, guid: c2beecbc0fe832241b37bc57debcc935, type: 3}
-      propertyPath: trashSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: d7ce1d044fad0db459f4b21b8c2d86bb, type: 3}
-    - target: {fileID: 4192911993530328641, guid: c2beecbc0fe832241b37bc57debcc935, type: 3}
-      propertyPath: selectionSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 9d9bf7def34505d4796045af6d560a8d, type: 3}
     - target: {fileID: 4192911993530328647, guid: c2beecbc0fe832241b37bc57debcc935, type: 3}
       propertyPath: m_Name
       value: BrewingManager

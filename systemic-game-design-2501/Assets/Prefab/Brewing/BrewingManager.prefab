@@ -132,13 +132,13 @@ MonoBehaviour:
   - Forme of the Marionette
   - Frogification
   - Dragonic Shell
-  - Aqeous Form
+  - Aqeous Forme
   - Narcissus Blend
   - Deadman's Tongue
   - Retrace Machination
   - Woodland Whispers
   - Divine Scryer
-  - Fortuitous Visions
+  - Fortuitous Vision
   - Potion of Premonition
   - Calm of the Dead
   - Auto-Repair
@@ -155,4 +155,6 @@ MonoBehaviour:
   receipeResults: 
   currentReceipeString: 
   brewBubbles: {fileID: 8300000, guid: 78bf743cf38057141be99a53c2101788, type: 3}
+  trashSFX: {fileID: 8300000, guid: d7ce1d044fad0db459f4b21b8c2d86bb, type: 3}
+  selectionSFX: {fileID: 8300000, guid: 9d9bf7def34505d4796045af6d560a8d, type: 3}
   audioSource: {fileID: 0}
