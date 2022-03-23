@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour
     public GameObject quitGameComfirmation;
     public Loadscreen Load;
 
+    public void Update()
+    {
+        
+    }
+
     public void PlayGame()
     {
         Load.playButtonPresed();

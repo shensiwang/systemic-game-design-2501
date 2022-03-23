@@ -16,7 +16,8 @@ public class Faction : MonoBehaviour
     public Slider factionALoyaltyUI;
     public Slider factionBLoyaltyUI;
 
-    public TextMeshProUGUI loyaltyBonusInfo;
+    public TextMeshProUGUI loyaltyABonusInfo;
+    public TextMeshProUGUI loyaltyBBonusInfo;
 
     [Header("Level reference")]
     public LevelScript levelScript;
@@ -60,7 +61,7 @@ public class Faction : MonoBehaviour
     private bool oneTimeBonusA3 = false;
     private bool oneTimeBonusB3 = false;
 
-    public float moneyMultiplier = 1; //multiply this when adding money. can be used for bonuses or decrease.
+    //public float moneyMultiplier = 1; //multiply this when adding money. can be used for bonuses or decrease.
     public float factionAchanceOfPay = 100f;
     public float factionBchanceOfPay = 100f;
 
@@ -137,34 +138,50 @@ public class Faction : MonoBehaviour
     {
         if (factionALoyalty >= 80)
         {
-            if (oneTimeBonusA8 == false) //apply bonus only once.
-            {
-                CurrencyManager.currencyMaster.IncreaseCurrency(200);
-                oneTimeBonusA8 = true;
-            }
+            //if (oneTimeBonusA8 == false) //apply bonus only once.
+            //{
+            //CurrencyManager.currencyMaster.IncreaseCurrency(200);
+            //oneTimeBonusA8 = true;
+            //}
+
+            factionAPercentagePay = 120f;
+
+            loyaltyABonusInfo.color = Color.green;
+            loyaltyABonusInfo.text = "Faction A: +20% pay!";
         }
         else if (factionBLoyalty >= 80)
         {
-            if (oneTimeBonusB8 == false)
-            {
-                CurrencyManager.currencyMaster.IncreaseCurrency(200);
-                oneTimeBonusB8 = true;
-            }
+            //if (oneTimeBonusB8 == false)
+            //{
+            //CurrencyManager.currencyMaster.IncreaseCurrency(200);
+            //oneTimeBonusB8 = true;
+            //}
+
+            factionBPercentagePay = 120f;
+
+            loyaltyBBonusInfo.color = Color.green;
+            loyaltyBBonusInfo.text = "Faction B: +20% pay!";
         }
         if (factionALoyalty >= 60 && factionALoyalty < 80)
         {
             if(oneTimeBonusA6 == false) //apply bonus only once.
             {
-                //CurrencyManager.currencyMaster.IncreaseCurrency(250);
+                CurrencyManager.currencyMaster.IncreaseCurrency(250);
                 oneTimeBonusA6 = true;
+
+                loyaltyABonusInfo.color = Color.green;
+                loyaltyABonusInfo.text = "Faction A: One time bonus of +$250!";
             }
         }
         else if(factionBLoyalty >= 60 && factionBLoyalty < 80)
         {
             if(oneTimeBonusB6 == false)
             {
-                //CurrencyManager.currencyMaster.IncreaseCurrency(250);
+                CurrencyManager.currencyMaster.IncreaseCurrency(250);
                 oneTimeBonusB6 = true;
+
+                loyaltyBBonusInfo.color = Color.green;
+                loyaltyBBonusInfo.text = "Faction B: One time bonus of +$250!";
             }
         }
 
@@ -173,10 +190,16 @@ public class Faction : MonoBehaviour
         if (factionALoyalty <= 40 && factionALoyalty > 30)
         {
             factionAPercentagePay = 90f;
+
+            loyaltyABonusInfo.color = Color.red;
+            loyaltyABonusInfo.text = "Faction A: -10% pay!";
         }
         if (factionBLoyalty <= 40 && factionBLoyalty > 30)
         {
             factionBPercentagePay = 90f;
+
+            loyaltyBBonusInfo.color = Color.red;
+            loyaltyBBonusInfo.text = "Faction B: -10% pay!";
         }
 
 
@@ -188,6 +211,9 @@ public class Faction : MonoBehaviour
                 //deduct money
                 CurrencyManager.currencyMaster.decreaseCurrency(250);
                 oneTimeBonusA3 = true;
+
+                loyaltyABonusInfo.color = Color.red;
+                loyaltyABonusInfo.text = "Faction A: One time penalty of -$250!";
             }
         }
         if (factionBLoyalty <= 30 && factionALoyalty > 20)
@@ -197,6 +223,9 @@ public class Faction : MonoBehaviour
                 //deduct money
                 CurrencyManager.currencyMaster.decreaseCurrency(250);
                 oneTimeBonusB3 = true;
+
+                loyaltyBBonusInfo.color = Color.red;
+                loyaltyBBonusInfo.text = "Faction B: One time penalty of -$250!";
             }
         }
 
@@ -205,6 +234,9 @@ public class Faction : MonoBehaviour
         if (factionALoyalty <= 20)
         {
             factionAchanceOfPay = 70f; //change chance of pay
+
+            loyaltyABonusInfo.color = Color.red;
+            loyaltyABonusInfo.text = "Faction A: 30% chance of no payment!";
         }
         else
         {
@@ -215,6 +247,9 @@ public class Faction : MonoBehaviour
         if(factionBLoyalty <= 20f)
         {
             factionBchanceOfPay = 70f;
+
+            loyaltyBBonusInfo.color = Color.red;
+            loyaltyBBonusInfo.text = "Faction B: 30% chance of no payment!";
         }
         else
         {
