@@ -126,7 +126,7 @@ public class LevelScript : MonoBehaviour
 
             }
 
-            dayCountUI.text = "Day: " + dayCount; //update day counter
+            dayCountUI.text = "" + dayCount; //update day counter
         }
 
         
