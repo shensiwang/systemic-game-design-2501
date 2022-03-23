@@ -71,7 +71,7 @@ public class LevelScript : MonoBehaviour
 
     void Start()
     {
-        startDayManagerRef.CallDayMorning();
+        //startDayManagerRef.CallDayMorning();
         audioSource.clip = doorBell;
     }
 
