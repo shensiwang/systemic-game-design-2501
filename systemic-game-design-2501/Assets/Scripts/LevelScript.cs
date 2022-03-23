@@ -71,7 +71,7 @@ public class LevelScript : MonoBehaviour
 
     void Start()
     {
-        startDayManagerRef.CallDayMorning();
+        //startDayManagerRef.CallDayMorning();
         audioSource.clip = doorBell;
     }
 
@@ -441,23 +441,19 @@ public class LevelScript : MonoBehaviour
 
     IEnumerator noMoneyEarnedFloatingText(float time) 
     {
-        moneyEarned.text = "Wrong Potion  No Money ! ";
-        moneyEarned.color = Color.red;
-        moneyEarned.gameObject.SetActive(true);
+        //moneyEarned.text = "Wrong Potion  No Money ! ";
+        //moneyEarned.color = Color.red;
+        //moneyEarned.gameObject.SetActive(true);
         customer_wrong_potion.SetActive(true);
         yield return new WaitForSeconds(time);
-        moneyEarned.gameObject.SetActive(false);
+        //moneyEarned.gameObject.SetActive(false);
         customer_wrong_potion.SetActive(false);
     }
 
     IEnumerator waitTooLongFloatingText(float time)
     {
-        moneyEarned.text = "Wait Too Long  No Money ! ";
-        moneyEarned.color = Color.yellow;
-        moneyEarned.gameObject.SetActive(true);
         customer_wait_too_long.SetActive(true);
         yield return new WaitForSeconds(time);
-        moneyEarned.gameObject.SetActive(false);
         customer_wait_too_long.SetActive(false);
     }
 
