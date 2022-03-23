@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Faction : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Faction : MonoBehaviour
 
     public Slider factionALoyaltyUI;
     public Slider factionBLoyaltyUI;
+
+    public TextMeshProUGUI loyaltyBonusInfo;
 
     [Header("Level reference")]
     public LevelScript levelScript;
@@ -124,6 +127,9 @@ public class Faction : MonoBehaviour
         {
             levelScript.Lose();
         }
+
+        //checkloyalty bonuses
+        CheckForLoyaltyBonus();
     }
 
 
@@ -145,7 +151,7 @@ public class Faction : MonoBehaviour
                 oneTimeBonusB8 = true;
             }
         }
-        if (factionALoyalty >= 60)
+        if (factionALoyalty >= 60 && factionALoyalty < 80)
         {
             if(oneTimeBonusA6 == false) //apply bonus only once.
             {
@@ -153,7 +159,7 @@ public class Faction : MonoBehaviour
                 oneTimeBonusA6 = true;
             }
         }
-        else if(factionBLoyalty >= 60)
+        else if(factionBLoyalty >= 60 && factionBLoyalty < 80)
         {
             if(oneTimeBonusB6 == false)
             {
@@ -164,18 +170,18 @@ public class Faction : MonoBehaviour
 
         ///loyalty at 40 or lower - 90% of cost
 
-        if (factionALoyalty <= 40)
+        if (factionALoyalty <= 40 && factionALoyalty > 30)
         {
             factionAPercentagePay = 90f;
         }
-        if (factionBLoyalty <= 40)
+        if (factionBLoyalty <= 40 && factionBLoyalty > 30)
         {
             factionBPercentagePay = 90f;
         }
 
 
         ///loyalty at 30 or lower - deduct money
-        if (factionALoyalty <= 30)
+        if (factionALoyalty <= 30 && factionALoyalty > 20)
         {
             if(oneTimeBonusA3 == false)
             {
@@ -184,7 +190,7 @@ public class Faction : MonoBehaviour
                 oneTimeBonusA3 = true;
             }
         }
-        if (factionBLoyalty <= 30)
+        if (factionBLoyalty <= 30 && factionALoyalty > 20)
         {
             if (oneTimeBonusB3 == false)
             {
