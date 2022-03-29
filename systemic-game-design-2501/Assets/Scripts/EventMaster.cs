@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EventMaster : MonoBehaviour
 {
@@ -20,6 +21,13 @@ public class EventMaster : MonoBehaviour
     public GameObject imageFavourB;
     public GameObject imageSecretA;
     public GameObject imageSecretB;
+
+    [Header("Events Txt")]
+    private TextMeshProUGUI AFactionMoral;
+    private TextMeshProUGUI BFactionMoral;
+    private TextMeshProUGUI AFactionAggression;
+    private TextMeshProUGUI BFactionAggression;
+
 
     public string EventStr;
 
@@ -89,7 +97,8 @@ public class EventMaster : MonoBehaviour
 
     public void GetEvent()
     {
-        int typeOfEvent = Random.Range(0, 6);
+        //int typeOfEvent = Random.Range(0, 6);
+        int typeOfEvent = 1;
 
         if (typeOfEvent == 0)
         {
@@ -141,7 +150,7 @@ public class EventMaster : MonoBehaviour
         else if (eventName == "Fire")
         {
 
-            if (factionRef.factionAAgression > factionRef.factionBAgression) // A setting fire on B
+            if (factionRef.factionAAgression <= factionRef.factionBAgression) // A setting fire on B
             {
 
                 int moraleAmt = Random.Range(10, 30);
@@ -156,9 +165,12 @@ public class EventMaster : MonoBehaviour
                 factionRef.IncreaseAgression("B", aggressionAmt);
                 StartCoroutine(AFireBEvent());
 
+                DisplayABFactionMoral(moraleAmt,true, moraleAmt,false, imageAFireB);
+                DisplayABFactionAggression(aggressionAmt,false, aggressionAmt,true, imageAFireB);
+
             }
 
-            else if (factionRef.factionAAgression <= factionRef.factionBAgression) // B setting fire on A
+            else if (factionRef.factionAAgression > factionRef.factionBAgression) // B setting fire on A
             {
 
                 int moraleAmt = Random.Range(10, 30);
@@ -298,5 +310,61 @@ public class EventMaster : MonoBehaviour
 
         else { }
 
+    }
+
+    private void DisplayABFactionMoral(float AMoral, bool Afaction , float BMoral, bool Bfaction, GameObject Event)
+    {
+        AFactionMoral = Event.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        BFactionMoral = Event.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        if (Afaction)
+        {
+            AFactionMoral.text = "A faction: Increase + "+ AMoral;
+            AFactionMoral.color = Color.green;
+        }
+        else 
+        {
+            AFactionMoral.text = "A faction: Decrease - "+ AMoral;
+            AFactionMoral.color = Color.red;
+        }
+
+        if (Bfaction)
+        {
+            BFactionMoral.text = "B faction: Increase + " + BMoral;
+            BFactionMoral.color = Color.green;
+        }
+        else
+        {
+            BFactionMoral.text = "B faction: Decrease - " + BMoral;
+            BFactionMoral.color = Color.red;
+        }
+    }
+
+    private void DisplayABFactionAggression(float AAggression, bool Afaction, float BAggression, bool Bfaction, GameObject Event)
+    {
+        AFactionAggression = Event.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+        BFactionAggression = Event.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        if (Afaction)
+        {
+            AFactionAggression.text = "A faction: Increase + " + AAggression;
+            AFactionAggression.color = Color.green;
+        }
+        else
+        {
+            AFactionAggression.text = "A faction: Decrease - " + AAggression;
+            AFactionAggression.color = Color.red;
+        }
+
+        if (Bfaction)
+        {
+            BFactionAggression.text = "B faction: Increase + " + BAggression;
+            BFactionAggression.color = Color.green;
+        }
+        else
+        {
+            BFactionAggression.text = "B faction: Decrease - " + BAggression;
+            BFactionAggression.color = Color.red;
+        }
     }
 }
