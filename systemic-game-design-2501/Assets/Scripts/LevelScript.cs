@@ -50,6 +50,8 @@ public class LevelScript : MonoBehaviour
 
     [Header("WIN/LOSE")]
     public int winningCurrency;
+    public WinLose winLose;
+  
 
 
     [Header("AUDIO")]
@@ -415,18 +417,18 @@ public class LevelScript : MonoBehaviour
             
         }
     }
-
+    ///WIN LOSE///
     public void Lose()
     {
 
         lose = true;
+        winLose.Lose();
 
-        //popup lose screen. reload scene option?
     }
 
     public void Win()
     {
-        //popup win screen
+        winLose.Win();
     }
 
     IEnumerator moneyEarnedFloatingText(float time)
