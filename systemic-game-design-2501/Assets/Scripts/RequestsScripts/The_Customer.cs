@@ -847,8 +847,8 @@ public class The_Customer : MonoBehaviour
                     }
                     else if (Faction == "B")
                     {
-                        EventDialogueRandomizer = Random.Range(0, B_Win_SecretPlanEventDialogue.Length);
-                        CustomerScript.Add(B_Win_SecretPlanEventDialogue[EventDialogueRandomizer]);
+                        EventDialogueRandomizer = Random.Range(0, B_Lose_SecretPlanEventDialogue.Length);
+                        CustomerScript.Add(B_Lose_SecretPlanEventDialogue[EventDialogueRandomizer]);
 
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
 
@@ -920,8 +920,8 @@ public class The_Customer : MonoBehaviour
                     }
                     else if (Faction == "B")
                     {
-                        EventDialogueRandomizer = Random.Range(0, B_Win_ThreatsOfPoisonEventDialogue.Length);
-                        CustomerScript.Add(B_Win_ThreatsOfPoisonEventDialogue[EventDialogueRandomizer]);
+                        EventDialogueRandomizer = Random.Range(0, B_Win_SecretPlanEventDialogue.Length);
+                        CustomerScript.Add(B_Win_SecretPlanEventDialogue[EventDialogueRandomizer]);
 
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
 
