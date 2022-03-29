@@ -131,9 +131,9 @@ public class Faction : MonoBehaviour
         if (factionBLoyalty < 0) factionBLoyalty = 0;
 
 
-        if (factionAMorale <= 0 || factionBMorale <= 0)
+        if (factionAMorale <= 0 || factionBMorale <= 0) //lose condition
         {
-            levelScript.Lose();
+            levelScript.Lose(); 
         }
 
         //checkloyalty bonuses
