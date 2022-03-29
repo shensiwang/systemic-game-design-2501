@@ -102,8 +102,8 @@ public class EventMaster : MonoBehaviour
 
     public void GetEvent()
     {
-        //int typeOfEvent = Random.Range(0, 6);
-        int typeOfEvent = 1;
+        int typeOfEvent = Random.Range(0, 6);
+        //int typeOfEvent = 1;
 
         if (typeOfEvent == 0)
         {

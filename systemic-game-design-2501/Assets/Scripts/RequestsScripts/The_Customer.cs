@@ -639,8 +639,8 @@ public class The_Customer : MonoBehaviour
                     }
                     else if (Faction == "B")
                     {
-                        EventDialogueRandomizer = Random.Range(0, NormalEventDialogue.Length);
-                        CustomerScript.Add(NormalEventDialogue[EventDialogueRandomizer]);
+                        EventDialogueRandomizer = Random.Range(0, DivineFavorEventDialogue.Length);
+                        CustomerScript.Add(DivineFavorEventDialogue[EventDialogueRandomizer]);
 
                         BaseRandomizer = Random.Range(0, 5);
                         ElementRandomizer1 = Random.Range(0, 3);
@@ -704,8 +704,8 @@ public class The_Customer : MonoBehaviour
                 {
                     if (Faction == "A")
                     {
-                        EventDialogueRandomizer = Random.Range(0, NormalEventDialogue.Length);
-                        CustomerScript.Add(NormalEventDialogue[EventDialogueRandomizer]);
+                        EventDialogueRandomizer = Random.Range(0, DivineFavorEventDialogue.Length);
+                        CustomerScript.Add(DivineFavorEventDialogue[EventDialogueRandomizer]);
 
                         BaseRandomizer = Random.Range(0, 5);
                         ElementRandomizer1 = Random.Range(0, 3);
@@ -762,8 +762,8 @@ public class The_Customer : MonoBehaviour
                     }
                     else if (Faction == "B")
                     {
-                        EventDialogueRandomizer = Random.Range(0, B_Win_ThreatsOfPoisonEventDialogue.Length);
-                        CustomerScript.Add(B_Win_ThreatsOfPoisonEventDialogue[EventDialogueRandomizer]);
+                        EventDialogueRandomizer = Random.Range(0, DivineFavorEventDialogue.Length);
+                        CustomerScript.Add(DivineFavorEventDialogue[EventDialogueRandomizer]);
 
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
 

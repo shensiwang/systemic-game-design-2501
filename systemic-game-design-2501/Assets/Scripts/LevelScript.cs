@@ -168,7 +168,7 @@ public class LevelScript : MonoBehaviour
     }
     IEnumerator DelayedSpawn() //delay added to allow for despawning first (since that was delayed, this needs to be delayed too)
     {
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.0f);
 
         if (customerIsPresent == false && numberOfCustomersLeft != 0) //make sure there is not currently a customer. make sure no more customers left.
         {
@@ -209,7 +209,7 @@ public class LevelScript : MonoBehaviour
     {
         if (customerIsPresent == true)
         {
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(0f);
             Destroy(currentCustomer); //or whatever code to remove the customer
             numberOfCustomersLeft -= 1;
             customerIsPresent = false;
