@@ -357,14 +357,14 @@ public class EventMaster : MonoBehaviour
 
         if (Afaction)
         {
-            AFactionMoral.text = "A Moral";
+            AFactionMoral.text = "A Morale";
             AFactionMoral.color = Color.green;
             AFactionMoral_Amt.text = "+ " + AMoral;
             AFactionMoral_Amt.color = Color.green;
         }
         else 
         {
-            AFactionMoral.text = "A Moral";
+            AFactionMoral.text = "A Morale";
             AFactionMoral.color = Color.red;
             AFactionMoral_Amt.text = "- " + AMoral;
             AFactionMoral_Amt.color = Color.red;
@@ -378,14 +378,14 @@ public class EventMaster : MonoBehaviour
 
         if (Bfaction)
         {
-            BFactionMoral.text = "B Moral";
+            BFactionMoral.text = "B Morale";
             BFactionMoral.color = Color.green;
             BFactionMoral_Amt.text = "+ " + BMoral;
             BFactionMoral_Amt.color = Color.green;
         }
         else
         {
-            BFactionMoral.text = "B Moral";
+            BFactionMoral.text = "B Morale";
             BFactionMoral.color = Color.red;
             BFactionMoral_Amt.text = "- " + BMoral;
             BFactionMoral_Amt.color = Color.red;
