@@ -146,8 +146,8 @@ public class Faction : MonoBehaviour
 
             factionAPercentagePay = 120f;
 
-            loyaltyABonusInfo.color = Color.green;
-            loyaltyABonusInfo.text = "Faction A: +20% pay!";
+            loyaltyABonusInfo.color = new Color(0, 0.59f, 0.08f);
+            loyaltyABonusInfo.text = "+20% pay!";
         }
         else if (factionBLoyalty >= 80)
         {
@@ -159,8 +159,8 @@ public class Faction : MonoBehaviour
 
             factionBPercentagePay = 120f;
 
-            loyaltyBBonusInfo.color = Color.green;
-            loyaltyBBonusInfo.text = "Faction B: +20% pay!";
+            loyaltyBBonusInfo.color = new Color(0, 0.59f, 0.08f);
+            loyaltyBBonusInfo.text = "+20% pay!";
         }
         if (factionALoyalty >= 60 && factionALoyalty < 80)
         {
@@ -169,8 +169,13 @@ public class Faction : MonoBehaviour
                 CurrencyManager.currencyMaster.IncreaseCurrency(250);
                 oneTimeBonusA6 = true;
 
-                loyaltyABonusInfo.color = Color.green;
-                loyaltyABonusInfo.text = "Faction A: One time bonus of +$250!";
+                loyaltyABonusInfo.color = new Color(0, 0.59f, 0.08f);
+                loyaltyABonusInfo.text = "One time bonus of +$250!";
+            }
+            else
+            {
+                loyaltyABonusInfo.color = Color.black;
+                loyaltyABonusInfo.text = "Bonus previously obtained";
             }
         }
         else if(factionBLoyalty >= 60 && factionBLoyalty < 80)
@@ -180,8 +185,13 @@ public class Faction : MonoBehaviour
                 CurrencyManager.currencyMaster.IncreaseCurrency(250);
                 oneTimeBonusB6 = true;
 
-                loyaltyBBonusInfo.color = Color.green;
-                loyaltyBBonusInfo.text = "Faction B: One time bonus of +$250!";
+                loyaltyBBonusInfo.color = new Color(0, 0.59f, 0.08f);
+                loyaltyBBonusInfo.text = "One time bonus of +$250!";
+            }
+            else
+            {
+                loyaltyBBonusInfo.color = Color.black;
+                loyaltyBBonusInfo.text = "Bonus previously obtained";
             }
         }
 
@@ -192,14 +202,14 @@ public class Faction : MonoBehaviour
             factionAPercentagePay = 90f;
 
             loyaltyABonusInfo.color = Color.red;
-            loyaltyABonusInfo.text = "Faction A: -10% pay!";
+            loyaltyABonusInfo.text = "-10% pay!";
         }
         if (factionBLoyalty <= 40 && factionBLoyalty > 30)
         {
             factionBPercentagePay = 90f;
 
             loyaltyBBonusInfo.color = Color.red;
-            loyaltyBBonusInfo.text = "Faction B: -10% pay!";
+            loyaltyBBonusInfo.text = "-10% pay!";
         }
 
 
@@ -213,7 +223,12 @@ public class Faction : MonoBehaviour
                 oneTimeBonusA3 = true;
 
                 loyaltyABonusInfo.color = Color.red;
-                loyaltyABonusInfo.text = "Faction A: One time penalty of -$250!";
+                loyaltyABonusInfo.text = "One time penalty of -$250!";
+            }
+            else
+            {
+                loyaltyABonusInfo.color = Color.black;
+                loyaltyABonusInfo.text = "Penalty previously applied";
             }
         }
         if (factionBLoyalty <= 30 && factionALoyalty > 20)
@@ -225,7 +240,12 @@ public class Faction : MonoBehaviour
                 oneTimeBonusB3 = true;
 
                 loyaltyBBonusInfo.color = Color.red;
-                loyaltyBBonusInfo.text = "Faction B: One time penalty of -$250!";
+                loyaltyBBonusInfo.text = "One time penalty of -$250!";
+            }
+            else
+            {
+                loyaltyBBonusInfo.color = Color.black;
+                loyaltyBBonusInfo.text = "Penalty previously applied";
             }
         }
 
@@ -236,7 +256,7 @@ public class Faction : MonoBehaviour
             factionAchanceOfPay = 70f; //change chance of pay
 
             loyaltyABonusInfo.color = Color.red;
-            loyaltyABonusInfo.text = "Faction A: 30% chance of no payment!";
+            loyaltyABonusInfo.text = "30% chance of no payment!";
         }
         else
         {
@@ -249,7 +269,7 @@ public class Faction : MonoBehaviour
             factionBchanceOfPay = 70f;
 
             loyaltyBBonusInfo.color = Color.red;
-            loyaltyBBonusInfo.text = "Faction B: 30% chance of no payment!";
+            loyaltyBBonusInfo.text = "30% chance of no payment!";
         }
         else
         {
