@@ -18,10 +18,18 @@ public class MainMenu : MonoBehaviour
     public Animator cutsceneAnim;
     public Animator dialogueAnim;
 
+    //How to Play Variables
+    public GameObject howToPlay;
+
     //Main Menu Transitions
     public void PlayGame()
     {
         Load.playButtonPresed();
+    }
+
+    public void HowToPlay()
+    {
+        howToPlay.SetActive(true);
     }
 
     public void QuitGame()
