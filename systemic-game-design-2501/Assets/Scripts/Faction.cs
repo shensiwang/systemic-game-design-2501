@@ -6,6 +6,13 @@ using TMPro;
 
 public class Faction : MonoBehaviour
 {
+    bool warningAUp = false;
+    bool warningBUp = false;
+
+    [Header("Faction Warning UI")]
+    public GameObject factionAMoraleWarning;
+    public GameObject factionBMoraleWarning;
+
     [Header("Faction UI Elements")]
     public Slider factionAMoraleUI;
     public Slider factionBMoraleUI;
@@ -131,6 +138,41 @@ public class Faction : MonoBehaviour
 
         //checkloyalty bonuses
         CheckForLoyaltyBonus();
+
+        //warnings
+        //faction a morale warning
+
+        
+
+        if(factionAMorale <= 15 && warningAUp == false)
+        {
+            factionAMoraleWarning.SetActive(true);
+            warningAUp = true;
+            if (factionAMoraleWarning.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("end")) //set object active to false via animator tag
+            {
+                factionAMoraleWarning.SetActive(false);
+            }
+        }
+        else if(factionAMorale > 15)
+        {
+            factionAMoraleWarning.SetActive(false);
+            warningAUp = false;
+        }
+        //faction b morale warning
+        if (factionBMorale <= 15 && warningBUp == false)
+        {
+            factionBMoraleWarning.SetActive(true);
+            warningBUp = true;
+            if (factionBMoraleWarning.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("end")) //set object active to false via animator tag
+            {
+                factionBMoraleWarning.SetActive(false);
+            }
+        }
+        else if (factionBMorale > 15)
+        {
+            factionBMoraleWarning.SetActive(false);
+            warningBUp = false;
+        }
     }
 
 
