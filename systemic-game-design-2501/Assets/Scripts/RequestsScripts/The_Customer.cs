@@ -602,7 +602,8 @@ public class The_Customer : MonoBehaviour
                 {
                     if (Faction == "A")
                     {
-                        EventDialogueRandomizer = Random.Range(0, DivineFavorEventDialogue.Length);
+                        Debug.Log("Favor for Audrey");
+                        EventDialogueRandomizer = 0;
                         CustomerScript.Add(DivineFavorEventDialogue[EventDialogueRandomizer]);
 
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
@@ -639,8 +640,9 @@ public class The_Customer : MonoBehaviour
                     }
                     else if (Faction == "B")
                     {
-                        EventDialogueRandomizer = Random.Range(0, DivineFavorEventDialogue.Length);
-                        CustomerScript.Add(DivineFavorEventDialogue[EventDialogueRandomizer]);
+
+                        EventDialogueRandomizer = Random.Range(0, NormalEventDialogue.Length);
+                        CustomerScript.Add(NormalEventDialogue[EventDialogueRandomizer]);
 
                         BaseRandomizer = Random.Range(0, 5);
                         ElementRandomizer1 = Random.Range(0, 3);
@@ -704,8 +706,8 @@ public class The_Customer : MonoBehaviour
                 {
                     if (Faction == "A")
                     {
-                        EventDialogueRandomizer = Random.Range(0, DivineFavorEventDialogue.Length);
-                        CustomerScript.Add(DivineFavorEventDialogue[EventDialogueRandomizer]);
+                        EventDialogueRandomizer = Random.Range(0, NormalEventDialogue.Length);
+                        CustomerScript.Add(NormalEventDialogue[EventDialogueRandomizer]);
 
                         BaseRandomizer = Random.Range(0, 5);
                         ElementRandomizer1 = Random.Range(0, 3);
@@ -762,7 +764,7 @@ public class The_Customer : MonoBehaviour
                     }
                     else if (Faction == "B")
                     {
-                        EventDialogueRandomizer = Random.Range(0, DivineFavorEventDialogue.Length);
+                        EventDialogueRandomizer = 1;
                         CustomerScript.Add(DivineFavorEventDialogue[EventDialogueRandomizer]);
 
                         EventSpecificPotionRandomizer = Random.Range(0, 2);
