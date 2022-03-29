@@ -352,8 +352,8 @@ public class EventMaster : MonoBehaviour
 
     private void DisplayAFactionMoral(float AMoral, bool Afaction, GameObject Event)
     {
-        AFactionMoral = Event.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        AFactionMoral_Amt = Event.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        AFactionMoral = Event.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+        AFactionMoral_Amt = Event.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
 
         if (Afaction)
         {
@@ -373,8 +373,8 @@ public class EventMaster : MonoBehaviour
 
     private void DisplayBFactionMoral(float BMoral, bool Bfaction, GameObject Event)
     {
-        BFactionMoral = Event.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        BFactionMoral_Amt = Event.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        BFactionMoral = Event.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+        BFactionMoral_Amt = Event.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
 
         if (Bfaction)
         {
@@ -394,8 +394,8 @@ public class EventMaster : MonoBehaviour
 
     private void DisplayAFactionAggression(float AAggression, bool Afaction, GameObject Event)
     {
-        AFactionAggression = Event.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
-        AFactionAggression_Amt = Event.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        AFactionAggression = Event.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+        AFactionAggression_Amt = Event.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
 
         if (Afaction)
         {
@@ -415,8 +415,8 @@ public class EventMaster : MonoBehaviour
 
     private void DisplayBFactionAggression(float BAggression, bool Bfaction, GameObject Event)
     {
-        BFactionAggression = Event.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
-        BFactionAggression_Amt = Event.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        BFactionAggression = Event.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+        BFactionAggression_Amt = Event.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
 
         if (Bfaction)
         {
