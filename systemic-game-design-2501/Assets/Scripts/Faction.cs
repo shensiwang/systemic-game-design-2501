@@ -62,8 +62,8 @@ public class Faction : MonoBehaviour
     private bool oneTimeBonusA6 = false;
     private bool oneTimeBonusB6 = false;
 
-    private bool oneTimeBonusA8 = false;
-    private bool oneTimeBonusB8 = false;
+    //private bool oneTimeBonusA8 = false;
+   // private bool oneTimeBonusB8 = false;
 
     private bool oneTimeBonusA3 = false;
     private bool oneTimeBonusB3 = false;

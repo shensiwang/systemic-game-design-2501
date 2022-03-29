@@ -8,6 +8,7 @@ public class LevelScript : MonoBehaviour
 {
 
     [Header("Game Info")]
+    public bool isPaused = false;
     public bool lose = false;
     public int dayCount = 1;
 
