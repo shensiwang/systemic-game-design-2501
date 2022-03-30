@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
 
     //How to Play Variables
     public GameObject howToPlay;
+    public GameObject creditScreen;
 
     //Main Menu Transitions
     public void PlayGame()
@@ -45,6 +46,16 @@ public class MainMenu : MonoBehaviour
     public void QuitGameConfirmation()
     {
         Application.Quit();
+    }
+
+    public void OpenCredit()
+    {
+        creditScreen.SetActive(true);
+    }
+
+    public void CloseCredit()
+    {
+        creditScreen.SetActive(false);
     }
 
 
