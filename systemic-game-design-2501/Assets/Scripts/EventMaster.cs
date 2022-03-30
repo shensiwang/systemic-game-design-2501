@@ -202,7 +202,7 @@ public class EventMaster : MonoBehaviour
         else if (eventName == "Holiday") // for both 
         {
 
-            int moraleAmt = Random.Range(5, 20);
+            int moraleAmt = Random.Range(5, 10);
             int aggressionAmt = Random.Range(5, 20);
 
             // increase moral
@@ -269,7 +269,7 @@ public class EventMaster : MonoBehaviour
         }
         else if (eventName == "Favor")
         {
-            if (factionRef.factionAMorale > factionRef.factionBMorale) // Favor A
+            if (factionRef.factionAMorale <= factionRef.factionBMorale) // Favor A
             {
 
                 int moraleAmt = Random.Range(5, 10);
@@ -286,7 +286,7 @@ public class EventMaster : MonoBehaviour
 
             }
 
-            else if (factionRef.factionAMorale <= factionRef.factionBMorale) // Favor B
+            else if (factionRef.factionAMorale > factionRef.factionBMorale) // Favor B
             {
 
                 int moraleAmt = Random.Range(5, 10);

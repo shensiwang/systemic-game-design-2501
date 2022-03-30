@@ -40,7 +40,7 @@ public class StartDayManager : MonoBehaviour
     {
         priceMasterRef.InitiateFiveIngredients();
         priceMasterRef.Get3RandomeIngredients(out ingredient1, out ingredient2, out ingredient3);
-        Debug.Log("3 random number generated: " + ingredient1 + "," + ingredient2 + ", " + ingredient3);
+        //Debug.Log("3 random number generated: " + ingredient1 + "," + ingredient2 + ", " + ingredient3);
     }
 
     public void BaseIngredientPriceFluctuation()
