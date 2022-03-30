@@ -202,7 +202,7 @@ public class EventMaster : MonoBehaviour
         else if (eventName == "Holiday") // for both 
         {
 
-            int moraleAmt = Random.Range(5, 20);
+            int moraleAmt = Random.Range(5, 10);
             int aggressionAmt = Random.Range(5, 20);
 
             // increase moral
