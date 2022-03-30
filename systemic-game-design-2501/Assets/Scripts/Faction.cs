@@ -9,9 +9,12 @@ public class Faction : MonoBehaviour
     bool warningAUp = false;
     bool warningBUp = false;
 
+
     [Header("Faction Warning UI")]
     public GameObject factionAMoraleWarning;
     public GameObject factionBMoraleWarning;
+    public GameObject audreyStealsMoney;
+    public GameObject betramStealsMoney;
 
     [Header("Faction UI Elements")]
     public Slider factionAMoraleUI;
@@ -262,6 +265,7 @@ public class Faction : MonoBehaviour
             {
                 //deduct money
                 CurrencyManager.currencyMaster.decreaseCurrency(250);
+                audreyStealsMoney.SetActive(true);
                 oneTimeBonusA3 = true;
 
                 loyaltyABonusInfo.color = Color.red;
@@ -279,6 +283,7 @@ public class Faction : MonoBehaviour
             {
                 //deduct money
                 CurrencyManager.currencyMaster.decreaseCurrency(250);
+                betramStealsMoney.SetActive(true);
                 oneTimeBonusB3 = true;
 
                 loyaltyBBonusInfo.color = Color.red;
