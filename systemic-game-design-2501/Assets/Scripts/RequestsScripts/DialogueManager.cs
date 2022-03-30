@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     private List<string> CurrentCustomerScript;
     private LevelScript currentlevel;
     public Button dialogueBtn;
+    public Image Arrow;
     void Start()
     {
         currentlevel = GameObject.FindObjectOfType<LevelScript>();
@@ -24,6 +25,7 @@ public class DialogueManager : MonoBehaviour
         if(CurrentCustomer==null)
         {
             sentenceLine = 0;
+            Arrow.gameObject.SetActive(false);
             Dialogue.text = "";
             GameObject Customer = currentlevel.currentCustomer;
             dialogueBtn.interactable = false;
@@ -36,6 +38,18 @@ public class DialogueManager : MonoBehaviour
         else
         {
             dialogueBtn.interactable = true;
+            if(sentenceLine==0)
+            {
+                Arrow.gameObject.SetActive(true);
+                dialogueBtn.enabled = true;
+            }
+            else
+            {
+                Arrow.gameObject.SetActive(false);
+                dialogueBtn.enabled = false;
+
+            }
+            
             StartDialogue();
         }
     }
