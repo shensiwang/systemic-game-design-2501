@@ -308,7 +308,7 @@ public class EventMaster : MonoBehaviour
         }
         else if (eventName == "Secret")
         {
-            if (factionRef.factionAAgression > factionRef.factionBAgression) // Secret A
+            if (factionRef.factionAAgression <= factionRef.factionBAgression) // Secret against A
             {
 
                 int moraleAmt = Random.Range(10, 20);
@@ -325,7 +325,7 @@ public class EventMaster : MonoBehaviour
 
             }
 
-            else if (factionRef.factionAAgression <= factionRef.factionBAgression) // Secret B
+            else if (factionRef.factionAAgression > factionRef.factionBAgression) // Secret against B
             {
 
                 int moraleAmt = Random.Range(10, 20);
