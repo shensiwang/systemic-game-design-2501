@@ -353,7 +353,7 @@ public class LevelScript : MonoBehaviour
 
             */
             
-                if (CheckPotionType() == true)  //CORRECT potion
+                if (CheckPotionType() == true && CheckPotionElement() == true)  //CORRECT potion
                 {
                     StartCoroutine(DelayedDespawn());
 
