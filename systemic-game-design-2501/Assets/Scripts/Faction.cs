@@ -15,6 +15,8 @@ public class Faction : MonoBehaviour
     public GameObject factionBMoraleWarning;
     public GameObject audreyStealsMoney;
     public GameObject betramStealsMoney;
+    public GameObject audreyGiftsMoney;
+    public GameObject betramGiftsMoney;
 
     [Header("Faction UI Elements")]
     public Slider factionAMoraleUI;
@@ -194,7 +196,7 @@ public class Faction : MonoBehaviour
             loyaltyABonusInfo.color = new Color(0, 0.59f, 0.08f);
             loyaltyABonusInfo.text = "+20% pay!";
         }
-        else if (factionBLoyalty >= 80)
+        if (factionBLoyalty >= 80)
         {
             //if (oneTimeBonusB8 == false)
             //{
@@ -214,6 +216,8 @@ public class Faction : MonoBehaviour
                 CurrencyManager.currencyMaster.IncreaseCurrency(250);
                 oneTimeBonusA6 = true;
 
+                audreyGiftsMoney.SetActive(true);
+
                 loyaltyABonusInfo.color = new Color(0, 0.59f, 0.08f);
                 loyaltyABonusInfo.text = "One time bonus of +$250!";
             }
@@ -223,12 +227,14 @@ public class Faction : MonoBehaviour
                 loyaltyABonusInfo.text = "Bonus previously obtained";
             }
         }
-        else if(factionBLoyalty >= 60 && factionBLoyalty < 80)
+        if(factionBLoyalty >= 60 && factionBLoyalty < 80)
         {
             if(oneTimeBonusB6 == false)
             {
                 CurrencyManager.currencyMaster.IncreaseCurrency(250);
                 oneTimeBonusB6 = true;
+
+                betramGiftsMoney.SetActive(true);
 
                 loyaltyBBonusInfo.color = new Color(0, 0.59f, 0.08f);
                 loyaltyBBonusInfo.text = "One time bonus of +$250!";
@@ -277,7 +283,7 @@ public class Faction : MonoBehaviour
                 loyaltyABonusInfo.text = "Penalty previously applied";
             }
         }
-        if (factionBLoyalty <= 30 && factionALoyalty > 20)
+        if (factionBLoyalty <= 30 && factionBLoyalty > 20)
         {
             if (oneTimeBonusB3 == false)
             {

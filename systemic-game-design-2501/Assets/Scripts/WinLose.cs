@@ -38,5 +38,15 @@ public class WinLose : MonoBehaviour
         {
             loseDescription.text = loseDescriptionTextBetramWin;
         }
+
+
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L)) //lose cheat code
+        {
+            Lose();
+        }
     }
 }
