@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //Variables
+    [Header("Miscellaneous")]
     public GameObject quitGameComfirmation;
     public GameObject fadeIn;
     public Loadscreen Load;
@@ -18,9 +20,29 @@ public class MainMenu : MonoBehaviour
     public Animator cutsceneAnim;
     public Animator dialogueAnim;
 
+    //Menu buttons Variables
+    [Header("Menu Buttons")]
     //How to Play Variables
     public GameObject howToPlay;
     public GameObject creditScreen;
+
+    //SFX Variables
+    [Header("SFX")]
+    public AudioClip menuBGM;
+    public AudioClip cutsceneBGM;
+    public AudioClip fireBurning;
+    public AudioClip glassBottle;
+    public AudioClip rumblingSFX;
+    public AudioClip swooshSFX;
+    public AudioClip bellSFX;
+
+    private AudioSource cutsceneSound;
+    public AudioSource bgmSound;
+
+    public void Start()
+    {
+        cutsceneSound = this.GetComponent<AudioSource>();
+    }
 
     //Main Menu Transitions
     public void PlayGame()
@@ -71,6 +93,8 @@ public class MainMenu : MonoBehaviour
     public void Cutscene1()
     {
         cutscene1.SetActive(true);
+        bgmSound.clip = cutsceneBGM;
+        bgmSound.Play();
         Invoke("CutsceneBar", 0.6f);
     }
 
@@ -83,6 +107,8 @@ public class MainMenu : MonoBehaviour
     public void BlueFaction()
     {
         cutsceneAnim.SetTrigger("BlueFactionIntro");
+        cutsceneSound.clip = swooshSFX;
+        cutsceneSound.Play();
         Invoke("Dialogue1", 1f);
     }
 
@@ -107,6 +133,8 @@ public class MainMenu : MonoBehaviour
     public void RedFactionIntro()
     {
         cutsceneAnim.SetTrigger("RedFactionIntro");
+        cutsceneSound.clip = swooshSFX;
+        cutsceneSound.Play();
         Invoke("Dialogue2", 1f);
     }
 
@@ -120,13 +148,22 @@ public class MainMenu : MonoBehaviour
     {
         dialogueAnim.SetTrigger("Dialogue2Fade");
         cutsceneAnim.SetTrigger("FadeToStore");
-        Invoke("ShopIntro", 4f);
+        Invoke("Rumble", 1f);
+    }
+
+    public void Rumble()
+    {
+        cutsceneSound.clip = rumblingSFX;
+        cutsceneSound.Play();
+        Invoke("ShopIntro", 3f);
     }
 
     public void ShopIntro()
     {
         cutsceneStore.SetActive(true);
         cutsceneAnim.SetTrigger("StoreStart");
+        bgmSound.clip = fireBurning;
+        bgmSound.Play();
         Invoke("Dialogue3", 2.5f);
     }
 
@@ -151,7 +188,28 @@ public class MainMenu : MonoBehaviour
     public void Dialogue4Fade()
     {
         dialogueAnim.SetTrigger("Dialogue4Fade");
-        Invoke("FadeToGame", 9f);
+        Invoke("GlassBottleSound", 4.2f);
+    }
+
+    public void GlassBottleSound()
+    {
+        cutsceneSound.clip = glassBottle;
+        cutsceneSound.Play();
+        Invoke("GlassBottleSound2", 2f);
+    }
+
+    public void GlassBottleSound2()
+    {
+        cutsceneSound.clip = glassBottle;
+        cutsceneSound.Play();
+        Invoke("BellSound", 0.7f);
+    }
+
+    public void BellSound()
+    {
+        cutsceneSound.clip = bellSFX;
+        cutsceneSound.Play();
+        Invoke("FadeToGame", 1.3f);
     }
 
     public void FadeToGame()
