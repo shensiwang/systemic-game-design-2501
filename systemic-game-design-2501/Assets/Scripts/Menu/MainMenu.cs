@@ -35,6 +35,7 @@ public class MainMenu : MonoBehaviour
     public AudioClip rumblingSFX;
     public AudioClip swooshSFX;
     public AudioClip bellSFX;
+    public AudioClip closeSFX;
 
     private AudioSource cutsceneSound;
     public AudioSource bgmSound;
@@ -53,37 +54,51 @@ public class MainMenu : MonoBehaviour
     public void HowToPlay()
     {
         howToPlay.SetActive(true);
+        cutsceneSound.clip = closeSFX;
+        cutsceneSound.Play();
     }
 
     public void QuitGame()
     {
         quitGameComfirmation.SetActive(true);
+        cutsceneSound.clip = closeSFX;
+        cutsceneSound.Play();
     }
 
     public void DontQuitGame()
     {
         quitGameComfirmation.SetActive(false);
+        cutsceneSound.clip = closeSFX;
+        cutsceneSound.Play();
     }
 
     public void QuitGameConfirmation()
     {
+        cutsceneSound.clip = closeSFX;
+        cutsceneSound.Play();
         Application.Quit();
     }
 
     public void OpenCredit()
     {
         creditScreen.SetActive(true);
+        cutsceneSound.clip = closeSFX;
+        cutsceneSound.Play();
     }
 
     public void CloseCredit()
     {
         creditScreen.SetActive(false);
+        cutsceneSound.clip = closeSFX;
+        cutsceneSound.Play();
     }
 
 
     //CUTSCENE FUNCTIONS - Pls dont mess with this 
     public void FadeToBlack()
     {
+        cutsceneSound.clip = closeSFX;
+        cutsceneSound.Play();
         fadeIn.SetActive(true);
         fadeAnim.SetTrigger("StartCutscene");
 

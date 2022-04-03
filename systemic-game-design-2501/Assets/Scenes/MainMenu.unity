@@ -327,6 +327,7 @@ MonoBehaviour:
   rumblingSFX: {fileID: 8300000, guid: d50b93b855d577147a9617c4c63efef0, type: 3}
   swooshSFX: {fileID: 8300000, guid: d47721e06de300a46ac1c8a5a5d60a42, type: 3}
   bellSFX: {fileID: 8300000, guid: e5c70ad97e18d024fbe81eef7f6ef08d, type: 3}
+  closeSFX: {fileID: 8300000, guid: 1e8893176a02702478dba8257979f7d2, type: 3}
   bgmSound: {fileID: 1089936328}
 --- !u!82 &76802598
 AudioSource:
