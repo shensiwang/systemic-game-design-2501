@@ -317,11 +317,11 @@ public class EventMaster : MonoBehaviour
                 // decrease moral
                 factionRef.DecreaseMorale("A"   , moraleAmt);
                 factionRef.IncreaseAgression("A", aggressionAmt);
-                StartCoroutine(SecretAEvent());
+                StartCoroutine(SecretBEvent());
 
                 // update customer feedback text
-                DisplayAFactionMoral(moraleAmt, false, imageSecretA);
-                DisplayAFactionAggression(aggressionAmt, true, imageSecretA);
+                DisplayAFactionMoral(moraleAmt, false, imageSecretB);
+                DisplayAFactionAggression(aggressionAmt, true, imageSecretB);
 
             }
 
@@ -334,11 +334,11 @@ public class EventMaster : MonoBehaviour
                 // decrease moral
                 factionRef.DecreaseMorale("B"   , moraleAmt);
                 factionRef.IncreaseAgression("B", aggressionAmt);
-                StartCoroutine(SecretBEvent());
+                StartCoroutine(SecretAEvent());
 
                 // update customer feedback text
-                DisplayBFactionMoral(moraleAmt, false, imageSecretB);
-                DisplayBFactionAggression(aggressionAmt, true, imageSecretB);
+                DisplayBFactionMoral(moraleAmt, false, imageSecretA);
+                DisplayBFactionAggression(aggressionAmt, true, imageSecretA);
 
             }
 
