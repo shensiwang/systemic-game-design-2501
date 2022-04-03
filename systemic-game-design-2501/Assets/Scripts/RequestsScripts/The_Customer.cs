@@ -598,7 +598,7 @@ public class The_Customer : MonoBehaviour
                 break;
 
             case "Favor":
-                if (WinningFaction == "A")
+                if (WinningFaction == "B")
                 {
                     if (Faction == "A")
                     {
@@ -702,7 +702,7 @@ public class The_Customer : MonoBehaviour
                         Debug.Log("HAHA");
                     }
                 }
-                else if (WinningFaction == "B")
+                else if (WinningFaction == "A")
                 {
                     if (Faction == "A")
                     {
@@ -764,6 +764,7 @@ public class The_Customer : MonoBehaviour
                     }
                     else if (Faction == "B")
                     {
+                        Debug.Log("Favor for Betram");
                         EventDialogueRandomizer = 1;
                         CustomerScript.Add(DivineFavorEventDialogue[EventDialogueRandomizer]);
 

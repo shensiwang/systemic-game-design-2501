@@ -12,22 +12,13 @@ public class WinLose : MonoBehaviour
 
     public TextMeshProUGUI loseDescription;
 
+    [TextArea(5,5)]
     public string loseDescriptionTextAudreyWin;
+    [TextArea(5, 5)]
     public string loseDescriptionTextBetramWin;
 
     public Faction factionData;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Win()
     {

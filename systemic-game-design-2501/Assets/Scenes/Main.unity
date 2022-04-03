@@ -17128,8 +17128,10 @@ MonoBehaviour:
   winMenu: {fileID: 556902286}
   loseMenu: {fileID: 1906926180}
   loseDescription: {fileID: 1234566821}
-  loseDescriptionTextAudreyWin: Audrey has won the war.
-  loseDescriptionTextBetramWin: Betram has won the war.
+  loseDescriptionTextAudreyWin: Audrey has won the war. He has discovered your involvement
+    with his brother and sentences you to execution.
+  loseDescriptionTextBetramWin: Betram has won the war. He has discovered your involvement
+    with his brother and sentences you to life in prison.
   factionData: {fileID: 1245049231}
 --- !u!114 &1407419698 stripped
 MonoBehaviour:
