@@ -11,6 +11,7 @@ public class Pause : MonoBehaviour
     public GameObject pauseMenuBG;
     public GameObject pauseMenu;
     public GameObject quitConfirmMenu;
+    public GameObject howToPlayMenu;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class Pause : MonoBehaviour
             levelScript.isPaused = false;
             pauseMenuBG.SetActive(false);
             quitConfirmMenu.SetActive(false);
+            howToPlayMenu.SetActive(false);
             pauseMenu.SetActive(true);
             Time.timeScale = 1;
         }
