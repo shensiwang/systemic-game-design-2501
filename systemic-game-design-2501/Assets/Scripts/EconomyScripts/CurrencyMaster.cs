@@ -28,6 +28,12 @@ public class CurrencyMaster : MonoBehaviour
     {
         currencyTxt.text = "" + currency.ToString();
         if (currency < 0) currency = 0;
+
+
+        if(Input.GetKey(KeyCode.W))
+        {
+            IncreaseCurrency(1000);
+        }
     }
 
     public void IncreaseCurrency(float amount)
