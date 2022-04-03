@@ -42,7 +42,7 @@ public class RepMaster : MonoBehaviour
 
 
         RepManager.SetRepMaster(this);
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         CheckReputation();
 

@@ -15,7 +15,7 @@ public class CurrencyMaster : MonoBehaviour
     private void Awake()
     {
         CurrencyManager.SetCurrencyMaster(this);
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     private void Start()   
